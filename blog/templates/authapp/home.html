@@ -32,13 +32,13 @@
             </div>
         </div>
     </div>
-    <div class="row mb-5">
+    <div class="row mb-5" id="articles-featured">
         {% if article1 %}
             <div class="col-md-6 col-xm-4" class="article1">
                 <div class="card p-5">
                     <div class="card-img"><img src="{{ article3.img.url }}" class="img-fluid"></div>
                     <br>
-                    <p class="category">{{ article3.category }}</p>
+                    <p class="category1">{{ article3.category }}</p>
                     <h2 class="title-article">{{ article3.title }}</h2>
                     <p class="summary">{{ article3.summary }}</p>
                 </div>
@@ -47,7 +47,7 @@
                 <div class="card p-5">
                     <div class="card-img"><img src="{{ article2.img.url }}" class="img-fluid"></div>
                     <br>
-                    <p class="category">{{ article2.category }}</p>
+                    <p class="category1">{{ article2.category }}</p>
                     <h2 class="title-article">{{ article2.title }}</h2>
                     <p class="summary">{{ article2.summary }}</p>
                 </div>
@@ -56,7 +56,7 @@
                 <div class="card p-5">
                     <div class="card-img"><img src="{{ article1.img.url }}" class="img-fluid"></div>
                     <br>
-                    <p class="category">{{ article1.category }}</p>
+                    <p class="category1">{{ article1.category }}</p>
                     <h2 class="title-article">{{ article1.title }}</h2>
                     <p class="summary">{{ article1.summary }}</p>
                 </div>
@@ -124,5 +124,6 @@
         </div>
     </div>
 </div>
-
+<!--Footer-->
+{% include "footer.html" %}
 {% endblock content %}

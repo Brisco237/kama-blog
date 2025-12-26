@@ -3,6 +3,40 @@
 {% block styles %}<link rel="stylesheet" href="{% static 'css/footer.css' %}">{% endblock styles %}
 
 {% block content %}
-<div class="container">
+<div class="container-fluid footer-container">
+    <div class="container">
+        <div class="row premiere-ligne-footer">
+            <div class="col-md-6 colonne1">
+                <h4><span>K.</span> <strong>Kama-Blog</strong></h4>
+                <p class="text">Retourner chercher ce qui a été oublié.<br> Une plateforme collaborative pour <br> la recherche historique africaine.</p>
+            </div>
+            <div class="col-md-3 colonne2">
+                <h4>Explorer</h4>
+                <div class="liens">
+                    <a href="">Archives</a>
+                    <a href="">Theses & Mémoires</a>
+                    <a href="">Podcasts</a>
+                </div>
+            </div>
+            <div class="col-md-3 colonne3">
+                <h4>Légal</h4>
+                <div class="liens">
+                    <a href="">Confidentialité</a>
+                    <a href="">Conditions</a>
+                    <a href="">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="derniere-ligne">
+        <h6>&copy; 2025 Kama-Blog. Tout droits réservés</h6>
+        <div class="icones-reseaux">
+            <a href=""><i class="fab fa-whatsapp"></i></a>
+            <a href=""><i class="fab fa-facebook-square"></i></a>
+            <a href=""><i class="fab fa-telegram"></i></a>
+            <a href=""><i class="fab fa-x-twitter"></i></a>
+        </div>
+    </div>
 </div>
 {% endblock content %}

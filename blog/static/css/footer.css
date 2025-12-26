@@ -1,0 +1,51 @@
+.footer-container{
+    background-color: gray;
+    color: white;
+}
+.colonne1{
+    font-family:'Playfair Display', serif;
+
+}
+.colonne1 span{
+    background-color: black;
+    padding: 5px;
+}
+.colonne1 .text{
+    font-family:'Inter';
+    padding-top: 10px;
+
+}
+.premiere-ligne-footer{
+    font-family:'Inter';
+    padding-top: 20px;
+}
+.colonne2  .liens, .colonne3 .liens{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 20px;
+}
+.colonne2 .liens a, .colonne3 .liens a{
+    text-decoration: none;
+    color: white;
+}
+.colonne2 .liens a:hover, .colonne3 .liens a:hover{
+    color: black;
+    transition: all 0.7s;
+}
+.derniere-ligne{
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+.derniere-ligne .icones-reseaux a{
+    color: white;
+    margin-left: 10px;
+    font-size: 20px;
+}
+.derniere-ligne .icones-reseaux a:hover{
+    color: black;
+    transition: all 0.7s;
+}

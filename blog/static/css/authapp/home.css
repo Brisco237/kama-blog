@@ -55,21 +55,16 @@
     text-decoration: none;
     color:gray;
 }
-.article1, .article2, .article3{
-    border:1px solid black;
-    border-radius:5px;
-    text-align: right;
-    padding: 10px;
-}
 .category, .summary{
     font-family:'Inter';
 }
 .title-article{
     font-family: "Playfair Display", sans-serif;
 }
-.article1 .category{
-    background-color: orangered;
-    padding:3px;
+#articles-featured .category1{
+    font-family: 'Inter', sans-serif;
+    color: rgb(184, 113, 56);
+    margin-bottom:10px;
 }
 /* sectio3 of home page */
 .section3{
