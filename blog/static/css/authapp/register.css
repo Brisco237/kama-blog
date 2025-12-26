@@ -1,0 +1,98 @@
+#register h3 span, strong{
+    font-family:'Playfair Display', serif;
+}
+#register h3 span{
+    color: white;
+    background-color: black;
+    padding: 5px;
+}
+#register h3{
+    font-family: 'Inter';
+    text-align:  center;
+}
+#register h4{
+    font-family: 'Inter', sans-serif;
+    color: gray;
+    text-align: center;
+    font-size:15px;
+}
+#register form{
+    font-family: 'Inter';
+}
+#register{
+    padding: 20px;
+    border:1px solid gray;
+    border-radius:20px;
+}
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.avatar-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px dashed #aaa;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+.camera-icon {
+  font-size: 30px;
+  color: #666;
+  position: absolute;
+}
+.first-second-name{
+    display: flex;
+    gap:2px;
+}
+.first-name input{
+    width: 100%;
+}
+.second-name input{
+    width: 100%;
+}
+.emailfield #email{
+    width: 100%;
+}
+.passwordfield #password{
+    width: 100%;
+    margin-bottom:10px;
+}
+.validationfield button{
+    width: 100%;
+    background-color: black;
+    color: white;
+    border:none;
+    padding:10px;
+    border-radius:10px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+.validationfield p{
+    text-align: center;
+    margin-top:5px;
+    font-size:14px;
+}
+.validationfield p a{
+    color: black;
+    font-weight: bold;
+    
+}
+form .checkboxfield #checkbox{
+    accent-color: black;
+}
+input{
+    padding: 10px;
+    outline: none;
+}

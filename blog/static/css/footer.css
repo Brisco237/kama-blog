@@ -29,6 +29,10 @@
     text-decoration: none;
     color: white;
 }
+.colonne2 h4, .colonne3 h4{
+    font-family: 'Playfair Display', serif;
+    color: black;
+}
 .colonne2 .liens a:hover, .colonne3 .liens a:hover{
     color: black;
     transition: all 0.7s;

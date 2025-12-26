@@ -15,3 +15,9 @@ def home(request):
     'article4': article4, 'article5': article5, 'categories': categories
     }
     )
+
+def register(request):
+    return render(request, 'authapp/register.html')
+
+def login_user(request):
+    return render(request, 'authapp/login.html')

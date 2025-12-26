@@ -12,8 +12,8 @@
             <li class="items"><a href="">Articles</a></li>
             <li class="items"><a href="">Archives</a></li>
             <li class="items"><a href=""><i class="fas fa-search"></i></a></li>
-            <li class="items"><a href="" class="connexion-button">Connexion</a></li>
-            <li class="items"><a href="" class="inscrire-button">S'inscrire</a></li>
+            <li class="items"><a href="{% url 'login_user' %}" class="connexion-button">Connexion</a></li>
+            <li class="items"><a href="{% url 'register' %}" class="inscrire-button">S'inscrire</a></li>
             <button @click="open = !open" class="bg-transparent border-0 d-lg-none burger-button">
                 <i class="fa-solid" :class="open ? 'fa-xmark' : 'fa-bars'" style="font-size:22px;"></i>
             </button>
@@ -28,8 +28,8 @@
                     <a href="">Articles</a>
                     <a href="">Archives</a>
                     <a href=""><i class="fas fa-search"></i></a>
-                    <a href="" class="connexion-button">Connexion</a>
-                    <a href="" class="">S'inscrire</a>
+                    <a href="{% url 'login_user' %}" class="connexion-button">Connexion</a>
+                    <a href="{% url 'register' %}" class="">S'inscrire</a>
                 </div>
             </div>
         </div>
