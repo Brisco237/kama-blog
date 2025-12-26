@@ -135,3 +135,21 @@
 .newsletter form input,button{
     width: 100%;
 }
+.hastag-categories h5{
+    font-family: 'Inter', sans-serif;
+    margin-bottom:30px;
+}
+.hastag-categories a{
+    text-decoration: none;
+    color:black;
+    border:1px solid gray;
+    padding:10px;
+    border-radius:5px;
+    font-family:'Playfair Display', sans-serif;
+}
+.hastag-categories a:hover{
+    background-color: black;
+    color:white;
+    transition: 0.8s;
+    border: none;
+}

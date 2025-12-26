@@ -36,11 +36,11 @@
         {% if article1 %}
             <div class="col-md-6 col-xm-4" class="article1">
                 <div class="card p-5">
-                    <div class="card-img"><img src="{{ article1.img.url }}" class="img-fluid"></div>
+                    <div class="card-img"><img src="{{ article3.img.url }}" class="img-fluid"></div>
                     <br>
-                    <p class="category">{{ article1.category }}</p>
-                    <h2 class="title-article">{{ article1.title }}</h2>
-                    <p class="summary">{{ article1.summary }}</p>
+                    <p class="category">{{ article3.category }}</p>
+                    <h2 class="title-article">{{ article3.title }}</h2>
+                    <p class="summary">{{ article3.summary }}</p>
                 </div>
             </div>
             <div class="col-md-3 col-xm-4" class="article2">
@@ -54,11 +54,11 @@
             </div>
             <div class="col-md-3 col-xm-4" class="article3">
                 <div class="card p-5">
-                    <div class="card-img"><img src="{{ article3.img.url }}" class="img-fluid"></div>
+                    <div class="card-img"><img src="{{ article1.img.url }}" class="img-fluid"></div>
                     <br>
-                    <p class="category">{{ article3.category }}</p>
-                    <h2 class="title-article">{{ article3.title }}</h2>
-                    <p class="summary">{{ article3.summary }}</p>
+                    <p class="category">{{ article1.category }}</p>
+                    <h2 class="title-article">{{ article1.title }}</h2>
+                    <p class="summary">{{ article1.summary }}</p>
                 </div>
             </div>
         {% else %}
@@ -80,8 +80,8 @@
             <img src="{{ article4.img.url }}">
         </div>
         <div class="col-lg-9 text">
-            <p class="category">{{ article4.category }} <span class="publications-time">. {{ article5.updated_at }}</span></p> 
-            <h3>{{ article5.title }}</h3>
+            <p class="category">{{ article4.category }} <span class="publications-time">. {{ article4.updated_at }}</span></p> 
+            <h3>{{ article4.title }}</h3>
             <p>{{ article4.summary }}</p>
             <hr>
             <div class="auteur-article"><p>{{ article4.author }}</p> <p class="read-time"><i class="fas fa-clock"></i> 12 min</p></div>
@@ -99,8 +99,10 @@
             <div class="auteur-article"><p>{{ article5.author }}</p> <p class="read-time"><i class="fas fa-clock"></i> 8 min</p></div>
         </div>
     </div>
-    <div class="row newsletter">
-        <div class="col-md-12">
+    <br>
+    <div class="row newsletter mb-5">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
             <div class="card p-5">
                 <div class="card-title"><h4><i class="fas fa-envelope"></i> La Newsletter de Kama-Blog</h4></div>
                 <p class="card-text">Recevez chaque semaine un résumé de nos recherches et découvertes archéologiques.</p>
@@ -110,6 +112,15 @@
                     <button type="submit">S'abonner</button>
                 </form>
             </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row hastag-categories mb-5">
+        <div class="col-md-12">
+            <h5>Explorer par catégories</h5>
+            {% for categorie in categories %}
+                <a href="" class="hastag">#{{ categorie.name }}</a>
+            {% endfor %}
         </div>
     </div>
 </div>
