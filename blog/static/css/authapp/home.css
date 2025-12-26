@@ -61,6 +61,10 @@
 .title-article{
     font-family: "Playfair Display", sans-serif;
 }
+#articles-featured{
+    background-color:rgb(231 229 228);
+    padding:30px 20px;
+}
 #articles-featured .category1{
     font-family: 'Inter', sans-serif;
     color: rgb(184, 113, 56);
@@ -137,7 +141,6 @@
 .hastag-categories a{
     text-decoration: none;
     color:black;
-    border:1px solid gray;
     padding:10px;
     border-radius:5px;
     font-family:'Playfair Display', sans-serif;

@@ -23,29 +23,29 @@
                             <img id="avatarPreview" src="/static/images/default-avatar.png" alt="Photo">
                             <span class="camera-icon">📷</span>
                         </div>
-                        <input type="file" id="avatarInput" name="photo" accept="image/*" hidden>
+                        <input type="file" id="avatarInput" name="photo" accept="image/*" hidden required>
                     </div>
                     <p class="text-center">Ajouter une photo</p>
                     <div class="first-second-name">
                         <div class="first-name">
                             <label for="subname">Prénom</label><br>
-                            <input type="text" name="subname" id="subname" placeholder="Votre prénom">
+                            <input type="text" name="subname" id="subname" placeholder="Votre prénom" required>
                         </div>
                         <div class="second-name">
                             <label for="name">Nom</label><br>
-                            <input type="text" name="name" id="name" placeholder="Votre nom">
+                            <input type="text" name="name" id="name" placeholder="Votre nom" required>
                         </div>
                     </div>
                     <div class="emailfield">
                         <label for="email">Email</label><br>
-                        <input type="email" name="email" id="email" placeholder="Votre email@gmail.com">
+                        <input type="email" name="email" id="email" placeholder="Votre email@gmail.com" required>
                     </div>
                     <div class="passwordfield">
                         <label for="password">Password</label><br>
-                        <input type="password" name="password" id="password" placeholder="Votre mot de passe">
+                        <input type="password" name="password" id="password" placeholder="Votre mot de passe" required>
                     </div>
                     <div class="checkboxfield">
-                        <input type="checkbox" name="checkbox" id="checkbox">
+                        <input type="checkbox" name="checkbox" id="checkbox" required>
                         <label for="checkbox">J'accepte la charte éditoriale.</label>
                     </div>
                     <div class="validationfield">

@@ -8,9 +8,38 @@
     <div class="row">
         {% include "navbar.html" %}
     </div>
-    <div class="container">
+    <div class="container mt-5 mb-5">
         <div class="row">
-            
+            <div class="col-lg-4 col-md-3"></div>
+            <div class="col-lg-4 col-md-6 col-xm-12 login">
+                <div class="login-head text-center">
+                    <h3>K.</h3>
+                    <h4>Bon retour</h4>
+                    <p>Accédez à votre bibliothèque personnelle.</p><br>
+                    <a href=""><img src="{% static 'images/google.png' %}" width="25px" height="25px">
+                        Continuer avec Google
+                    </a>
+                    <div class="divider">
+                        <span>OU PAR EMAIL</span>
+                    </div>
+                </div>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="emailfield">
+                        <label for="email">Email</label><br>
+                        <input type="email" name="email" id="email" placeholder="Votre email" required>
+                    </div>
+                    <div class="passwordfield">
+                        <label for="password">Password</label><br>
+                        <input type="password" name="password" id="password" placeholder="Votre mot de passe" required>
+                    </div>
+                    <div class="validationfield">
+                        <button type="submit"><a href="">Se connecter</a></button>
+                        <p>Pas encore de compte ? <a href="{% url 'register' %}">Créer un compte</a></p>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4 col-md-3"></div>
         </div>
     </div>
     {% include "footer.html" %}
