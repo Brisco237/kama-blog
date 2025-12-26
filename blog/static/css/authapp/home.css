@@ -42,16 +42,96 @@
     font-family: 'Inter', sans-serif;
 }
 /* second section of home page */
-.second-section{
-    font-family: 'Inter', sans-serif;
-}
 .second-section .head-second-section{
     display: flex;
     justify-content: space-between;
     margin:10px;
+    font-family: 'Inter', sans-serif;
+}
+.second-section .head-second-section h4{
+    font-weight: bold;
 }
 .second-section .head-second-section .voir{
     text-decoration: none;
     color:gray;
-
+}
+.article1, .article2, .article3{
+    border:1px solid black;
+    border-radius:5px;
+    text-align: right;
+    padding: 10px;
+}
+.category, .summary{
+    font-family:'Inter';
+}
+.title-article{
+    font-family: "Playfair Display", sans-serif;
+}
+.article1 .category{
+    background-color: orangered;
+    padding:3px;
+}
+/* sectio3 of home page */
+.section3{
+    font-family: 'Inter', sans-serif;
+}
+.section3 .populaire{
+    color:gray;
+}
+.section3 h4,.recent{
+    font-weight:bold;
+}
+.section4 .text h3{
+    font-family:'Playfair Display';
+}
+.section4 .text p{
+    font-family:'Inter';
+}
+.auteur-article{
+    display: flex;
+    justify-content: space-between;
+}
+.auteur-article .read-time{
+    font-size: 13px;
+    color: gray;
+}
+.section4 .text .category{
+    color: rgb(184, 113, 56);
+}
+.section4 .text .publications-time{
+    font-size:13px;
+    color: gray;
+}
+/* Newsletter section */
+.newsletter .card .card-title h4{
+    font-family:'Playfair Display', sans-serif;
+}
+.newsletter .card .card-title h4 i{
+    color: rgb(184, 113, 56);
+}
+.newsletter .card .card-text, form{
+    font-family:'Inter', sans-serif;
+}
+.newsletter form input{
+    padding: 15px;
+    font-family: 'Inter', sans-serif;
+    border-radius: 10px;
+    outline: none;
+    border:1px solid gray;
+}
+.newsletter form button{
+    background-color: black;
+    color: white;
+    border:none;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.newsletter form button:hover{
+    opacity: 0.8;
+    transition: 0.8s;
+}
+.newsletter form input,button{
+    width: 100%;
 }

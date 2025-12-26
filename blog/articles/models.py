@@ -22,6 +22,7 @@ class Category(models.Model):
 
 class Article(models.Model):
     STATUS_CHOICES = (('draft', 'Brouillon'),('published', 'Publié'),)
+    img = models.ImageField(upload_to='image_articles/', null=True, blank=True)
     title = models.CharField(max_length=255)
     category = models.ForeignKey(Category,on_delete=models.CASCADE,related_name='articles', default=1)
     slug = models.SlugField(max_length=255, unique=True)
