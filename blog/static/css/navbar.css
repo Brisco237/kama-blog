@@ -36,6 +36,7 @@ nav ul li a:hover{
 }
 /* Mobile menu */
 .mobile-menu{
+    font-family: 'Playfair Display';
     padding-top:20px;
     background-color:black;
     border-radius: 10px;
