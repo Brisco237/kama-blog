@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Mr.S | Page not found{% endblock title %}
+
+{% block content %}
+<div class="container" id="page-error">
+    <div class="row">
+        <div class="col-md-12" id="navbar">
+            {% include "navbar.html" %}
+        </div>
+    </div>
+    <br>
+    <div class="row mt-5 text-center mb-5">
+        <div class="col-md-12" id="text-error">
+            <h1>Oups 😅 La page que tu cherches n’existe pas.</h1>
+            <br><br>
+            <a href="{% url 'home' %}" id="btn-retour">Retourner a l'accueil</a>
+        </div>
+    </div>
+    <br><br>
+    {% include "footer.html" %}
+</div>
+
+<style>
+#navbar .first-nav ul li a{
+    color: black;
+}
+#navbar .first-nav ul li a:hover{
+    border-bottom:1px solid black;
+}
+#navbar .first-nav ul li .shop-button{
+    border:1px solid black;
+}
+#navbar .first-nav ul li .shop-button:hover{
+    color:white;
+    transition:0.5s;
+}
+#btn-retour{
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 20px 30px;
+}
+#btn-retour:hover{
+    opacity:0.7;
+}
+</style>
+{% endblock content %}

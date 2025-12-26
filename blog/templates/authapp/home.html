@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Kama-Blog | Home page {% endblock title %}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/authapp/home.css' %}">{% endblock styles %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            {% include "navbar.html" %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
