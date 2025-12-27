@@ -1,6 +1,6 @@
 /* navbar classic */
 nav{
-    font-family: 'Playfair Display';
+    font-family: 'Playfair Display';  
 }
 nav ul{
     display:flex;
@@ -56,15 +56,16 @@ nav ul li a:hover{
     margin:20px 0px 20px 0px;
 }
 .mobile-menu a:hover{
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
+    transition: ease-in 0.8s;
 }
-.mobile-menu .shop-button-mobile{
-    background-color: black;
+.mobile-menu .register-button-mobile{
+    background-color:white;
     padding: 10px 10px 10px 10px;
-    color:rgb(206, 202, 202);
+    color:black;
 }
-.mobile-menu .shop-button-mobile:hover{
-    opacity:0.7;
+.mobile-menu .register-button-mobile:hover{
+    opacity:0.8;
 }
 @media screen and (max-width: 768px){
     nav ul{

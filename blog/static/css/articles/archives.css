@@ -1,0 +1,59 @@
+.section1{
+    margin-left:90px;
+}
+.section1 h1{
+    font-family: 'Playfair Display', serif;
+}
+.section1 p{
+    margin-top:20px;
+    font-family:'Inter';
+    color:#4B5563;
+}
+.search-bar{
+    font-family:'Inter';
+    display: flex;
+}
+.search-bar input{
+    width: 100%;
+    padding:10px;
+}
+.search-bar button{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border:none;
+    cursor:pointer;
+    width:80px;
+}
+.search-bar button:hover{
+    background-color: #333333;
+    transition: 0.9s;
+}
+.categorie-search{
+    font-family:'Inter';
+}
+.categorie-search h3{
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+}
+.check-categorie input{
+    padding:10px;
+    accent-color: black;
+}
+.select-date select{
+    width: 100%;
+    padding: 10px;
+    margin-top:10px;
+}
+
+
+
+/* Media query */
+@media only screen and (max-width: 768px) {
+    .section1{
+        margin-left:20px;
+    }
+}

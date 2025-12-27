@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Kama-Blog | Home page {% endblock title %}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/articles/archives.css' %}">{% endblock styles %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        {% include "navbar.html" %}
+    </div>
+    <div class="row mt-5">
+        <div class="col-lg-12">
+            <div class="section1">
+                <h1>Archives Numériques</h1>
+                <p>Explorez notre base de données complète de manuscrits, thèses et articles.
+                Utilisez les filtres pour<br>  naviguer à travers les époques et les civilisations.</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row mt-5 mb-5">
+            <div class="col-lg-12">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Rechercher...">
+                    <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="row categorie-search mb-5">
+            <div class="col-lg-12 mb-3">
+                <h3>Catégories</h3>
+            </div>
+            {% for categorie in categories %}
+                <div class="col-lg-12">
+                    <p class="check-categorie"><input type="checkbox"> {{ categorie.name }}</p>
+                </div>
+            {% endfor %}
+            <div class="col-lg-12 mb-3 mt-5">
+                <h3 class="mb-4">Civilisations</h3>
+                <div class="">
+                    <p class="check-categorie"><input type="checkbox"> Egypte antique (Kemet)</p>
+                    <p class="check-categorie"><input type="checkbox"> Empire du Mali</p>
+                    <p class="check-categorie"><input type="checkbox"> Empire du Kongo</p>
+                    <p class="check-categorie"><input type="checkbox"> Empire du Kanem-bornou</p>
+                </div>
+            </div>
+            <div class="row mt-5 mb-5">
+                <div class="col-md-12 select-date">
+                    <h3>Période de publications</h3>
+                    <select>
+                        <option value="all">Toutes les dates</option>
+                        <option value="">Hier</option>
+                        <option value="ancient">Derniere semaines</option>
+                        <option value="">Dernier mois</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-5 mt-5">
+            <div class="col-md-12">
+                <h3>Plus de {{}} résulats</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Footer-->
+{% include "footer.html" %}
+{% endblock content %}
+
+
+
+
