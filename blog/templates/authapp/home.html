@@ -80,7 +80,7 @@
             <img src="{{ article4.img.url }}" class="img-fluid">
         </div>
         <div class="col-lg-9 text">
-            <p class="category">{{ article4.category }} <span class="publications-time">. {{ article4.updated_at }}</span></p> 
+            <p class="category mt-2">{{ article4.category }} <span class="publications-time">. {{ article4.updated_at|date:"d M Y" }}</span></p> 
             <h3>{{ article4.title }}</h3>
             <p>{{ article4.summary }}</p>
             <hr>
@@ -92,7 +92,7 @@
             <img src="{{ article5.img.url }}" class="img-fluid">
         </div>
         <div class="col-lg-9 text">
-            <p class="category">{{ article5.category }} <span class="publications-time">. {{ article5.updated_at }}</span></p>
+            <p class="category mt-2">{{ article5.category }} <span class="publications-time">. {{ article5.updated_at|date:"d M Y" }}</span></p>
             <h3>{{ article5.title }}</h3>
             <p>{{ article5.summary }}</p>
             <hr>

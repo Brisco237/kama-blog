@@ -67,7 +67,7 @@
 }
 #articles-featured .category1{
     font-family: 'Inter', sans-serif;
-    color: rgb(184, 113, 56);
+    color: rgb(237 114 16);
     margin-bottom:10px;
 }
 /* sectio3 of home page */
@@ -88,7 +88,7 @@
 }
 .auteur-article{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .auteur-article img{
     width: 30px;
@@ -97,11 +97,12 @@
     margin-right:10px;
 }
 .auteur-article .read-time{
+    margin-right:10px;
     font-size: 13px;
     color: gray;
 }
 .section4 .text .category{
-    color: rgb(184, 113, 56);
+    color: rgb(237 114 16);
 }
 .section4 .text .publications-time{
     font-size:13px;

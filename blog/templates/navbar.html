@@ -6,7 +6,7 @@
         <ul>
             <li class="logo"><a href="{% url 'home' %}"><h4><span>K.</span><strong>Kama-Blog</strong></h4></a></li>
             <li class="items"><a href="{% url 'home' %}">Home</a></li>
-            <li class="items"><a href="">Articles</a></li>
+            <li class="items"><a href="{% url 'article_list' %}">Articles</a></li>
             <li class="items"><a href="{% url 'archives' %}">Archives</a></li>
             <li class="items"><a href=""><i class="fas fa-search"></i></a></li>
             <li class="items"><a href="{% url 'login_user' %}" class="connexion-button">Connexion</a></li>
@@ -22,7 +22,7 @@
             <div class="col-lg-12 col-md-12 col-xm-12 col-sm-12">
                 <div class="mobile-menu" x-show="open" x-cloak x-transition.duration.600ms @click.outside="open=false">
                     <a href="{% url 'home' %}">Home</a>
-                    <a href="">Articles</a>
+                    <a href="{% url 'article_list' %}">Articles</a>
                     <a href="{% url 'archives' %}">Archives</a>
                     <a href=""><i class="fas fa-search"></i></a>
                     <a href="{% url 'login_user' %}" class="connexion-button">Connexion</a>
