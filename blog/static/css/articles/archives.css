@@ -1,5 +1,6 @@
 .section1{
     margin-left:90px;
+    color: white;
 }
 .section1 h1{
     font-family: 'Playfair Display', serif;
@@ -7,7 +8,6 @@
 .section1 p{
     margin-top:20px;
     font-family:'Inter';
-    color:#4B5563;
 }
 .search-bar{
     font-family:'Inter';
@@ -48,6 +48,61 @@
     padding: 10px;
     margin-top:10px;
 }
+.section2{
+    font-family:'Inter';
+    display: flex;
+    justify-content: space-between;
+}
+.section2 .triage{
+    display: flex;
+}
+.section2 .triage select{
+    padding:5px;
+}
+.section2 .triage h6{
+    font-size:15px;
+    margin-top:5px;
+    margin-right:3px;
+}
+.section2 h5{
+    font-weight: bold;
+    color: gray;
+}
+.articles-card .card .card-title{
+    font-family: 'Playfair Display';
+}
+.articles-card .card .card-text{
+    font-family: 'Inter';
+}
+.card-body .card-date{
+    font-size:13px;
+    color:gray;
+}
+.card-date i{
+    margin-right:10px;
+}
+.card-summary{
+    color: gray;
+    font-size:13px;
+}
+.footer-card{
+    display: flex;
+    justify-content: space-between;
+    margin:0px 10px 0px 10px;
+    font-size:13px;
+}
+.footer-card a{
+    text-decoration: none;
+    color: brown;
+}
+.footer-card p{
+    font-weight: bold;
+    font-family: 'Playfair Display';
+    font-style: italic;
+}
+
+
+
 
 
 

@@ -8,9 +8,9 @@
     <div class="row">
         {% include "navbar.html" %}
     </div>
-    <div class="row mt-5">
+    <div class="row mt-5 bg-black p-5">
         <div class="col-lg-12">
-            <div class="section1">
+            <div class="section1 ">
                 <h1>Archives Numériques</h1>
                 <p>Explorez notre base de données complète de manuscrits, thèses et articles.
                 Utilisez les filtres pour<br>  naviguer à travers les époques et les civilisations.</p>
@@ -58,9 +58,35 @@
             </div>
         </div>
         <div class="row mb-5 mt-5">
-            <div class="col-md-12">
-                <h3>Plus de {{}} résulats</h3>
+            <div class="col-md-12 section2">
+                <h5>Affichage de {{ nb_article }} résulats</h5>
+                <div class="triage">
+                    <h6>Trier par :</h6>
+                    <select>
+                        <option>Plus récent</option>
+                        <option>Plus populaire</option>
+                    </select>
+                </div>
             </div>
+        </div>
+        <div class="row mt-5 mb-5 articles-card">
+            {% for article in articles %}
+                <div class="col-md-4 col-sm-6 mb-3">
+                    <div class="card h-60">
+                        <img src="{{ article.img.url }}" alt="{{ article.title }}" class="card-img-top img-fluid">
+                        <div class="card-body">
+                            <p class="card-text card-date"><i class="fas fa-calendar"></i> {{ article.updated_at }}</p>
+                            <h4 class="card-title">{{ article.title }}</h4>
+                            <p class="card-text card-summary">{{ article.summary }}</p>
+                        </div>
+                        <hr>
+                        <div class="footer-card">
+                            <p class="card-text">{{ article.author }} B.</p>
+                            <a href="">Lire <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 </div>
