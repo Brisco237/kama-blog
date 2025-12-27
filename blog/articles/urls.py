@@ -1,6 +1,6 @@
 from django.urls import path
+from .views import archives
 
 urlpatterns = [
-    #path('', ),
-    #path('', )
+    path('archives/', archives, name='archives'),
 ]

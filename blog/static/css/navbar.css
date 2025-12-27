@@ -66,7 +66,7 @@ nav ul li a:hover{
 .mobile-menu .shop-button-mobile:hover{
     opacity:0.7;
 }
-@media (max-width:990px){
+@media screen and (max-width: 768px){
     nav ul{
         justify-content: space-between;
     }

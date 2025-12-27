@@ -1,7 +1,4 @@
-{% extends "base.html" %}
 {% load static %}
-{% block styles %}<link rel="stylesheet" href="{% static 'css/navbar.css' %}"{% endblock styles %}
-
 {% block content %}
 <style>[x-cloak]{display:none !important;}</style>
 <div class="col-lg-12 mt-4" x-data="{ open: false }" x-init="window.addEventListener('resize', () => {if (window.innerWidth > 900) open = false;});">
@@ -10,7 +7,7 @@
             <li class="logo"><a href="{% url 'home' %}"><h4><span>K.</span><strong>Kama-Blog</strong></h4></a></li>
             <li class="items"><a href="{% url 'home' %}">Home</a></li>
             <li class="items"><a href="">Articles</a></li>
-            <li class="items"><a href="">Archives</a></li>
+            <li class="items"><a href="{% url 'archives' %}">Archives</a></li>
             <li class="items"><a href=""><i class="fas fa-search"></i></a></li>
             <li class="items"><a href="{% url 'login_user' %}" class="connexion-button">Connexion</a></li>
             <li class="items"><a href="{% url 'register' %}" class="inscrire-button">S'inscrire</a></li>
@@ -26,7 +23,7 @@
                 <div class="mobile-menu" x-show="open" x-cloak x-transition.duration.600ms @click.outside="open=false">
                     <a href="{% url 'home' %}">Home</a>
                     <a href="">Articles</a>
-                    <a href="">Archives</a>
+                    <a href="{% url 'archives' %}">Archives</a>
                     <a href=""><i class="fas fa-search"></i></a>
                     <a href="{% url 'login_user' %}" class="connexion-button">Connexion</a>
                     <a href="{% url 'register' %}" class="">S'inscrire</a>
