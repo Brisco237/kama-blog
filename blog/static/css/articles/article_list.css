@@ -1,0 +1,107 @@
+.section1{
+    background-color: rgb(231 229 228);
+    padding: 20px 0px 20px 0px;
+}
+.section1 h6{
+    color: rgb(184, 113, 56);
+    font-family: "JetBrains Mono", monospace;
+    font-size:14px;
+    font-weight: bolder;
+}
+.section1 h1{
+    font-family: 'Playfair Display';
+}
+.links-nav .active{
+    border-bottom:3px solid rgb(184, 113, 56);
+    padding-bottom:10px;
+}
+.links-nav a{
+    font-family: 'Inter';
+    text-decoration: none;
+    color: black;
+    margin-right:30px;
+    transition:ease 0.3s ;
+}
+.links-nav a:hover{
+    border-bottom: 3px solid rgb(184, 113, 56);
+    padding-bottom:10px;
+}
+.section2{
+    font-family:'Inter';
+    background-color: rgb(231 229 228);
+    padding:50px 20px 40px 20px;
+}
+.section2 .author{
+    font-family: 'JetBrains Mono';
+}
+.section2 .author img{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    margin-right:15px;
+}
+.card-text .category{
+    font-size:13px;
+    border: 1px solid gray;
+    padding:5px;
+    border-radius:5px;
+}
+.card-text .read-time{
+    font-size:12px;
+    font-family:'JetBrains Mono';
+    color:gray;
+}
+.card-text{
+    display: flex;
+    justify-content: space-between;
+}
+.card h4{
+    font-family: 'Playfair Display';
+}
+.btn-charger button{
+    font-family: 'JetBrains Mono';
+    padding:20px;
+    background-color: black;
+    color: white;
+}
+.btn-charger button:hover{
+    transition: 0.8s;
+    opacity: 0.8;
+}
+/* Newsletter section */
+.newsletter{
+    background-color: rgb(231 229 228);
+    padding: 40px 20px;
+}
+.newsletter .card .card-title h4{
+    font-family:'Playfair Display', sans-serif;
+}
+.newsletter .card .card-title h4 i{
+    color: rgb(184, 113, 56);
+}
+.newsletter .card .card-text, form{
+    font-family:'Inter', sans-serif;
+}
+.newsletter form input{
+    padding: 15px;
+    font-family: 'Inter', sans-serif;
+    border-radius: 10px;
+    outline: none;
+    border:1px solid gray;
+}
+.newsletter form button{
+    background-color: black;
+    color: white;
+    border:none;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.newsletter form button:hover{
+    opacity: 0.8;
+    transition: 0.8s;
+}
+.newsletter form input,button{
+    width: 100%;
+}

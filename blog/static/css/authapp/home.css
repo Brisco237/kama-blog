@@ -90,6 +90,9 @@
     display: flex;
     justify-content: space-around;
 }
+.section4 .text .auteur-article p{
+    font-family:'JetBrains Mono';
+}
 .auteur-article img{
     width: 30px;
     height: 30px;

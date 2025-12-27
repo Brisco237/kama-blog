@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %} Kama-blog | Articles page {% endblock title %}
-{% block styles %}<link rel="stylesheet" href="{% static 'css/articles/articles_list.css' %}">{% endblock styles %}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/articles/article_list.css' %}">{% endblock styles %}
 
 {% block content %}
 <div class="container-fluid">
@@ -10,18 +10,61 @@
             {% include "navbar.html" %} 
         </div>
     </div>
-    <div class="container-fluid section1">
+    <div class="container-fluid section1 mt-5">
         <div class="container">
             <h6>Archives & Recherche</h6>
-            <h2>Catalogue des Travaux</h2>
+            <h1>Catalogue des Travaux</h1>
         </div>
     </div>
-    <div class="row">
+    <div class="row mt-5">
+        <div class="col-md-12 links-nav">
+            <a href="" class="active">Tous les sujets</a>
+            <a href="">Egyptologie</a>
+            <a href="">Peuplement & migrations</a>
+            <a href="">Religions</a>
+            <a href="">Politique</a>
+            <a href="">Histoire du cameroun</a>
+        </div>
+    </div>
+    <div class="row mt-2 mb-5 section2">
         {% for article in articles %}
             <div class="col-md-4">
-                
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <div class="card-text">
+                            <p class="category">{{ article.category }}</p>
+                            <p class="read-time">12 min</p>
+                        </div>
+                        <h4>{{ article.title }}</h4>
+                        <p class="text-card mt-3">{{ article.summary }}</p>
+                        <hr>
+                        <p class="author"><img src="{{ article.author.profile.photo.url }}"> {{ article.author }}</p>
+                    </div>
+                </div>
             </div>
         {% endfor %}
+    </div>
+    <div class="row text-center mb-5 btn-charger">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <button id="charger-resulat">Charger plus de résultat</button>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <div class="row newsletter mb-5">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card p-5">
+                <div class="card-title"><h4><i class="fas fa-envelope"></i> La Newsletter de Kama-Blog</h4></div>
+                <p class="card-text">Recevez chaque semaine un résumé de nos recherches et découvertes archéologiques.</p>
+                <form action="">
+                    <input type="email" name="email" placeholder="VotreEmail@gmail.com">
+                    <br>
+                    <button type="submit">S'abonner</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
     </div>
 </div>
 <!--Footer-->

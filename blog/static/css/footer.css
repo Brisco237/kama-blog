@@ -38,7 +38,7 @@
     transition: all 0.7s;
 }
 .derniere-ligne{
-    font-family: 'Playfair Display', serif;
+    font-family: 'JetBrains Mono', serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
