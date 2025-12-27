@@ -82,7 +82,9 @@
                         <hr>
                         <div class="footer-card">
                             <p class="card-text">{{ article.author }} B.</p>
-                            <a href="">Lire <i class="fas fa-arrow-right"></i></a>
+                            <a href="{% url 'article_detail' article.slug %}">
+                                Lire <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>

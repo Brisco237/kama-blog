@@ -20,7 +20,7 @@
     text-decoration: none;
     color: black;
     margin-right:30px;
-    transition:ease 0.3s ;
+    transition:ease-out 0.5s ;
 }
 .links-nav a:hover{
     border-bottom: 3px solid rgb(184, 113, 56);
@@ -33,6 +33,14 @@
 }
 .section2 .author{
     font-family: 'JetBrains Mono';
+}
+.card-body a{
+    text-decoration:none;
+    color: black;
+    transition: ease-out 0.8s;
+}
+.card-body a:hover{
+    color: rgb(184, 113, 56);
 }
 .section2 .author img{
     height: 25px;

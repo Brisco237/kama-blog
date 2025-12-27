@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('articles/', include('articles.urls')),
-    path('auth/', include('authapp.urls')),
+    path('authapp/', include('authapp.urls')),
 ]
 
 # Serve media files during development

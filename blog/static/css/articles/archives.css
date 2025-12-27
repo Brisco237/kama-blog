@@ -75,6 +75,7 @@
     font-family: 'Inter';
 }
 .card-body .card-date{
+    font-family: 'JetBrains Mono';
     font-size:13px;
     color:gray;
 }
@@ -92,8 +93,14 @@
     font-size:13px;
 }
 .footer-card a{
+    font-weight:bolder;
     text-decoration: none;
     color: brown;
+    transition: ease-out 0.4s;
+}
+.footer-card a:hover{
+    opacity: 0.8;
+    font-size:15px;
 }
 .footer-card p{
     font-weight: bold;
