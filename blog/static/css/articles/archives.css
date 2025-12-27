@@ -95,7 +95,7 @@
 .footer-card a{
     font-weight:bolder;
     text-decoration: none;
-    color: brown;
+    color: rgb(184, 113, 56);
     transition: ease-out 0.4s;
 }
 .footer-card a:hover{
