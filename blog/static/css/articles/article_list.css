@@ -110,6 +110,6 @@
     opacity: 0.8;
     transition: 0.8s;
 }
-.newsletter form input,button{
+.newsletter form input,.btn-newsletter{
     width: 100%;
 }

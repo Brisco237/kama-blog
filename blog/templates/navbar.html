@@ -1,6 +1,11 @@
+{% extends "base.html" %}
 {% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/navbar.css' %}"{% endblock styles %}
+
 {% block content %}
-<style>[x-cloak]{display:none !important;}</style>
+<style>
+    [x-cloak]{display:none !important;}
+</style>
 <div class="col-lg-12 mt-4" x-data="{ open: false }" x-init="window.addEventListener('resize', () => {if (window.innerWidth > 900) open = false;});">
     <nav class="first-nav">
         <ul>
@@ -11,7 +16,7 @@
             <li class="items"><a href=""><i class="fas fa-search"></i></a></li>
             <li class="items"><a href="{% url 'login_user' %}" class="connexion-button">Connexion</a></li>
             <li class="items"><a href="{% url 'register' %}" class="inscrire-button">S'inscrire</a></li>
-            <button @click="open = !open" class="bg-transparent border-0 d-lg-none burger-button">
+            <button @click="open = !open" class="burger-button">
                 <i class="fa-solid" :class="open ? 'fa-xmark' : 'fa-bars'" style="font-size:22px;"></i>
             </button>
         </ul>

@@ -6,9 +6,7 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12">
-            {% include "navbar.html" %} 
-        </div>
+        {% include "navbar.html" %} 
     </div>
     <div class="row mb-5 mt-5">
         <div class="col-md-12">
@@ -35,31 +33,37 @@
     <div class="row mb-5" id="articles-featured">
         {% if article1 %}
             <div class="col-md-6 col-xm-4" class="article1">
-                <div class="card p-5 mt-2">
-                    <div class="card-img"><img src="{{ article3.img.url }}" class="img-fluid"></div>
-                    <br>
-                    <p class="category1">{{ article3.category }}</p>
-                    <h2 class="title-article">{{ article3.title }}</h2>
-                    <p class="summary">{{ article3.summary }}</p>
-                </div>
+                <a href="{% url 'article_detail' article1.slug %}">
+                    <div class="card p-5 mt-2">
+                        <div class="card-img"><img src="{{ article3.img.url }}" class="img-fluid"></div>
+                        <br>
+                        <p class="category1">{{ article3.category }}</p>
+                        <h2 class="title-article">{{ article3.title }}</h2>
+                        <p class="summary">{{ article3.summary }}</p>
+                    </div>
+                </a>
             </div>
             <div class="col-md-3 col-xm-4" class="article2">
-                <div class="card p-5 mt-2">
-                    <div class="card-img"><img src="{{ article2.img.url }}" class="img-fluid"></div>
-                    <br>
-                    <p class="category1">{{ article2.category }}</p>
-                    <h2 class="title-article">{{ article2.title }}</h2>
-                    <p class="summary">{{ article2.summary }}</p>
-                </div>
+                <a href="{% url 'article_detail' article2.slug %}">
+                    <div class="card p-5 mt-2">
+                        <div class="card-img"><img src="{{ article2.img.url }}" class="img-fluid"></div>
+                        <br>
+                        <p class="category1">{{ article2.category }}</p>
+                        <h2 class="title-article">{{ article2.title }}</h2>
+                        <p class="summary">{{ article2.summary }}</p>
+                    </div>
+                </a>
             </div>
             <div class="col-md-3 col-xm-4" class="article3">
-                <div class="card p-5 mt-2">
-                    <div class="card-img"><img src="{{ article1.img.url }}" class="img-fluid"></div>
-                    <br>
-                    <p class="category1">{{ article1.category }}</p>
-                    <h2 class="title-article">{{ article1.title }}</h2>
-                    <p class="summary">{{ article1.summary }}</p>
-                </div>
+                <a href="{% url 'article_detail' article3.slug %}">
+                    <div class="card p-5 mt-2">
+                        <div class="card-img"><img src="{{ article1.img.url }}" class="img-fluid"></div>
+                        <br>
+                        <p class="category1">{{ article1.category }}</p>
+                        <h2 class="title-article">{{ article1.title }}</h2>
+                        <p class="summary">{{ article1.summary }}</p>
+                    </div>
+                </a>
             </div>
         {% else %}
             <h4 style='font-family:"Inter";'>Désolée pas d'articles pour le moment...</h4>
@@ -67,19 +71,20 @@
     </div>
     <hr>
     <div class="row mt-5 mb-5 section3">
-        <div class="col-md-4">
+        <div class="pub-sec3">
             <h4>Publications Récentes</h4>
         </div>
-        <div class="col-md-6"></div>
-        <div class="col-md-1 recent">Récent</div>
-        <div class="col-md-1 populaire">Populaire</div>
+        <div class="choix-sec3">
+            <p class="recent">Récent</p>
+            <p class="populaire">Populaire</p>
+        </div>
     </div>
     <hr>
     <div class="row mt-5 section4">
-        <div class="col-md-3 image">
+        <div class="col-md-3 col-sm-6 image">
             <img src="{{ article4.img.url }}" class="img-fluid">
         </div>
-        <div class="col-lg-9 text">
+        <div class="col-md-9 col-sm-6  text">
             <p class="category mt-2">{{ article4.category }} <span class="publications-time">. {{ article4.updated_at|date:"d M Y" }}</span></p> 
             <h3>{{ article4.title }}</h3>
             <p>{{ article4.summary }}</p>
@@ -88,10 +93,10 @@
         </div>
     </div>
     <div class="row mt-5 mb-5 section4">
-        <div class="col-md-3 image">
+        <div class="col-md-3 col-sm-6 image">
             <img src="{{ article5.img.url }}" class="img-fluid">
         </div>
-        <div class="col-lg-9 text">
+        <div class="col-md-9 col-sm-6 text">
             <p class="category mt-2">{{ article5.category }} <span class="publications-time">. {{ article5.updated_at|date:"d M Y" }}</span></p>
             <h3>{{ article5.title }}</h3>
             <p>{{ article5.summary }}</p>
@@ -109,7 +114,7 @@
                 <form action="">
                     <input type="email" name="email" placeholder="VotreEmail@gmail.com">
                     <br>
-                    <button type="submit">S'abonner</button>
+                    <button type="submit" class="btn-newsletter">S'abonner</button>
                 </form>
             </div>
         </div>

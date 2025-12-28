@@ -11,7 +11,6 @@ nav ul{
     color:white;
     margin:5px;
     padding:5px;
-    border-radius:5px;
 }
 nav ul li{
     list-style: none;
@@ -33,6 +32,10 @@ nav ul li a:hover{
 .inscrire-button:hover{
     opacity: 0.8;
     transition: 0.8s;
+}
+.burger-button{
+    border: none;
+    background-color: transparent;
 }
 /* Mobile menu */
 .mobile-menu{
@@ -67,12 +70,15 @@ nav ul li a:hover{
 .mobile-menu .register-button-mobile:hover{
     opacity:0.8;
 }
-@media screen and (max-width: 768px){
+@media (max-width:768px){
     nav ul{
         justify-content: space-between;
     }
     .first-nav .items{
         display:none;
+    }
+    .first-nav .burger-button{
+        display: block;
     }
     .first-nav ul .logo{
         margin-top:20px;

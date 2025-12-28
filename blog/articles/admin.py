@@ -4,3 +4,7 @@ from .models import Article, Category
 # Register your models here.
 admin.site.register(Article)
 admin.site.register(Category)
+
+admin.site.site_header = "Kama-Blog Administration"
+admin.site.site_title = "Kama-Blog Admin"
+admin.site.index_title = "Tableau de bord"
