@@ -74,6 +74,9 @@
 .articles-card .card .card-text{
     font-family: 'Inter';
 }
+.articles-card .card img{
+    filter: brightness(60%);
+}
 .card-body .card-date{
     font-family: 'JetBrains Mono';
     font-size:13px;

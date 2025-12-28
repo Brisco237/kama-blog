@@ -36,6 +36,7 @@ nav ul li a:hover{
 .burger-button{
     border: none;
     background-color: transparent;
+    display: none;
 }
 /* Mobile menu */
 .mobile-menu{

@@ -13,7 +13,7 @@
 }
 .detail-title h1{
     font-family:'Playfair Display';
-    font-size:5vw;
+    font-size:80px;
 }
 .author-detail{
     display: flex;
@@ -54,4 +54,10 @@
 }
 .body-article{
     font-family: 'Inter';
+}
+
+@media only screen and (max-width: 768px) {
+    .detail-title h1{
+        font-size:60px;
+    }
 }

@@ -1,7 +1,4 @@
 /* Styles for First home section */
-a{
-    text-decoration: none;
-}
 .first-section{
     margin: 60px 0 20px 90px;
 }
@@ -73,26 +70,43 @@ a{
     color: rgb(237 114 16);
     margin-bottom:10px;
 }
-#articles-featured .article1 a, .article2 a, .article3 a{
+#articles-featured a{
     text-decoration:none;
+    color: black;
 }
-#articles-featured .article1 a, .article2 a, .article3 a:hover{
-    box-shadow: 1px 1px 1px black;
+#articles-featured a:hover{
+    color: rgb(184, 113, 56);
 }
 /* sectio3 of home page */
 .section3{
+    font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: space-between;
-    font-family: 'Inter', sans-serif;
-}
-.section3 .choix-sec3{
-    display: flex;
 }
 .section3 .populaire{
     color:gray;
 }
+.section3 .sec3{
+    display: flex;
+    gap: 15px;
+}
 .section3 h4,.recent{
-    font-weight:bold;
+    font-weight:bolder;
+}
+.section4 .article-lien{
+    text-decoration: none;
+    color:black;
+    transition: all 0.2s;
+}
+.section4 .article-lien:hover{
+    color: rgb(237 114 16);
+}
+.section4 .image img{
+    filter: brightness(60%);
+    transition: ease-in 0.2s;
+}
+.section4 .image img:hover{
+    filter: brightness(100%);
 }
 .section4 .text h3{
     font-family:'Playfair Display';
