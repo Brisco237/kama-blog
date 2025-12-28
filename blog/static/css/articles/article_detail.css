@@ -55,6 +55,34 @@
 .body-article{
     font-family: 'Inter';
 }
+.commentaire-title{
+    font-family: 'Inter';
+}
+.commentaire-section{
+    font-family: 'Inter';
+    display: flex;
+    gap:15px;
+}
+.commentaire-section img{
+    margin-top:10px;
+    height:45px;
+    width: 45px;
+    border-radius:50%;
+}
+.commentaire-section form textarea{
+    resize: none;
+    padding: 10px;
+    border-radius:10px;
+    width:100%;
+    outline: none;
+}
+.commentaire-section form button{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
 
 @media only screen and (max-width: 768px) {
     .detail-title h1{
