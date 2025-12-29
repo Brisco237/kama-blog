@@ -203,3 +203,12 @@
         font-size: 50px;
     }
 }
+@media screen and (max-width:375px) {
+    .buttons-home-section{
+        display: flex;
+        flex-direction: column;
+    }
+    .buttons-home-section .button1{
+        margin-bottom:5px;
+    }
+}

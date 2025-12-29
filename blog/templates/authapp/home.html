@@ -31,42 +31,22 @@
         </div>
     </div>
     <div class="row mb-5" id="articles-featured">
-        {% if article1 %}
-            <div class="col-md-6 col-sm-6" class="article1">
-                <div class="card p-5 mt-2">
-                    <a href="{% url 'article_detail' article3.slug %}">
-                        <div class="card-img"><img src="{{ article3.img.url }}" class="img-fluid"></div>
-                        <br>
-                        <p class="category1">{{ article3.category }}</p>
-                        <h2 class="title-article">{{ article3.title }}</h2>
-                        <p class="summary">{{ article3.summary }}</p>
-                    </a>
+        {% if articles1 %}
+            {% for article in articles1 %}
+                <div class="col-md-4 col-sm-6" class="article3">
+                    <div class="card p-5 mt-2">
+                        <a href="{% url 'article_detail' article.slug %}">
+                            <div class="card-img"><img src="{{ article.img.url }}" class="img-fluid"></div>
+                            <br>
+                            <p class="category1">{{ article.category }}</p>
+                            <h2 class="title-article">{{ article.title }}</h2>
+                            <p class="summary">{{ article.summary }}</p>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6" class="article2">
-                <div class="card p-5 mt-2">
-                    <a href="{% url 'article_detail' article2.slug %}">
-                        <div class="card-img"><img src="{{ article2.img.url }}" class="img-fluid"></div>
-                        <br>
-                        <p class="category1">{{ article2.category }}</p>
-                        <h2 class="title-article">{{ article2.title }}</h2>
-                        <p class="summary">{{ article2.summary }}</p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6" class="article3">
-                <div class="card p-5 mt-2">
-                    <a href="{% url 'article_detail' article1.slug %}">
-                        <div class="card-img"><img src="{{ article1.img.url }}" class="img-fluid"></div>
-                        <br>
-                        <p class="category1">{{ article1.category }}</p>
-                        <h2 class="title-article">{{ article1.title }}</h2>
-                        <p class="summary">{{ article1.summary }}</p>
-                    </a>
-                </div>
-            </div>
+            {% endfor %}
         {% else %}
-            <h4 style='font-family:"Inter";'>Désolée pas d'articles pour le moment...</h4>
+            <h4 style='font-family:"Inter";'>😌 Désolée pas d'articles pour le moment...</h4>
         {% endif %}
     </div>
     <hr>
@@ -80,50 +60,34 @@
         </div>
     </div>
     <hr>
-    <div class="row mt-5 section4">
-        <div class="col-md-4 col-sm-6 image">
-            <a href="{% url 'article_detail' article4.slug %}" class="article-lien">
-                <img src="{{ article4.img.url }}" class="img-fluid">
-            </a>
-        </div>
-        <div class="col-md-8 col-sm-6  text">
-            <p class="category mt-2">
-                {{ article4.category }}<span class="publications-time">. {{article4.updated_at|date:"d M Y" }}</span>
-            </p>
-            <a href="{% url 'article_detail' article4.slug %}" class="article-lien">
-                <h3>{{ article4.title }}</h3>
-                <br>
-                <p>{{ article4.summary }}</p>
-            </a>
-            <hr>
-            <div class="auteur-article">
-                <p><img src="{{ article4.author.profile.photo.url }}">{{ article4.author }}</p>
-                <p class="read-time"><i class="fas fa-clock"></i> 12 min</p>
+    {% if articles2 %}
+        {% for article in  articles2 %}
+            <div class="row mt-5 section4">
+                <div class="col-md-4 col-sm-6 image">
+                    <a href="{% url 'article_detail' article.slug %}" class="article-lien">
+                        <img src="{{ article.img.url }}" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-8 col-sm-6  text">
+                    <p class="category mt-2">
+                        {{ article.category }}<span class="publications-time">. {{article.updated_at|date:"d M Y" }}</span>
+                    </p>
+                    <a href="{% url 'article_detail' article.slug %}" class="article-lien">
+                        <h3>{{ article.title }}</h3>
+                        <br>
+                        <p>{{ article.summary }}</p>
+                    </a>
+                    <hr>
+                    <div class="auteur-article">
+                        <p><img src="{{ article.author.profile.photo.url }}">{{ article.author }}</p>
+                        <p class="read-time"><i class="fas fa-clock"></i> {{ article.updated_at|timesince }}</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="row mt-5 mb-5 section4">
-        <div class="col-md-4 col-sm-6 image">
-            <a href="{% url 'article_detail' article5.slug %}"class="article-lien">
-                <img src="{{ article5.img.url }}" class="img-fluid">
-            </a>
-        </div>
-        <div class="col-md-8 col-sm-6 text">
-            <p class="category mt-2">
-                {{ article5.category }} <span class="publications-time">. {{article5.updated_at|date:"d M Y" }}</span>
-            </p>
-            <a href="{% url 'article_detail' article5.slug %}"class="article-lien">
-                <h3>{{ article5.title }}</h3>
-                <br>
-                <p>{{ article5.summary }}</p>
-            </a>
-            <hr>
-            <div class="auteur-article">
-                <p><img src="{{ article5.author.profile.photo.url }}">{{ article5.author }}</p>
-                <p class="read-time"><i class="fas fa-clock"></i> 8 min</p>
-            </div>
-        </div>
-    </div>
+        {% endfor %}
+    {% else %}
+        <h4 style='font-family:"Inter";'>😌 Désolée pas d'articles pour le moment...</h4>
+    {% endif %}
     <br>
     <div class="row newsletter mb-5">
         <div class="col-md-2"></div>

@@ -126,12 +126,43 @@
     font-size: 15px;
     line-height: 2;
 }
-
-
-
+.article-lié h3,.texte-si-pas-darticle{
+    font-family: 'Playfair Display';
+}
+.article-lié h3{
+    color: white;
+    padding: 10px;
+}
+.card img{
+    filter: brightness(70%);
+    transition: all 0.3s;
+}
+.card img:hover{
+    filter: brightness(100%);
+}
+.card .card-body h4{
+    font-family: 'Playfair Display';
+}
+.card p:hover, h4:hover{
+    color: rgb(184, 113, 56);
+}
+.card .card-body p{
+    font-family:'Inter';
+    margin-top:15px;
+    font-size: 13px;
+    color: gray;
+}
+.article-lié1 a{
+    text-decoration: none;
+}
 
 @media only screen and (max-width: 768px) {
     .detail-title h1{
         font-size:60px;
+    }
+}
+@media screen and (max-width:375px) {
+    .detail-title h1{
+        font-size:40px;
     }
 }

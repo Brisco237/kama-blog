@@ -95,22 +95,28 @@
         {% endfor %}
     </div>
     <div class="container mt-5 mb-5">
+        <div class="row mb-5">
+            <div class="col-md-4"></div>
+            <div class="col-lg-4 bg-black text-center article-lié">
+                <h3>Dans la même thématique</h3>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
         <div class="row">
             {% for item in related_articles %}
-                <div class="col-md-4">
+                <div class="col-md-4 article-lié1">
                     <a href="{% url 'article_detail' item.slug %}">
-                        <div class="card p-5">
+                        <div class="card p-3 h-60">
                             <img src="{{ item.img.url }}" class="img-fluid">
                             <div class="card-body">
                                 <h4>{{ item.title }}</h4>
-                                <p>{{ item.summary }}</p>
-                                <p>{{ item.category }} . {{ item.created_at|timesince }}</p>
+                                <p>{{ item.category }} . {{ item.created_at|date:"d/m/Y à H:i "}}</p>
                             </div>
                         </div>
                     </a>
                 </div>
             {% empty %}
-                <h5>😐 Pas d'article de cet catégorie pour le moment !</h5>
+                <h5 class="texte-si-pas-darticle">😐 Pas d'article de cet catégorie pour le moment !</h5>
             {% endfor %}
         </div>
     </div>

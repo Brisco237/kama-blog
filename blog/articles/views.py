@@ -30,10 +30,6 @@ class ArticleDetailView(DetailView):
 
         article = self.object
 
-        context['related_articles'] = (
-            Article.objects
-            .filter(category=article.category)
-            .exclude(id=article.id)
-        )
+        context['related_articles'] = (Article.objects.filter(category=article.category).exclude(id=article.id))
 
         return context

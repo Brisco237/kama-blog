@@ -5,14 +5,11 @@ from articles.models import Article, Category
 def home(request):
     articles = Article.objects.filter(status='published').order_by('published_at')
     categories = Category.objects.all()
-    article1 = articles[0]
-    article2 = articles[1] 
-    article3 = articles[2]
-    article4 = articles[3]
-    article5 = articles[4]
+    articles1 = Article.objects.filter(status='published').order_by('published_at')[:3]
+    articles2 = Article.objects.filter(status='published')[:2]
     return render(request, 'authapp/home.html',
-    {'article1': article1, 'article2': article2, 'article3': article3, 
-    'article4': article4, 'article5': article5, 'categories': categories
+    {'articles1':articles1, 'categories': categories,
+    'articles2':articles2
     }
     )
 
