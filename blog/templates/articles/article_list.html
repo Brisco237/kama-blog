@@ -31,7 +31,7 @@
                         <div class="card-body">
                             <div class="card-text">
                                 <p class="category">{{ article.category }}</p>
-                                <p class="read-time">12 min</p>
+                                <p class="read-time">{{ article.created_at|timesince }}</p>
                             </div>
                             <a href="{% url 'article_detail' article.slug %}">
                                 <h4>{{ article.title }}</h4>

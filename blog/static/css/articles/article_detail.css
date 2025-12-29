@@ -71,7 +71,7 @@
 }
 .commentaire-section form textarea{
     resize: none;
-    padding: 10px;
+    padding: 15px;
     border-radius:10px;
     width:100%;
     outline: none;
@@ -83,6 +83,52 @@
     border: none;
     border-radius: 5px;
 }
+.comments {
+    font-family: 'Inter';
+    max-width: 780px;
+    margin: 40px auto;
+}
+.comment {
+    display: flex;
+    gap: 15px;
+    padding: 20px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.comment-body {
+    flex: 1;
+}
+.comment-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+}
+.username {
+    font-weight:bold;
+    font-family: 'JetBrains Mono';
+}
+
+.time {
+    color: #888;
+    font-size: 13px;
+    font-family: 'JetBrains Mono';
+}
+
+.comment-text {
+    margin-top: 6px;
+    color: #444;
+    font-size: 15px;
+    line-height: 2;
+}
+
+
+
 
 @media only screen and (max-width: 768px) {
     .detail-title h1{

@@ -19,10 +19,21 @@ class ArticleListView(ListView):
     context_object_name = 'articles'
     paginate_by = 6
 
-    #def get_queryset(self):
-     #   return Article.objects.filter(published_at=True)
 
 class ArticleDetailView(DetailView):
     model = Article
     template_name = 'articles/article_detail.html'
     context_object_name = 'article'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        article = self.object
+
+        context['related_articles'] = (
+            Article.objects
+            .filter(category=article.category)
+            .exclude(id=article.id)
+        )
+
+        return context

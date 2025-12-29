@@ -47,3 +47,15 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
+class Comment(models.Model):
+    article = models.ForeignKey(Article,on_delete=models.CASCADE,related_name='comments')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,related_name='comments')
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_approved = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f'Commentaire de {self.user} sur {self.article}'
