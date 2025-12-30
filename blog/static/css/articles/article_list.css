@@ -120,3 +120,23 @@
 .newsletter form input,.btn-newsletter{
     width: 100%;
 }
+
+@media screen and (max-width:375px) {
+    .section1 h1{
+        font-size: 22px;
+    }
+    .links-nav a{
+        font-size: 12px;
+    }
+    .section2{
+        padding:20px 0px 40px 0px;
+    }
+    .card-text .category{
+        font-size:11px;
+        padding:3px;
+        border-radius:5px;
+    }
+    .card-text .read-time{
+        font-size:11px;
+    }
+}
