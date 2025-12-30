@@ -107,8 +107,8 @@
 }
 .footer-card p{
     font-weight: bold;
-    font-family: 'JetBrains Mono';
-    font-style: italic;
+    font-family: 'Inter';
+    text-transform: uppercase;
 }
 
 
@@ -117,8 +117,45 @@
 
 
 /* Media query */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px){
     .section1{
         margin-left:20px;
     }
 }
+
+@media screen and (max-width:425px){
+    .section2 h5{
+        font-size: 13px;
+    }
+    .section2 .triage select{
+        font-size:10px;
+    }
+    .section2 .triage h6{
+        font-size:10px;
+        margin-right:3px;
+    }
+}
+
+@media screen and (max-width:320px){
+    .select-date h3{
+        font-size: 15px;
+    }
+    .section2{
+        flex-direction: column;
+        align-items: center;
+    }
+    .section2 h5{
+        font-size:15px;
+        text-transform: uppercase;
+    }
+    .section2 .triage{
+        margin-top:10px;
+    }
+    .section2 .triage select{
+        font-size:12px;
+    }
+    .section2 .triage h6{
+        font-size:13px;
+        margin-right:3px;
+    }
+} 
