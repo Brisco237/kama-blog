@@ -16,7 +16,7 @@
 }
 .first-section .text{
     font-size:20px;
-    margin-top:20px;
+    margin-top:30px;
     font-family: 'Inter', sans-serif;
     color:#333333;
 }
@@ -197,10 +197,13 @@
 /* Responsive */
 @media screen and (max-width: 768px){
     .first-section{
-        margin: 60px 0 20px 10px;
+        margin: 60px 3px 20px 10px;
     }
-    .first-section .title, .subtitle{
-        font-size: 50px;
+    .first-section .title{
+        font-size:50px;
+    }
+    .first-section .subtitle{
+        font-size: 30px;
     }
 }
 @media screen and (max-width:375px) {
@@ -210,5 +213,43 @@
     }
     .buttons-home-section .button1{
         margin-bottom:5px;
+    }
+}
+@media screen and (max-width:320px) {
+    .first-section .title{
+        font-size: 40px;
+    }
+    .first-section .text{
+        font-size:14px;
+    }
+    .second-section .head-second-section h4{
+        font-weight: bold;
+        font-size:14px;
+    }
+    .second-section .head-second-section .voir{
+        font-size:12px;
+    }
+    .section3 .populaire {
+        color: gray;
+    }
+    .section3 .sec3 {
+       font-size: 12px;
+    }
+    .section3 h4{
+        font-weight: bolder;
+        font-size:14px;
+    }
+    .section4 .text .auteur-article p{
+        font-size: 10px;
+    }
+    .auteur-article img{
+        width:20px;
+        height:20px;
+        border-radius: 50%;
+        margin-right:3px;
+    }
+    .auteur-article .read-time{
+        margin-right:3px;
+        font-size: 10px;
     }
 }

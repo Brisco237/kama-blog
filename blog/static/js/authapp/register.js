@@ -4,7 +4,7 @@
   const avatarPreview = document.getElementById('avatarPreview');
 
   avatarCircle.addEventListener('click', function () {
-    avatarInput.click(); // ouvre le stockage
+    avatarInput.click(); 
   });
 
   avatarInput.addEventListener('change', function () {

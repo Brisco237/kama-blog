@@ -10,7 +10,7 @@
     </div>
     <div class="row mt-5 bg-black p-5">
         <div class="col-lg-12">
-            <div class="section1 ">
+            <div class="section1" data-aos="fade-right" data-aos-duration="3000">
                 <h1>Archives Numériques</h1>
                 <p>Explorez notre base de données complète de manuscrits, thèses et articles.
                 Utilisez les filtres pour<br>  naviguer à travers les époques et les civilisations.</p>
@@ -32,13 +32,13 @@
                 <h3>Catégories</h3>
             </div>
             {% for categorie in categories %}
-                <div class="col-lg-12">
+                <div class="col-lg-12" data-aos="fade-right" data-aos-duration="3000">
                     <p class="check-categorie"><input type="checkbox"> {{ categorie.name }}</p>
                 </div>
             {% endfor %}
             <div class="col-lg-12 mb-3 mt-5">
                 <h3 class="mb-4">Civilisations</h3>
-                <div class="">
+                <div class="" data-aos="fade-up" data-aos-duration="3000">
                     <p class="check-categorie"><input type="checkbox"> Egypte antique (Kemet)</p>
                     <p class="check-categorie"><input type="checkbox"> Empire du Mali</p>
                     <p class="check-categorie"><input type="checkbox"> Empire du Kongo</p>
@@ -72,7 +72,7 @@
         <div class="row mt-5 mb-5 articles-card">
             {% for article in articles %}
                 <div class="col-md-4 col-sm-6 mb-3">
-                    <div class="card h-60">
+                    <div class="card h-60" data-aos="fade-right" data-aos-duration="3000">
                         <img src="{{ article.img.url }}" alt="{{ article.title }}" class="card-img-top img-fluid">
                         <div class="card-body">
                             <p class="card-text card-date"><i class="fas fa-calendar"></i> {{ article.updated_at|date:"d M Y" }}</p>
@@ -95,6 +95,10 @@
 
 <!--Footer-->
 {% include "footer.html" %}
+
+<script>
+    AOS.init();
+</script>
 {% endblock content %}
 
 

@@ -8,11 +8,11 @@
     <div class="row">
         {% include "navbar.html" %} 
     </div>
-    <div class="row mb-5 mt-5">
+    <div class="row mb-5 mt-4">
         <div class="col-md-12">
             <div class="first-section">
                 <h1 class="title">Réécrire l'histoire</h1>
-                <h1 class="subtitle">Pour éclairer le futur.</h1>
+                <h3 class="subtitle"></h3>
                 <p class="text">Une plateforme dédiée à la recherche historique <br>rigoureuse, 
                 à l'exhumation des manuscrits oubliés et <br>à la renaissance intellectuelle africaine.</p>
                 <div class="buttons-home-section mt-5">
@@ -34,7 +34,7 @@
         {% if articles1 %}
             {% for article in articles1 %}
                 <div class="col-md-4 col-sm-6" class="article3">
-                    <div class="card p-5 mt-2">
+                    <div class="card p-5 mt-2" data-aos="fade-right" data-aos-duration="3000">
                         <a href="{% url 'article_detail' article.slug %}">
                             <div class="card-img"><img src="{{ article.img.url }}" class="img-fluid"></div>
                             <br>
@@ -64,11 +64,11 @@
         {% for article in  articles2 %}
             <div class="row mt-5 section4">
                 <div class="col-md-4 col-sm-6 image">
-                    <a href="{% url 'article_detail' article.slug %}" class="article-lien">
+                    <a href="{% url 'article_detail' article.slug %}" class="article-lien" data-aos="fade-up" data-aos-duration="3000">
                         <img src="{{ article.img.url }}" class="img-fluid">
                     </a>
                 </div>
-                <div class="col-md-8 col-sm-6  text">
+                <div class="col-md-8 col-sm-6  text" data-aos="fade-up" data-aos-duration="3000">
                     <p class="category mt-2">
                         {{ article.category }}<span class="publications-time">. {{article.updated_at|date:"d M Y" }}</span>
                     </p>
@@ -115,4 +115,9 @@
 </div>
 <!--Footer-->
 {% include "footer.html" %}
+<script>
+    AOS.init();
+</script>
+{% block js %}<script src="{% static 'js/authapp/home.js' %}" defer></script>{% endblock js %}
+
 {% endblock content %}
