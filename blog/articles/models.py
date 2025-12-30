@@ -3,6 +3,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.conf import settings
+from ckeditor.fields import RichTextField
+
 
 # Create your models here.
 class Category(models.Model):
@@ -27,7 +29,7 @@ class Article(models.Model):
     category = models.ForeignKey(Category,on_delete=models.CASCADE,related_name='articles', default=1)
     slug = models.SlugField(max_length=255, unique=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,related_name='articles')
-    content = models.TextField()
+    content = RichTextField()
     summary = models.TextField(blank=True)
     status = models.CharField(max_length=10,choices=STATUS_CHOICES,default='draft')
     created_at = models.DateTimeField(auto_now_add=True)
