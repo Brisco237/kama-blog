@@ -57,7 +57,12 @@
             <div class="col-lg-4 col-md-3"></div>
         </div>
     </div>
-    {% include "footer.html" %}
+    {% if messages %}
+        {% for message in messages %}
+        {% endfor %}
+    {% endif %}
+    
+{% include "footer.html" %}
 </div>
 
 {% block js %}<script src="{% static 'js/authapp/register.js' %}" defer></script>{% endblock js %}

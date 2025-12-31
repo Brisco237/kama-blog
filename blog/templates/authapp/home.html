@@ -13,7 +13,7 @@
             <div class="first-section">
                 <h1 class="title">Réécrire l'histoire</h1>
                 <h3 class="subtitle"></h3>
-                <p class="text">Une plateforme dédiée à la recherche historique <br>rigoureuse, 
+                <p class="text" data-aos="fade-right" data-aos-duration="2000">Une plateforme dédiée à la recherche historique <br>rigoureuse, 
                 à l'exhumation des manuscrits oubliés et <br>à la renaissance intellectuelle africaine.</p>
                 <div class="buttons-home-section mt-5">
                     <a href="{% url 'article_list' %}" class="button1">Commencer la lecture</a>
@@ -33,10 +33,10 @@
     <div class="row mb-5" id="articles-featured">
         {% if articles1 %}
             {% for article in articles1 %}
-                <div class="col-md-4 col-sm-6" class="article3">
-                    <div class="card p-5 mt-2" data-aos="fade-right" data-aos-duration="3000">
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mt-2" data-aos="fade-up" data-aos-duration="2000">
                         <a href="{% url 'article_detail' article.slug %}">
-                            <div class="card-img"><img src="{{ article.img.url }}" class="img-fluid"></div>
+                            <div class="card-img"><img src="{{ article.img.url }}" class="img-fluid" width="100%"></div>
                             <br>
                             <p class="category1">{{ article.category }}</p>
                             <h2 class="title-article">{{ article.title }}</h2>
@@ -68,7 +68,7 @@
                         <img src="{{ article.img.url }}" class="img-fluid">
                     </a>
                 </div>
-                <div class="col-md-8 col-sm-6  text" data-aos="fade-up" data-aos-duration="3000">
+                <div class="col-md-8 col-sm-6  text" data-aos="fade-up" data-aos-duration="2000">
                     <p class="category mt-2">
                         {{ article.category }}<span class="publications-time">. {{article.updated_at|date:"d M Y" }}</span>
                     </p>
@@ -92,7 +92,7 @@
     <div class="row newsletter mb-5">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div class="card p-5">
+            <div class="card p-5" data-aos="fade-up" data-aos-duration="2000">
                 <div class="card-title"><h4><i class="fas fa-envelope"></i> La Newsletter de Kama-Blog</h4></div>
                 <p class="card-text">Recevez chaque semaine un résumé de nos recherches et découvertes archéologiques.</p>
                 <form action="">
@@ -104,7 +104,7 @@
         </div>
         <div class="col-md-2"></div>
     </div>
-    <div class="row hastag-categories mb-5">
+    <div class="row hastag-categories mb-5" data-aos="fade-up" data-aos-duration="2000">
         <h5>Explorer par catégories</h5>
         {% for categorie in categories %}
             <div class="col-lg-3 col-sm-3 col-xm-12 text-center">

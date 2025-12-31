@@ -38,6 +38,32 @@ nav ul li a:hover{
     background-color: transparent;
     display: none;
 }
+.active{
+    display: none;
+}
+#box{
+    width: 100%;
+}
+#searchInput{
+    padding:10px;
+    border-top:none;
+    border-right: none;
+    border-left: none;
+    outline: none;
+}
+#searchBox button{
+    background-color: black;
+    padding:10px;
+    color: white;
+    border: none;
+}
+#user-pp img{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    object-fit: cover;
+}
+
 /* Mobile menu */
 .mobile-menu{
     font-family: 'Playfair Display';
@@ -53,6 +79,14 @@ nav ul li a:hover{
     position: absolute;
     width:90%;
     z-index:99;
+}
+.mobile-menu #user-pp{
+    list-style: none;
+    color: white;
+
+}
+.mobile-menu #user-pp img{
+    margin-right:10px;
 }
 .mobile-menu a{
     text-decoration: none;
@@ -82,6 +116,6 @@ nav ul li a:hover{
         display: block;
     }
     .first-nav ul .logo{
-        margin-top:20px;
+        margin-top:10px;
     }
 }

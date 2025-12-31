@@ -8,7 +8,7 @@
     <div class="row">
         {% include "navbar.html" %} 
     </div>
-    <div class="container-fluid section1 mt-5">
+    <div class="container-fluid section1 mt-5"  data-aos="fade-left" data-aos-duration="2000">
         <div class="container">
             <h6>Archives & Recherche</h6>
             <h1>Catalogue des Travaux</h1>
@@ -27,7 +27,7 @@
     <div class="row mt-2 mb-5 section2">
         {% for article in articles %}
                 <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="card mt-3" data-aos="fade-up" data-aos-duration="3000" >
+                    <div class="card mt-3" data-aos="fade-up" data-aos-duration="2000">
                         <div class="card-body">
                             <div class="card-text">
                                 <p class="category">{{ article.category }}</p>
@@ -46,7 +46,7 @@
     </div>
     <div class="row text-center mb-5 btn-charger">
         <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-duration="2000">
             <button id="charger-resulat">Charger plus de résultat</button>
         </div>
         <div class="col-md-4"></div>

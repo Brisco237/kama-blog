@@ -13,9 +13,16 @@
             <li class="items"><a href="{% url 'home' %}">Home</a></li>
             <li class="items"><a href="{% url 'article_list' %}">Articles</a></li>
             <li class="items"><a href="{% url 'archives' %}">Archives</a></li>
-            <li class="items"><a href=""><i class="fas fa-search"></i></a></li>
-            <li class="items"><a href="{% url 'login_user' %}" class="connexion-button">Connexion</a></li>
-            <li class="items"><a href="{% url 'register' %}" class="inscrire-button">S'inscrire</a></li>
+            <li class="items"><a href=""><i class="fas fa-search" id="search-bar"></i></a></li>
+            {% if user.is_authenticated %}
+                <li class="items" id="user-pp">
+                    <img src="{{ user.profile.photo.url }}"> 
+                    {{ user.username }}
+                </li>
+            {% else %}
+                <li class="items"><a href="{% url 'login_user' %}" class="connexion-button">Connexion</a></li>
+                <li class="items"><a href="{% url 'register' %}" class="inscrire-button">S'inscrire</a></li>
+            {% endif %}
             <button @click="open = !open" class="burger-button">
                 <i class="fa-solid" :class="open ? 'fa-xmark' : 'fa-bars'" style="font-size:22px;"></i>
             </button>
@@ -29,12 +36,43 @@
                     <a href="{% url 'home' %}">Home</a>
                     <a href="{% url 'article_list' %}">Articles</a>
                     <a href="{% url 'archives' %}">Archives</a>
-                    <a href=""><i class="fas fa-search"></i></a>
-                    <a href="{% url 'login_user' %}" class="connexion-button">Connexion</a>
-                    <a href="{% url 'register' %}" class="register-button-mobile">S'inscrire</a>
+                    <a href=""><i class="fas fa-search" id="search-bar"></i></a>
+                    {% if user.is_authenticated %}
+                        <li class="items mt-3" id="user-pp">
+                            <img src="{{ user.profile.photo.url }}"> 
+                            {{ user.username }}
+                        </li>
+                    {% else %}
+                        <li class="items"><a href="{% url 'login_user' %}" class="connexion-button">Connexion</a></li>
+                        <li class="items"><a href="{% url 'register' %}" class="inscrire-button">S'inscrire</a></li>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="row" id="box">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form id="searchBox" method="get" action="" class="active">
+                <input type="text" name="q" placeholder="Rechercher un article..." id="searchInput"/>
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
 </div>
+
+
+<script>
+
+    let icone = document.getElementById('search-bar');
+    let box = document.getElementById('box');
+
+    icone.addEventListener('click', (e) => {
+        e.preventDefault();
+        box.classList.toggle('active');
+    });
+
+</script>
 {% endblock content %}

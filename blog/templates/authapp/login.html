@@ -42,6 +42,13 @@
             <div class="col-lg-4 col-sm-3"></div>
         </div>
     </div>
-    {% include "footer.html" %}
+    {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+{% include "footer.html" %}
 </div>
 {% endblock content%}

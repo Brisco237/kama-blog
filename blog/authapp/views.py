@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from articles.models import Article, Category
 from django.conf import settings
-from .models import User
+from django.contrib import messages
+from .models import Profile, User
 
 # Create your views here.
 def home(request):
@@ -15,8 +16,28 @@ def home(request):
     )
 
 def register(request):
+    if request.method == "POST":
+        photo = request.FILES['photo']
+        username = request.POST['name']
+        last_name = request.POST['subname']
+        email = request.POST['email']
+        password  = request.POST['password']
+    
+    try:
+        user = User.objects.create_user(
+            username=username, last_name=last_name, email=email, password=password
+        )
+    
+        Profile.objects.create(user=user, photo=photo)
+        messages.success(request, "Compte créé avec succès!")
+        return redirect('login_user')
+        
+    except Exception as e:
+        messages.error(request, f"Erreur: {str(e)}")
+    
 
     return render(request, 'authapp/register.html')
 
 def login_user(request):
     return render(request, 'authapp/login.html')
+

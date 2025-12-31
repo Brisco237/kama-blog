@@ -2,7 +2,7 @@
 .first-section{
     margin: 60px 0 20px 90px;
 }
-.first-section .title, .subtitle{
+.first-section .title{
     font-size:80px;
 }
 .first-section .title{
@@ -21,13 +21,12 @@
     color:#333333;
 }
 .buttons-home-section a{
-    list-style: none;
+    text-decoration: none;
 }
 .buttons-home-section .button1{
     background-color: black;
     color: white;
     font-family: 'Inter', sans-serif;
-    text-decoration: none;
     padding: 15px;
 }
 .buttons-home-section .button1:hover{
@@ -35,7 +34,6 @@
     transition: 0.8s;
 }
 .buttons-home-section .button2{
-    text-decoration: none;
     border: 1px solid black;
     padding: 14px;
     color:black;
@@ -64,6 +62,9 @@
 #articles-featured{
     background-color:rgb(231 229 228);
     padding:30px 20px;
+}
+#articles-featured .card{
+    padding:50px;
 }
 #articles-featured .category1{
     font-family: 'Inter', sans-serif;
@@ -174,7 +175,7 @@
     transition: 0.8s;
 }
 .newsletter form input,.newsletter form .btn-newsletter{
-    width: 100%;;
+    width: 100%;
 }
 .hastag-categories h5{
     font-family: 'Inter', sans-serif;
@@ -203,24 +204,82 @@
         font-size:50px;
     }
     .first-section .subtitle{
-        font-size: 30px;
+        font-size:30px;
+    }
+    .first-section .text{
+        font-size:18px;
+        margin-top:30px;
+    }
+    #articles-featured .card{
+        padding:15px;
+    }
+    #articles-featured .category1{
+        font-size:12px;
+    }
+    .title-article{
+        font-size:20px;
+    }
+    .summary{
+        font-size:12px;
     }
 }
-@media screen and (max-width:375px) {
+@media screen and (max-width:425px) {
+    .first-section .title{
+        font-size:35px;
+    }
+    .first-section .subtitle{
+        font-size:20px;
+    }
+    .first-section .text{
+        font-size:12px;
+    }
+    .section3 h4{
+        font-size:18px;
+    }
+    .section3 .sec3{
+        font-size:13px;
+    }
+    .second-section .head-second-section h4{
+        font-size:18px;
+    }
+    .second-section .head-second-section .voir{
+        font-size:14px;
+    }
+
+}
+@media screen and (max-width:375px){
     .buttons-home-section{
         display: flex;
         flex-direction: column;
+        text-align: center;
     }
     .buttons-home-section .button1{
         margin-bottom:5px;
+        padding:9px;
+        border-radius: 10px;
+    }
+    .buttons-home-section .button2{
+        padding:8px;
+        border-radius:10px;
+
+    }
+    .section3 h4{
+        font-size:18px;
+    }
+    .section3 .sec3 {
+       font-size: 12px;
     }
 }
 @media screen and (max-width:320px) {
     .first-section .title{
-        font-size: 40px;
+        margin-top:20px;
+        font-size:30px;
+    }
+    .first-section .subtitle{
+        font-size:20px;
     }
     .first-section .text{
-        font-size:14px;
+        font-size:12px;
     }
     .second-section .head-second-section h4{
         font-weight: bold;
