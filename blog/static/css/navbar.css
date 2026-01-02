@@ -18,10 +18,11 @@ nav ul li{
 nav ul li a{
     text-decoration: none;
     color:black;
+    transition: ease-out 0.1s;
 }
 nav ul li a:hover{
-    border-bottom: 1px solid black;
-    transition: 0.8s;
+    border-bottom: 3px solid black;
+    padding-bottom:2px;
 }
 .inscrire-button{
     background-color: black;
@@ -58,8 +59,8 @@ nav ul li a:hover{
     border: none;
 }
 #user-pp img{
-    width:30px;
-    height:30px;
+    width: 40px;
+    height:40px;
     border-radius:50%;
     object-fit: cover;
 }
@@ -68,7 +69,7 @@ nav ul li a:hover{
 .mobile-menu{
     font-family: 'Playfair Display';
     padding-top:20px;
-    background-color:black;
+    background-color:rgb(231 229 228);
     border-radius: 10px;
     height: 450px;
     display: flex;
@@ -82,7 +83,7 @@ nav ul li a:hover{
 }
 .mobile-menu #user-pp{
     list-style: none;
-    color: white;
+    color: black;
 
 }
 .mobile-menu #user-pp img{
@@ -90,17 +91,17 @@ nav ul li a:hover{
 }
 .mobile-menu a{
     text-decoration: none;
-    color:white;
+    color:black;
     margin:20px 0px 20px 0px;
+    transition: ease-in 0.1s;
 }
 .mobile-menu a:hover{
-    border-bottom: 2px solid white;
-    transition: ease-in 0.8s;
+    border-bottom: 3px solid black;
 }
 .mobile-menu .register-button-mobile{
-    background-color:white;
+    background-color:black;
     padding: 10px 10px 10px 10px;
-    color:black;
+    color:white;
 }
 .mobile-menu .register-button-mobile:hover{
     opacity:0.8;

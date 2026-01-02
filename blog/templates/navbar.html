@@ -19,6 +19,7 @@
                     <img src="{{ user.profile.photo.url }}"> 
                     {{ user.username }}
                 </li>
+                <button><a href="{% url 'logout_user' %}">Logout</a></button>
             {% else %}
                 <li class="items"><a href="{% url 'login_user' %}" class="connexion-button">Connexion</a></li>
                 <li class="items"><a href="{% url 'register' %}" class="inscrire-button">S'inscrire</a></li>

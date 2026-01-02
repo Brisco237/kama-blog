@@ -41,7 +41,7 @@
 .login form{
     font-family: 'Inter';
 }
-form .emailfield input, .passwordfield input{
+form .namefield input, .passwordfield input{
     outline: none;
     padding: 10px;
     width: 100%;
