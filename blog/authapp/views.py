@@ -65,11 +65,12 @@ def login_user(request):
             return redirect('home')
         else:
             messages.error(request, "Mot de passe ou nom d'utilisateur incorrect !")
-            return redirect('login.html')
+            return redirect('login_user')
 
     return render(request, 'authapp/login.html')
 
 def logout_user(request):
+    messages.success(request, "Vous avez été déconnecté !")
     logout(request)
     return redirect('home')
 

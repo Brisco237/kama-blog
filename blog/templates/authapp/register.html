@@ -57,31 +57,6 @@
             <div class="col-lg-4 col-md-3"></div>
         </div>
     </div>
-
-{% if messages %}
-  {% for message in messages %}
-    <div class="modal fade" id="messageModal" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-
-          <div class="modal-header">
-            <h5 class="modal-title">Message</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-            ></button>
-          </div>
-
-          <div class="modal-body">
-            {{ message }}
-          </div>
-
-        </div>
-      </div>
-    </div>
-  {% endfor %}
-{% endif %}
     
 {% include "footer.html" %}
 </div>

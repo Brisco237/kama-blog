@@ -21,8 +21,7 @@ nav ul li a{
     transition: ease-out 0.1s;
 }
 nav ul li a:hover{
-    border-bottom: 3px solid black;
-    padding-bottom:2px;
+    border-bottom: 1px solid black;
 }
 .inscrire-button{
     background-color: black;
@@ -96,7 +95,7 @@ nav ul li a:hover{
     transition: ease-in 0.1s;
 }
 .mobile-menu a:hover{
-    border-bottom: 3px solid black;
+    border-bottom: 1px solid black;
 }
 .mobile-menu .register-button-mobile{
     background-color:black;
