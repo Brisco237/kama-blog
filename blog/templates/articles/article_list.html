@@ -25,7 +25,8 @@
         </div>
     </div>
     <div class="row mt-2 mb-5 section2">
-        {% for article in articles %}
+        {% if articles %}
+            {% for article in articles %}
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="card mt-3" data-aos="fade-up" data-aos-duration="2000">
                         <div class="card-body">
@@ -42,15 +43,20 @@
                         </div>
                     </div>
                 </div>
-        {% endfor %}
+            {% endfor %}
+        {% else %}
+            <h4 style='font-family:"Inter";' class='text-center'>😌 Désolée pas d'articles pour le moment...</h4>
+        {% endif %}
     </div>
-    <div class="row text-center mb-5 btn-charger">
-        <div class="col-md-4"></div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-duration="2000">
-            <button id="charger-resulat">Charger plus de résultat</button>
+    {% if articles %}
+        <div class="row text-center mb-5 btn-charger">
+            <div class="col-md-4"></div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-duration="2000">
+                <button id="charger-resulat">Charger plus de résultat</button>
+            </div>
+            <div class="col-md-4"></div>
         </div>
-        <div class="col-md-4"></div>
-    </div>
+    {% endif %}
     <div class="row newsletter mb-5">
         <div class="col-md-2"></div>
         <div class="col-md-8">

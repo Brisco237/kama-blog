@@ -58,10 +58,11 @@ nav ul li a:hover{
     border: none;
 }
 #user-pp img{
-    width: 40px;
-    height:40px;
+    width: 30px;
+    height:30px;
     border-radius:50%;
     object-fit: cover;
+    margin-right:10px;
 }
 
 /* Mobile menu */

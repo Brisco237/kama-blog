@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %} Kama-Blog | Home page {% endblock title %}
+{% block title %} Kama-Blog | Archives page {% endblock title %}
 {% block styles %}<link rel="stylesheet" href="{% static 'css/articles/archives.css' %}">{% endblock styles %}
 
 {% block content %}
@@ -29,7 +29,9 @@
         </div>
         <div class="row categorie-search mb-5">
             <div class="col-lg-12 mb-3">
-                <h3>Catégories</h3>
+                {% if categories %}
+                    <h3>Catégories</h3>
+                {% endif %}
             </div>
             {% for categorie in categories %}
                 <div class="col-lg-12" data-aos="fade-right" data-aos-duration="3000">
@@ -70,25 +72,29 @@
             </div>
         </div>
         <div class="row mt-5 mb-5 articles-card">
-            {% for article in articles %}
-                <div class="col-md-4 col-sm-6 mb-3">
-                    <div class="card h-60" data-aos="fade-up" data-aos-duration="2000">
-                        <img src="{{ article.img.url }}" alt="{{ article.title }}" class="card-img-top img-fluid">
-                        <div class="card-body">
-                            <p class="card-text card-date"><i class="fas fa-calendar"></i> {{ article.updated_at|date:"d M Y  à  H:i" }}</p>
-                            <h4 class="card-title">{{ article.title }}</h4>
-                            <p class="card-text card-summary">{{ article.summary }}</p>
-                        </div>
-                        <hr>
-                        <div class="footer-card">
-                            <p class="card-text">{{ article.author }}</p>
-                            <a href="{% url 'article_detail' article.slug %}">
-                                Lire <i class="fas fa-arrow-right"></i>
-                            </a>
+            {% if articles %}
+                {% for article in articles %}
+                    <div class="col-md-4 col-sm-6 mb-3">
+                        <div class="card h-60" data-aos="fade-up" data-aos-duration="2000">
+                            <img src="{{ article.img.url }}" alt="{{ article.title }}" class="card-img-top img-fluid">
+                            <div class="card-body">
+                                <p class="card-text card-date"><i class="fas fa-calendar"></i> {{ article.updated_at|date:"d M Y  à  H:i" }}</p>
+                                <h4 class="card-title">{{ article.title }}</h4>
+                                <p class="card-text card-summary">{{ article.summary }}</p>
+                            </div>
+                            <hr>
+                            <div class="footer-card">
+                                <p class="card-text">{{ article.author }}</p>
+                                <a href="{% url 'article_detail' article.slug %}">
+                                    Lire <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            {% else %}
+                <h4 style='font-family:"Inter";' class="text-center">😌 Désolée pas d'articles pour le moment...</h4>
+            {% endif %}
         </div>
     </div>
 </div>

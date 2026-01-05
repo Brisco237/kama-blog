@@ -23,13 +23,13 @@
                             <img id="avatarPreview" src="/static/images/default-avatar.png" alt="Photo">
                             <span class="camera-icon">📷</span>
                         </div>
-                        <input type="file" id="avatarInput" name="photo" accept="image/*" hidden required>
+                        <input type="file" id="avatarInput" name="photo" accept="image/*" hidden {% if not google_email %}required{% endif %}>
                     </div>
-                    <p class="text-center">Ajouter une photo</p>
+                    <p class="text-center">{% if google_email %}Ajouter une photo (optionnel){% else %}Ajouter une photo{% endif %}</p>
                     <div class="first-second-name">
                         <div class="first-name">
                             <label for="subname">Prénom</label><br>
-                            <input type="text" name="subname" id="subname" placeholder="Votre prénom" required>
+                            <input type="text" name="subname" id="subname" placeholder="Votre prénom" value="{{ google_first_name }}" required>
                         </div>
                         <div class="second-name">
                             <label for="name">Nom</label><br>
@@ -38,15 +38,11 @@
                     </div>
                     <div class="emailfield">
                         <label for="email">Email</label><br>
-                        <input type="email" name="email" id="email" placeholder="Votre email@gmail.com" required>
+                        <input type="email" name="email" id="email" placeholder="Votre email@gmail.com" value="{{ google_email }}" {% if google_email %}readonly{% endif %} required>
                     </div>
                     <div class="passwordfield">
                         <label for="password">Password</label><br>
                         <input type="password" name="password" id="password" placeholder="Votre mot de passe" required>
-                    </div>
-                    <div class="checkboxfield">
-                        <input type="checkbox" name="checkbox" id="checkbox" required>
-                        <label for="checkbox">J'accepte la charte éditoriale.</label>
                     </div>
                     <div class="validationfield">
                         <button type="submit">Créer mon compte</button>

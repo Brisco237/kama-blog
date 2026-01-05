@@ -89,9 +89,6 @@
     font-weight: bold;
     
 }
-form .checkboxfield #checkbox{
-    accent-color: black;
-}
 input{
     padding: 10px;
     outline: none;

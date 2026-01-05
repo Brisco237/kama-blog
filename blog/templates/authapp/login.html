@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load socialaccount %}
 {% load static %}
 {% block title %} Kama-Blog | Login page {% endblock title %}
 {% block styles %}<link rel="stylesheet" href="{% static 'css/authapp/login.css' %}">{% endblock styles %}
@@ -16,9 +17,11 @@
                     <h3>K.</h3>
                     <h4>Bon retour</h4>
                     <p>Accédez à votre bibliothèque personnelle.</p><br>
-                    <a href=""><img src="{% static 'images/google.png' %}" width="25px" height="25px">
+                    <a href="{% provider_login_url 'google' %}">
+                        <img src="{% static 'images/google.png' %}" width="25px" height="25px">
                         Continuer avec Google
                     </a>
+                    <p style="font-size: 0.85rem; color: #666; margin-top:15px;">Si vous n'avez pas de compte, un formulaire d'inscription complètera les informations.</p>
                     <div class="divider">
                         <span>OU PAR NAME</span>
                     </div>

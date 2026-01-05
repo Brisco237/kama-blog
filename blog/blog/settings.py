@@ -40,10 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'articles',
     'authapp',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 ]
 
@@ -55,19 +57,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # Add the account middleware:
     "allauth.account.middleware.AccountMiddleware",
 ]
 
-# Provider specific settings
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
-        'APP': {
-            'client_id': '',
-            'secret': '',
-            'key': ''
-        }
-    }
+        'SCOPE': [
+            'profile',
+            'email'
+        ]
+    },
 }
 
 ROOT_URLCONF = 'blog.urls'
@@ -88,12 +87,14 @@ TEMPLATES = [
 ]
 
 AUTHENTICATION_BACKENDS = [
-    # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
-    # `allauth` specific authentication methods, such as login by email
     'allauth.account.auth_backends.AuthenticationBackend',
-    ...
 ]
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'blog.wsgi.application'
 
@@ -115,9 +116,15 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'OPTIONS' : {
+            'user_attributes' : ['username', 'email'],
+        },
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS' : {
+            'min_length' : 8,
+        },
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -155,3 +162,19 @@ SIMPLEUI_LOGO = '/static/images/logo.png'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SOCIALACCOUNT_LOGIN_ON_GET = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+SOCIALACCOUNT_AUTO_SIGNUP = True
+LOGIN_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
+SOCIALACCOUNT_QUERY_EMAIL = True
+ACCOUNT_SESSION_REMEMBER = True
+
+
+# Désactiver les pages par défaut d'allauth
+#ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'  
+SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'

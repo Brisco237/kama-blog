@@ -16,7 +16,11 @@
             <li class="items"><a href=""><i class="fas fa-search" id="search-bar"></i></a></li>
             {% if user.is_authenticated %}
                 <li class="items" id="user-pp">
-                    <img src="{{ user.profile.photo.url }}"> 
+                    {% if user.profile.photo.url %}
+                        <img src="{{ user.profile.photo.url }}"> 
+                    {% else %}
+                        <img src="{% static 'images/default-avatar.png' %}">
+                    {% endif %}
                     {{ user.username }}
                 </li>
                 <button><a href="{% url 'logout_user' %}">Logout</a></button>
@@ -40,7 +44,11 @@
                     <a href=""><i class="fas fa-search" id="search-bar"></i></a>
                     {% if user.is_authenticated %}
                         <li class="items mt-3" id="user-pp">
-                            <img src="{{ user.profile.photo.url }}"> 
+                            {% if user.profile.photo.url %}
+                                <img src="{{ user.profile.photo.url }}"> 
+                            {% else %}
+                                <img src="{% static 'images/default-avatar.png' %}">
+                            {% endif %}
                             {{ user.username }}
                         </li>
                     {% else %}
@@ -52,28 +60,6 @@
         </div>
     </div>
 
-    <div class="row" id="box">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <form id="searchBox" method="get" action="" class="active">
-                <input type="text" name="q" placeholder="Rechercher un article..." id="searchInput"/>
-                <button type="submit"><i class="fas fa-search"></i></button>
-            </form>
-        </div>
-        <div class="col-md-3"></div>
-    </div>
 </div>
 
-
-<script>
-
-    let icone = document.getElementById('search-bar');
-    let box = document.getElementById('box');
-
-    icone.addEventListener('click', (e) => {
-        e.preventDefault();
-        box.classList.toggle('active');
-    });
-
-</script>
 {% endblock content %}

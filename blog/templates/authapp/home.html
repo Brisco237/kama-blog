@@ -10,11 +10,6 @@
     </div>
     <div class="row mb-5 mt-4">
         <div class="col-md-12">
-            {% if messages %}
-            {% for message in messages %}
-            {{ message }}
-            {% endfor %}
-            {% endif %}
             <div class="first-section">
                 <h1 class="title">Réécrire l'histoire</h1>
                 <h3 class="subtitle"></h3>
@@ -51,7 +46,7 @@
                 </div>
             {% endfor %}
         {% else %}
-            <h4 style='font-family:"Inter";'>😌 Désolée pas d'articles pour le moment...</h4>
+            <h4 style='font-family:"Inter";' class="text-center">😌 Désolée pas d'articles pour le moment...</h4>
         {% endif %}
     </div>
     <hr>
@@ -91,7 +86,7 @@
             </div>
         {% endfor %}
     {% else %}
-        <h4 style='font-family:"Inter";'>😌 Désolée pas d'articles pour le moment...</h4>
+        <h4 style='font-family:"Inter";' class="text-center">😌 Désolée pas d'articles pour le moment...</h4>
     {% endif %}
     <br>
     <div class="row newsletter mb-5">
@@ -111,18 +106,22 @@
     </div>
     <div class="row hastag-categories mb-5" data-aos="fade-up" data-aos-duration="2000">
         <h5>Explorer par catégories</h5>
-        {% for categorie in categories %}
-            <div class="col-lg-3 col-sm-3 col-xm-12 text-center">
-                <a href="" class="card m-2">#{{ categorie.name }}</a>
-            </div>
-        {% endfor %}
+        {% if categories %}
+            {% for categorie in categories %}
+                <div class="col-lg-3 col-sm-3 col-xm-12 text-center">
+                    <a href="" class="card m-2">#{{ categorie.name }}</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h4 style='font-family:"Inter";' class="text-center">😌 Désolée pas de catégorie pour le moment...</h4>
+        {% endif %}
     </div>
 </div>
 
 <!--Footer-->
 {% include "footer.html" %}
 <script>
-    AOS.init();
+    AOS.init();d
 </script>
 {% block js %}<script src="{% static 'js/authapp/home.js' %}" defer></script>{% endblock js %}
 
