@@ -64,11 +64,12 @@
     </div>
     <div class="commentaire-section mb-5">
         {% if user.is_authenticated %}
-        <img src="{{ user.profile.photo.url }}">
+            <img src="{{ user.profile.photo.url }}">
         {% else %}
-        <img src="{% static 'images/default-avatar.png' %}">
+            <img src="{% static 'images/default-avatar.png' %}">
         {% endif %}
         <form action="" method="post">
+            {% csrf_token %}
             <textarea name="commentaire" id="commentaire-input" cols="70" rows="5"
                 placeholder="Partagez votre point de vue..."></textarea>
             <br><button type="submit">Publier</button>

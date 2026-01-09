@@ -97,12 +97,12 @@
     border-bottom: 1px solid #e5e5e5;
 }
 .avatar {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height:40px;
     border-radius: 50%;
     object-fit: cover;
 }
-.comment-body {
+.comment-body{
     flex: 1;
 }
 .comment-header {
