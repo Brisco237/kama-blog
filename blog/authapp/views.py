@@ -52,7 +52,7 @@ def register(request):
         try: 
             validate_password(password)
         except ValidationError as errors:
-                messages.error(request, str(error))
+                messages.error(request, str(errors))
 
     return render(request, 'authapp/register.html')
 
