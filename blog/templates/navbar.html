@@ -13,7 +13,7 @@
             <li class="items"><a href="{% url 'home' %}">Home</a></li>
             <li class="items"><a href="{% url 'article_list' %}">Articles</a></li>
             <li class="items"><a href="{% url 'archives' %}">Archives</a></li>
-            <li class="items"><a href=""><i class="fas fa-search" id="search-bar"></i></a></li>
+            <li class="items"><a href="">A propos & Contact</a></li>
             {% if user.is_authenticated %}
                 <li class="items" id="user-pp">
                     {% if user.profile.photo.url %}
@@ -23,7 +23,9 @@
                     {% endif %}
                     {{ user.username }}
                 </li>
-                <button><a href="{% url 'logout_user' %}">Logout</a></button>
+                <li class="items">
+                    <a href="{% url 'logout_user' %}">Logout <i class="fa-solid fa-circle-chevron-right"></i></a>
+                </li>
             {% else %}
                 <li class="items"><a href="{% url 'login_user' %}" class="connexion-button">Connexion</a></li>
                 <li class="items"><a href="{% url 'register' %}" class="inscrire-button">S'inscrire</a></li>
@@ -41,7 +43,6 @@
                     <a href="{% url 'home' %}">Home</a>
                     <a href="{% url 'article_list' %}">Articles</a>
                     <a href="{% url 'archives' %}">Archives</a>
-                    <a href=""><i class="fas fa-search" id="search-bar"></i></a>
                     {% if user.is_authenticated %}
                         <li class="items mt-3" id="user-pp">
                             {% if user.profile.photo.url %}
@@ -51,6 +52,8 @@
                             {% endif %}
                             {{ user.username }}
                         </li>
+                        <br>
+                        <a href="{% url 'logout_user' %}">Logout <i class="fa-solid fa-circle-chevron-right"></i></a>
                     {% else %}
                         <li class="items"><a href="{% url 'login_user' %}" class="connexion-button">Connexion</a></li>
                         <li class="items"><a href="{% url 'register' %}" class="inscrire-button">S'inscrire</a></li>

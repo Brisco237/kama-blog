@@ -15,22 +15,21 @@
             <div class="col-lg-4 col-sm-6 login">
                 <div class="login-head text-center">
                     <h3>K.</h3>
-                    <h4>Bon retour</h4>
-                    <p>Accédez à votre bibliothèque personnelle.</p><br>
+                    <h4>Se connecter</h4>
+                    <p>Accédez à votre bibliothèque personnelle.</p>
                     <a href="{% provider_login_url 'google' %}">
                         <img src="{% static 'images/google.png' %}" width="25px" height="25px">
                         Continuer avec Google
                     </a>
-                    <p style="font-size: 0.85rem; color: #666; margin-top:15px;">Si vous n'avez pas de compte, un formulaire d'inscription complètera les informations.</p>
                     <div class="divider">
-                        <span>OU PAR NAME</span>
+                        <span>OU PAR IDENTIFIANTS</span>
                     </div>
                 </div>
                 <form method="post">
                     {% csrf_token %}
                     <div class="namefield">
                         <label for="name">Nom</label><br>
-                        <input type="text" name="name" id="name" placeholder="Votre Nom" required>
+                        <input type="text" name="name" id="name" placeholder="Votre nom" required>
                     </div>
                     <div class="passwordfield">
                         <label for="password">Password</label><br>

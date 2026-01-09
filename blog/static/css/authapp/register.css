@@ -24,34 +24,7 @@
     border:1px solid gray;
     border-radius:20px;
 }
-.avatar-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-.avatar-circle {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 2px dashed #aaa;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.avatar-circle img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: none;
-}
-.camera-icon {
-  font-size: 30px;
-  color: #666;
-  position: absolute;
-}
+
 .first-second-name{
     display: flex;
     gap:2px;

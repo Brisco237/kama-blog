@@ -6,7 +6,6 @@ from .models import Profile, User
 from django.contrib.auth import authenticate, login, logout
 from django.core.exceptions import ValidationError
 from django.contrib.auth.password_validation import validate_password
-from allauth.socialaccount.models import SocialAccount, SocialApp
 
 # Create your views here.
 def google_login_callback(request):
@@ -29,10 +28,6 @@ def home(request):
     )
 
 def register(request):
-    # Si l'utilisateur vient de Google
-    google_email = request.session.get('google_email')
-    google_first_name = request.session.get('google_first_name')
-    
     if request.method == "POST":
         photo = request.FILES.get('photo')
         username = request.POST['name']
@@ -57,57 +52,9 @@ def register(request):
         try: 
             validate_password(password)
         except ValidationError as errors:
-            for error in errors:
                 messages.error(request, str(error))
-            context = {
-                'google_email': google_email,
-                'google_first_name': google_first_name,
-                'email': email,
-                'username': username,
-                'last_name': last_name
-            }
-            return render(request, 'authapp/register.html', context)
-        
-        # Vérifier si photo est fournie
-        if not photo and not google_email:  # Photo requise sauf si vient de Google
-            messages.error(request, "Vous devez ajouter une photo de profil!")
-            return redirect('register')
-        
-        try:
-            user = User.objects.create_user(
-                username=username, 
-                last_name=last_name, 
-                email=email, 
-                password=password
-            )
-            
-            # Créer le profil
-            if photo:
-                Profile.objects.create(user=user, photo=photo)
-            else:
-                Profile.objects.create(user=user)  # Sans photo si vient de Google
-            
-            # Nettoyer la session Google
-            if 'google_email' in request.session:
-                del request.session['google_email']
-            if 'google_first_name' in request.session:
-                del request.session['google_first_name']
-            
-            # Connecter l'utilisateur et rediriger
-            login(request, user)
-            messages.success(request, "Compte créé avec succès!")
-            return redirect('home')
-        
-        except Exception as e:
-            messages.error(request, f"Erreur: {str(e)}")
-            return redirect('register')
 
-    # Préparer le contexte pour le formulaire
-    context = {
-        'google_email': google_email,
-        'google_first_name': google_first_name,
-    }
-    return render(request, 'authapp/register.html', context)
+    return render(request, 'authapp/register.html')
 
 def login_user(request):
     if request.method == 'POST':
