@@ -63,7 +63,7 @@
         </div>
     </div>
     <div class="commentaire-section mb-5">
-        {% if user.is_authenticated %}
+        {% if user.profile.photo %}
             <img src="{{ user.profile.photo.url }}">
         {% else %}
             <img src="{% static 'images/default-avatar.png' %}">
@@ -79,7 +79,11 @@
         {% for comment in article.comments.all %}
             {% if article.comments.count > 0 and comment.is_approved %}
                 <div class="comment">
-                    <img src="{{ comment.user.profile.photo.url }}" alt="Photo profil" class="avatar">
+                    {% if comment.user.profile.photo.url %}
+                        <img src="{{ comment.user.profile.photo.url }}" class='avatar'>
+                    {% else %}
+                        <img src="{% static 'images/default-avatar.png' %}">
+                    {% endif %}
                     <div class="comment-body">
                         <div class="comment-header">
                             <strong class="username">{{ comment.user.username }}</strong>
