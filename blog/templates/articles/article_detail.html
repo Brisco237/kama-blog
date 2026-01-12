@@ -82,7 +82,7 @@
                     {% if comment.user.profile.photo.url %}
                         <img src="{{ comment.user.profile.photo.url }}" class='avatar'>
                     {% else %}
-                        <img src="{% static 'images/default-avatar.png' %}">
+                        <img src="{% static 'images/default-avatar.png' %}" class='avatar'>
                     {% endif %}
                     <div class="comment-body">
                         <div class="comment-header">
