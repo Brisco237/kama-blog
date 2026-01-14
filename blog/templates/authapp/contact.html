@@ -1,8 +1,117 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %} A propos & contact | Home page {% endblock title %}
+{% block title %} Kama-Blog | À propos & contact {% endblock title %}
 {% block styles %}<link rel="stylesheet" href="{% static 'css/authapp/contact.css' %}">{% endblock styles %}
 
 {% block content %}
+<div class="container-fluid all">
+    <div class="row">
+        <div class="col-lg-12">
+            {% include "navbar.html" %}
+        </div>
+    </div>
+    <div class="row text-center mt-5 mb-5">
+        <div class="col-lg-12 section1">
+            <p>À propos de l'auteur</p>
+            <h1>Faire le pont entre le passé et <br> le présent.</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row presentation">
+            <div class="col-md-4 col-sm-6 image-contact text-center">
+                <img src="{% static 'images/profile.png' %}" class="img-fluid">
+                <h2>Kamdem Brice</h2>
+                <p>Historien & Fondateur</p>
+                <p class="medias-sociaux">
+                    <a href=""><i class="fab fa-facebook-square"></i></a>
+                    <a href=""><i class="fab fa-whatsapp"></i></a>
+                    <a href=""><i class="fab fa-telegram"></i></a>
+                </p>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-7 col-sm-6 text-contact">
+                <p>
+                    <span>Bienvenue sur Kama-Blog.</span>
+                    <span class="text-lambda">
+                    J'ai créé cet espace avec une conviction simple :
+                    l'histoire de l'Afrique ne doit plus être une note de bas de page dans le grand livre de l'humanité. <br>
+                    <br>
+                    Après dix années de recherches académiques à travers le continent, des bibliothèques de Tombouctou aux
+                    ruines du Grand Zimbabwe, j'ai réalisé que le savoir restait trop souvent enfermé dans des tours
+                    d'ivoire.
+                    Mon but est de démocratiser cette connaissance. <br> <br>
+                    Je ne suis pas seulement un archiviste du passé, mais un militant de la mémoire.
+                    Je crois fermement que comprendre d'où nous venons est la seule façon de construire
+                    un futur souverain et éclairé. <br><br>
+                    </span>
+                    <p class="citation">
+                        "Chaque génération doit dans une relative opacité découvrir sa mission, 
+                        la remplir ou la trahir."
+                        <br><br>
+                        Frantz fanon
+                    </p>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-lg-12 text-center">
+                <div class="divider">
+                    <span>ME LAISSER UN MESSAGE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-5 mb-5 formulaire">
+            <div class="col-md-6 formulaire-infos">
+                <h2>Engageons la conversation</h2>
+                <p class="text-descrip mb-5">Que vous ayez une question sur un article,
+                    une proposition de collaboration académique, ou simplement l'envie
+                    d'échanger sur l'histoire, ma porte est ouverte.</p>
+                <hr>
+                <p class="mt-5">
+                    <i class="fas fa-envelope"></i>
+                    Email direct <br>
+                    Kamdembrice770@gmail.com
+                </p>
+                <p>
+                    <i class="fas fa-clock"></i>
+                    Réponse sous 48H <br>
+                </p>
+            </div>
+            <div class="col-md-6">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="first-second-name">
+                        <div class="first-name">
+                            <label for="subname">Prénom</label><br>
+                            <input type="text" name="subname" id="subname" placeholder="Votre prénom" required>
+                        </div>
+                        <div class="second-name">
+                            <label for="name">Nom</label><br>
+                            <input type="text" name="name" id="name" placeholder="Votre nom" required>
+                        </div>
+                    </div>
+                    <div class="choicefield mt-2">
+                        <label for="sujet">Sujet</label><br>
+                        <select name="" id="">
+                            <option value="">Question générale</option>
+                            <option value="">Partenariat / Collaboration</option>
+                            <option value="">Signaler une erreur</option>
+                        </select>
+                    </div>
+                    <div class="messagefield mt-2">
+                        <label for="message">Message</label><br>
+                        <textarea name="message" placeholder="Comment puis je vous aidez ?"></textarea>
+                    </div>
+                    <button type="submit">Envoyer <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
 
+{% include "footer.html" %}
+</div>
 {% endblock content %}

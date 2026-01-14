@@ -1,0 +1,181 @@
+.all{
+    background-color:rgb(247, 242, 242);
+    font-family:'Inter';
+}
+.section1 p{
+    font-family:'Inter';
+    color:rgb(194 65 12);
+    font-size:18px;
+    font-weight:bolder;
+}
+.section1 h1{
+    font-family: 'Playfair Display';
+    font-size: 60px;
+}
+.presentation{
+    padding:20px 90px 40px 40px;
+    font-family:'Inter';
+    background-color:white;
+    border-radius: 15px;
+}
+.image-contact h2{
+    font-family:'Playfair Display';
+    font-size:25px;
+    margin-top:15px;
+}
+.image-contact p{
+    text-transform: uppercase;
+    color:gray;
+    font-size:14px;
+}
+.presentation .image-contact img{
+    border-radius:15px;
+    height:400px;
+    width:300px;
+    object-fit: cover;
+    transform: rotate(5deg);
+    transition: 0.5s;
+    border:1px solid white;
+    padding:10px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.1);
+}
+.presentation .image-contact img:hover{
+    transform: rotate(-5deg);
+}
+.medias-sociaux a{
+    color: gray;
+    font-size:20px;
+    margin:4px;
+}
+.medias-sociaux a:hover{
+   color:black;
+}
+.text-contact{
+    padding-top:90px;
+}
+.text-contact p span{
+    font-weight:bolder;
+}
+.text-contact p{
+    font-size:25px;
+}
+.text-lambda{
+    color: rgb(173, 166, 166);
+    font-weight: 200;
+    font-size:22px;
+}
+.citation{
+    border-left:2px solid rgb(194 65 12);
+    font-family: "Playfair Display";
+    padding-left: 20px;
+    font-style: italic;
+}
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: black;
+  margin: 20px 0;
+}
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid gray;
+}
+.divider span {
+  padding: 0 10px;
+  font-size: 14px;
+  color: gray;
+}
+/* formulaire */
+form{
+    background-color: white;
+    border-radius:15px;
+    padding: 20px;
+}
+.formulaire-infos h2{
+    font-family: 'Playfair Display';
+    margin-bottom:20px;
+}
+.formulaire-infos .text-descrip{
+    color: gray;
+    margin-bottom:5px;
+}
+.formulaire-infos i{
+    color: rgb(194 65 12);
+}
+.first-second-name{
+    display: flex;
+    gap:2px;
+}
+.first-name input{
+    padding:10px;
+}
+.second-name input{
+    padding: 10px;
+}
+.choicefield select{
+    padding: 10px;
+    width: 100%;
+}
+button{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border: none;
+}
+button:hover{
+    opacity: 0.8;
+}
+button i{
+    padding-left:5px;
+}
+textarea{
+    width: 100%;
+    height:150px;
+    padding: 10px;
+    resize:none;
+}
+/* responsive */
+@media screen and (max-width:768px) {
+    .presentation{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+   .first-name input, .second-name input{
+       width:100%;
+    } 
+    .section1 p{
+        font-size:14px;
+    }
+    .section1 h1{
+        font-family: 'Playfair Display';
+        font-size: 40px;
+    }
+    .text-contact {
+        padding-top:30px;
+    }
+    
+    .text-contact p span {
+        font-weight: bolder;
+    }
+    
+    .text-contact p {
+        font-size:18px;
+    }
+    
+    .text-lambda {
+        font-size:16px;
+    }
+}
+@media  screen and (max-width:1500px) {
+    .first-name input {
+       width:100%;
+    }
+    .second-name input {
+        width:100%;
+    }
+}

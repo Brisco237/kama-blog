@@ -111,15 +111,15 @@ nav ul li a:hover{
 .mobile-menu a:hover{
     border-bottom: 1px solid black;
 }
-.mobile-menu .register-button-mobile{
+.mobile-menu .inscrire-button{
     background-color:black;
     padding: 10px 10px 10px 10px;
     color:white;
 }
-.mobile-menu .register-button-mobile:hover{
+.mobile-menu .inscrire-button:hover{
     opacity:0.8;
 }
-@media (max-width:768px){
+@media screen and (max-width:768px){
     nav ul{
         justify-content: space-between;
     }

@@ -6,12 +6,15 @@
 .login-head a{
     text-decoration: none;
     color: black;
-    border: 1px solid gray;
+    border:1px solid gray;
     padding: 10px;
     border-radius: 5px;
 }
 .login-head a:hover{
     opacity: 0.8;
+}
+.login-head a img{
+    background-color:black;
 }
 .login-head{
     font-family: 'Inter';
@@ -20,21 +23,21 @@
   display: flex;
   align-items: center;
   text-align: center;
-  color: black;
+  color:black;
   margin: 20px 0;
 }
 .divider::before,
 .divider::after {
   content: "";
   flex: 1;
-  border-bottom: 1px solid black; /* trait fin et noir */
+  border-bottom: 1px solid black; 
 }
 .divider span {
   padding: 0 10px;
-  font-size: 14px;
+  font-size: 12px;
 }
 .login{
-    border:1px solid black;
+    border:1px solid gray;
     padding: 20px 20px 0px 20px;
     border-radius:20px;
 }
