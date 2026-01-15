@@ -1,8 +1,0 @@
-{% for article in articles %}
-    <div class="article">
-        <h2>{{ article.title }}</h2>
-        <p>{{ article.summary}}</p>
-    </div>
-{% empty %}
-    <p>Aucun article trouvé.</p>
-{% endfor %}

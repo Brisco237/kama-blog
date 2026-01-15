@@ -168,3 +168,37 @@
         margin-right:3px;
     }
 } 
+
+/* Spinner Animation */
+.spinner-loader {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid black;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+.htmx-indicator.spinner-loader {
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Position du spinner dans la barre de recherche */
+.search-bar {
+    position: relative;
+    align-items: center;
+}
+
+.search-bar #spinner {
+    position: absolute;
+    right: 90px;
+    top: 50%;
+    transform: translateY(-50%);
+}

@@ -21,26 +21,25 @@
 }
 .author-detail .photo-name{
     display: flex;
-    font-family: 'Inter';
+    font-family: 'JetBrains Mono';
     font-size:18px;
 }
-.author-detail .share-favoris{
-    display: flex;
+/* réseaux sociaux pour le partage des articles */
+.share-box {
+    margin-top: 20px;
 }
-.author-detail .share-favoris i{
-    font-size:13px;
-    margin-right:10px;
-    padding: 20px;
-    color: gray;
-    border:1px solid gray;
-    border-radius:50%;
-    cursor: pointer;
-    transition: all 0.3s;
+.btn-share {
+    padding: 8px 12px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
 }
-.author-detail .share-favoris i:hover{
-    border:1px solid black;
-    color: black;
-}
+.facebook { background: #3b5998; }
+.twitter  { background: #000000; }
+.whatsapp { background: #25d366; }
+.telegram { background: #0088cc; }
+
 .author-detail .photo-name img{
     height: 30px;
     width:30px;
@@ -156,17 +155,46 @@
     text-decoration: none;
 }
 
-@media only screen and (max-width:768px) {
+@media screen and (max-width:320px){
+    .detail-title h1{
+        font-size:10px;
+    }
+    .author-detail .photo-name{
+        font-size:5px;
+        font-family:'Jetbrains Mono';
+    }
+    .author-detail .share-favoris i{
+        padding:0px;
+    }
+    .article-lié h3, .texte-si-pas-darticle{
+        font-size:18px;
+    }
+
+}
+@media screen and (max-width:768px) {
     .detail-title h1{
         font-size:60px;
     }
+    .author-detail .photo-name{
+        font-size:15px;
+    }
+    .author-detail .share-favoris i{
+        padding: 20px;
+        height:50px;
+    }
 }
+
 @media screen and (max-width:375px){
     .detail-title h1{
         font-size:40px;
     }
 }
-@media screen and (max-width:425px) {
+@media screen and (max-width:425px){
+    .author-detail{
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
     .category-section h6{
         padding-right:10px;
         font-size:13px;
@@ -187,7 +215,7 @@
     .author-detail .share-favoris i{
         font-size:8px;
         padding: 20px;
-        color: gray;
+        color: white;
     }
     .commentaire-section img{
         height:25px;
@@ -217,5 +245,9 @@
     }
     .body-article{
         font-size:15px;
+    }
+    .commentaire-section form button{
+        padding:8px;
+        font-size:13px;
     }
 }

@@ -26,10 +26,13 @@
                     <input type="text" id="searchInput" placeholder="Rechercher..."
                     name="query" 
                     hx-get="{% url 'search' %}" 
-                    hx-trigger="keyup" 
+                    hx-trigger="keyup delay 300ms, keyup[keyCode==13]" 
                     hx-target="#results"
-                    hx-swap="innerHTML">
+                    hx-swap="innerHTML"
+                    hx-indicator="#spinner"
+                    autocomplete="off">
                     <button type="submit" id="searchButton"><i class="fas fa-search"></i></button>
+                    <div id="spinner" class="htmx-indicator spinner-loader"></div>
                 </div>
             </div>
         </div>

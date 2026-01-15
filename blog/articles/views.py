@@ -17,14 +17,16 @@ def archives(request):
     )
 
 def search_articles(request):
-    query = request.GET.get('query', '')
+    query = request.GET.get('query', '').strip()
+    articles_search = []
+    
     if query:
-        articles = Article.objects.filter(
-            Q(title__icontains=query) | Q(content__icontains=query)
-        )
-    else:
-        articles = Article.objects.all()
-    return render(request, 'articles/search_results.html', {'articles': articles})
+        articles_search = Article.objects.filter(
+            (Q(title__icontains=query) | Q(category__name__icontains=query)),
+            status='published'
+        ).distinct()
+    
+    return render(request, 'articles/search_fragment.html', {'articles_search': articles_search, 'query': query })
 
 
 class ArticleListView(ListView):
