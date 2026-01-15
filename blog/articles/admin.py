@@ -1,10 +1,11 @@
 from django.contrib import admin
-from .models import Article, Category, Comment
+from .models import Article, Category, Comment, Source
 
 # Register your models here.
 admin.site.register(Article)
 admin.site.register(Category)
 admin.site.register(Comment)
+admin.site.register(Source)
 
 admin.site.site_header = "Kama-Blog Administration"
 admin.site.site_title = "Kama-Blog Admin"

@@ -3,7 +3,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.conf import settings
-from ckeditor.fields import RichTextField
 
 
 # Create your models here.
@@ -29,7 +28,7 @@ class Article(models.Model):
     category = models.ForeignKey(Category,on_delete=models.CASCADE,related_name='articles', default=1)
     slug = models.SlugField(max_length=255, unique=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,related_name='articles')
-    content = RichTextField()
+    content = models.TextField()
     summary = models.TextField(blank=True)
     status = models.CharField(max_length=10,choices=STATUS_CHOICES,default='draft')
     created_at = models.DateTimeField(auto_now_add=True)
@@ -58,6 +57,22 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ['-created_at']
+        verbose_name = "Comment"
+        verbose_name_plural = "Comments"
 
     def __str__(self):
         return f'Commentaire de {self.user} sur {self.article}'
+
+
+class Source(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE,related_name="sources")
+    number = models.IntegerField()
+    reference = models.TextField()  
+
+    class Meta:
+        verbose_name = "Source"
+        verbose_name_plural = "Sources"
+
+    def __str__(self):
+        return f"Source [{self.number}] de l'article, {self.article}>>"
+

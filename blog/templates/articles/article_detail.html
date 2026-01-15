@@ -90,6 +90,36 @@
         </div>
         <hr>
     </div>
+    <!-- Sources cachées -->
+    <div id="references" style="display:none">
+        {% for s in article.sources.all %}
+        <div data-id="{{ s.number }}">
+            {{ s.reference }}
+        </div>
+        {% endfor %}
+    </div>
+    <!-- Popup -->
+    <div id="popup" class="popup" style="display:none"></div>
+    <!-- Section Références -->
+    {% if sources %}
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h3 class="references-title">📚 Bibliographies</h3>
+                <div class="references-list">
+                    {% for source in sources %}
+                    <div class="reference-item">
+                        <span class="reference-number">[{{ source.number }}]</span>
+                        <span class="reference-text">{{ source.reference }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+    {% endif %}
     <div class="row mt-5 mb-5">
         <div class="col-md-12">
             <h3 class="commentaire-title">Commentaires ({{ article.comments.count }})</h3>
@@ -162,4 +192,31 @@
 
 <!--Footer-->
 {% include "footer.html" %}
+
+<script>
+    
+document.addEventListener("DOMContentLoaded", () => {
+  const citations = document.querySelectorAll(".citation");
+  const popup = document.getElementById("popup");
+
+  citations.forEach(sup => {
+    sup.addEventListener("click", () => {
+      const id = sup.dataset.ref;
+      const source = document.querySelector(`#references div[data-id='${id}']`);
+      if (!source) popup.innerHTML = "Source non trouvée";
+      else popup.innerHTML = source.innerHTML;
+
+      const rect = sup.getBoundingClientRect();
+      popup.style.top = rect.bottom + window.scrollY + "px";
+      popup.style.left = rect.left + window.scrollX + "px";
+      popup.style.display = "block";
+    });
+  });
+
+  document.addEventListener("click", e => {
+    if (!e.target.classList.contains("citation")) popup.style.display = "none";
+  });
+});
+</script>
 {% endblock content %}
+

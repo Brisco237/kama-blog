@@ -3,6 +3,7 @@ from .models import Category, Article, Comment
 from django.views.generic import ListView, DetailView
 from django.contrib import messages
 from django.db.models import Q
+import re
 
 
 # Create your views here.
@@ -45,6 +46,18 @@ class ArticleDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         article = self.object
         context['related_articles'] = (Article.objects.filter(category=article.category).exclude(id=article.id))
+        context['sources'] = article.sources.all().order_by('number')
+
+        # transformer [[1]], [[2]] … en <sup> avec data-ref
+        content = context["article"].content
+
+        content = re.sub(
+            r"\[\[(\d+)\]\]",
+            r'<sup class="citation" data-ref="\1">\1</sup>',
+            content
+        )
+
+        context["content"] = content
         return context
 
     def post(self, request, *args, **kwargs):
