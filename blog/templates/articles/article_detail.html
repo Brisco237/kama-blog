@@ -9,8 +9,7 @@
 <meta property="og:url" content="{{ request.build_absolute_uri }}">
 
 {% if article.image %}
-<meta property="og:image" 
-      content="{{ request.scheme }}://{{ request.get_host }}{{ article.image.url }}">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ article.image.url }}">
 {% endif %}
 <!-- fin du open graph-->
 
