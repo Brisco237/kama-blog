@@ -51,7 +51,16 @@
         <div class="row body-article">
             <div class="col-md-1"></div>
             <div class="col-md-10">
-                <p>{{ article.content|safe }}</p>
+                {% if user.is_authenticated %}
+                    <p>{{ article.content|safe }}</p>
+                {% else %}
+                    <p>{{ article.content|safe|truncatewords:200 }}</p>
+                    <div class="alert alert-info mt-4 p-4">
+                        🔒 <strong>La suite est réservée aux membres.</strong><br>
+                        <a href="{% url 'login_user' %}">Se connecter</a> ou
+                        <a href="{% url 'register' %}">Créer un compte</a> pour lire la suite.
+                    </div>
+                {% endif %}
             </div>
             <div class="col-md-1"></div>
         </div>

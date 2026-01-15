@@ -19,7 +19,7 @@ def google_login_callback(request):
     return redirect('login_user')
 def home(request):
     categories = Category.objects.all()
-    articles1 = Article.objects.filter(status='published').order_by('published_at')[:3]
+    articles1 = Article.objects.filter(status='published').order_by('published_at')[:6]
     articles2 = Article.objects.filter(status='published')[:3]
     return render(request, 'authapp/home.html',
     {'articles1':articles1, 'categories': categories,
