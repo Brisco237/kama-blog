@@ -1,5 +1,5 @@
 .all{
-    background-color:rgb(247, 242, 242);
+    background-color:rgb(231 229 228);
     font-family:'Inter';
 }
 .section1 p{
@@ -9,7 +9,7 @@
     font-weight:bolder;
 }
 .section1 h1{
-    font-family: 'Playfair Display';
+    font-family: 'Inter';
     font-size: 60px;
 }
 .presentation{
@@ -19,9 +19,9 @@
     border-radius: 15px;
 }
 .image-contact h2{
-    font-family:'Playfair Display';
-    font-size:25px;
-    margin-top:15px;
+    font-size:23px;
+    font-weight: bolder;
+    margin-top:25px;
 }
 .image-contact p{
     text-transform: uppercase;
@@ -37,6 +37,7 @@
     transition: 0.5s;
     border:1px solid white;
     padding:10px;
+    filter: brightness(90%);
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.1);
 }
 .presentation .image-contact img:hover{
@@ -44,11 +45,13 @@
 }
 .medias-sociaux a{
     color: gray;
-    font-size:20px;
+    font-size:22px;
     margin:4px;
+    transition: 0.3s;
 }
 .medias-sociaux a:hover{
    color:black;
+   transform: rotate(-5deg);
 }
 .text-contact{
     padding-top:90px;
@@ -103,7 +106,10 @@ form{
     margin-bottom:5px;
 }
 .formulaire-infos i{
-    color: rgb(194 65 12);
+    color: rgb(237 114 16);
+}
+.infos-utile {
+    color:gray;
 }
 .first-second-name{
     display: flex;
@@ -131,6 +137,7 @@ button:hover{
 }
 button i{
     padding-left:5px;
+    font-size:18px;
 }
 textarea{
     width: 100%;
@@ -139,23 +146,50 @@ textarea{
     resize:none;
 }
 /* responsive */
-@media screen and (max-width:768px) {
+@media screen and (max-width:320px){
+    .formulaire-infos h2{
+        font-size:20px;
+    }
+    .section1 h1{
+        font-size:15px;
+    }
+}
+@media screen and (max-width:425px){
+    .presentation .image-contact img{
+        height: 300px;
+        width: 200px;
+        padding: 5px;
+    }
+    .section1 h1{
+        font-size:20px;
+    }
+    .section1 p{
+        font-size:18px;
+    }
+}
+@media screen and (max-width:768px){
+    .presentation .image-contact img{
+        height: 250px;
+        width: 200px;
+        padding: 5px;
+    }
     .presentation{
+        padding:30px 10px 10px 10px;
         flex-direction: column;
-        align-items: center;
         text-align: center;
+        align-items: center;
     }
    .first-name input, .second-name input{
        width:100%;
     } 
     .section1 p{
-        font-size:14px;
+        font-size:20px;
     }
     .section1 h1{
         font-family: 'Playfair Display';
         font-size: 40px;
     }
-    .text-contact {
+    .text-contact{
         padding-top:30px;
     }
     
@@ -164,7 +198,7 @@ textarea{
     }
     
     .text-contact p {
-        font-size:18px;
+        font-size:15px;
     }
     
     .text-lambda {

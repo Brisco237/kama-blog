@@ -22,3 +22,16 @@ document.addEventListener("DOMContentLoaded", function () {
     window.typeitInitialized = true;
 
 });
+
+// affichage dynamique des articles
+
+let populaire = document.querySelector('.populaire');
+let recent = document.querySelector('.recent');
+
+populaire.addEventListener('click', () => {
+
+});
+
+recent.addEventListener('click', () => {
+
+});
