@@ -22,10 +22,19 @@
         <div class="row mt-5 mb-5">
             <div class="col-lg-12">
                 <div class="search-bar">
-                    <input type="text" id="searchInput" placeholder="Rechercher...">
-                    <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
+                    {% csrf_token %}
+                    <input type="text" id="searchInput" placeholder="Rechercher..."
+                    name="query" 
+                    hx-get="{% url 'search' %}" 
+                    hx-trigger="keyup" 
+                    hx-target="#results"
+                    hx-swap="innerHTML">
+                    <button type="submit" id="searchButton"><i class="fas fa-search"></i></button>
                 </div>
             </div>
+        </div>
+        <div id="results">
+            
         </div>
         <div class="row categorie-search mb-5">
             <div class="col-lg-12 mb-3">

@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Category, Article, Comment
 from django.views.generic import ListView, DetailView
 from django.contrib import messages
+from django.db.models import Q
+
 
 # Create your views here.
 def archives(request):
@@ -13,6 +15,17 @@ def archives(request):
     'articles' : articles
     }
     )
+
+def search_articles(request):
+    query = request.GET.get('query', '')
+    if query:
+        articles = Article.objects.filter(
+            Q(title__icontains=query) | Q(content__icontains=query)
+        )
+    else:
+        articles = Article.objects.all()
+    return render(request, 'articles/search_results.html', {'articles': articles})
+
 
 class ArticleListView(ListView):
     model = Article
