@@ -34,6 +34,7 @@ class Article(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     published_at = models.DateTimeField(null=True, blank=True)
+    vues = models.PositiveIntegerField(default=0)
 
     class Meta:
         ordering = ['-published_at']

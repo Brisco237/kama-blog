@@ -42,7 +42,11 @@
                             <h2 class="title-article">{{ article.title }}</h2>
                             <p class="summary">{{ article.summary }}</p>
                         </a>
-                    </div>
+                        <p class="text-center text-muted summary">
+                            <span class="m-2"><i class="fas fa-message"></i> {{ article.comments.count }}</span>
+                            <span><i class="fas fa-eye"></i></span>
+                        </p>
+                    </div> 
                 </div>
             {% endfor %}
         {% else %}
