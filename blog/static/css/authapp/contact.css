@@ -43,16 +43,22 @@
 .presentation .image-contact img:hover{
     transform: rotate(-5deg);
 }
-.medias-sociaux a{
-    color: gray;
-    font-size:22px;
-    margin:4px;
-    transition: 0.3s;
+.share-box {
+    margin-top: 20px;
+    margin-bottom:20px;
 }
-.medias-sociaux a:hover{
-   color:black;
-   transform: rotate(-5deg);
+.btn-share {
+    padding: 8px 12px;
+    margin: 2px;
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
 }
+.facebook { background: #3b5998; }
+.twitter  { background: #000000; }
+.whatsapp { background: #25d366; }
+.telegram { background: #0088cc; }
+
 .text-contact{
     padding-top:90px;
 }
@@ -115,15 +121,10 @@ form{
     display: flex;
     gap:2px;
 }
-.first-name input{
+.first-name input,.emailfield input, .second-name input, .choicefield select{
     padding:10px;
-}
-.second-name input{
-    padding: 10px;
-}
-.choicefield select{
-    padding: 10px;
     width: 100%;
+    outline: none;
 }
 button{
     background-color: black;
@@ -144,6 +145,7 @@ textarea{
     height:150px;
     padding: 10px;
     resize:none;
+    outline: none;
 }
 /* responsive */
 @media screen and (max-width:320px){

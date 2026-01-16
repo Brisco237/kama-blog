@@ -48,9 +48,7 @@ class ArticleDetailView(DetailView):
         context['related_articles'] = (Article.objects.filter(category=article.category).exclude(id=article.id))
         context['sources'] = article.sources.all().order_by('number')
 
-        # transformer [[1]], [[2]] … en <sup> avec data-ref
         content = context["article"].content
-
         content = re.sub(
             r"\[\[(\d+)\]\]",
             r'<sup class="citation" data-ref="\1">\1</sup>',

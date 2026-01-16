@@ -50,6 +50,8 @@ nav ul li a:hover{
     border: none;
     background-color: transparent;
     display: none;
+    color: black;
+    cursor: pointer;
 }
 .active{
     display: none;

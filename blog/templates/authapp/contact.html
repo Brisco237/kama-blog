@@ -22,11 +22,24 @@
                 <img src="{% static 'images/profile.png' %}" class="img-fluid">
                 <h2>Kamdem Brice</h2>
                 <p>Developpeur Fullstack & Historien</p>
-                <p class="medias-sociaux">
-                    <a href=""><i class="fab fa-facebook-square"></i></a>
-                    <a href=""><i class="fab fa-whatsapp"></i></a>
-                    <a href=""><i class="fab fa-telegram"></i></a>
-                </p>
+                <div class="share-box">
+                    <a class="btn-share facebook" target="_blank"
+                        href="">
+                        <i class="fab fa-facebook"></i>
+                    </a>               
+                    <a class="btn-share twitter" target="_blank"
+                        href="">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>               
+                    <a class="btn-share whatsapp" target="_blank"
+                        href="">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>               
+                    <a class="btn-share telegram" target="_blank"
+                        href="">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-7 col-sm-6 text-contact">
@@ -94,6 +107,10 @@
                             <label for="name">Nom</label><br>
                             <input type="text" name="name" id="name" placeholder="Votre nom" required>
                         </div>
+                    </div>
+                    <div class="emailfield mt-2">
+                        <label for="email">Email</label><br>
+                        <input type="email" name="email" id="email" placeholder="Votre email@gmail.com" required>
                     </div>
                     <div class="choicefield mt-2">
                         <label for="sujet">Sujet</label><br>
