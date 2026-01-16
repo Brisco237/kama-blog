@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import archives, ArticleListView, ArticleDetailView, search_articles
+from .views import archives, ArticleListView, ArticleDetailView, search_articles, toggle_subscription
 
 urlpatterns = [
     path('archives/', archives, name='archives'),

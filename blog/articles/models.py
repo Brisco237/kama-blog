@@ -65,14 +65,29 @@ class Comment(models.Model):
 
 
 class Source(models.Model):
-    article = models.ForeignKey(Article, on_delete=models.CASCADE,related_name="sources")
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name="sources")
     number = models.IntegerField()
     reference = models.TextField()  
 
     class Meta:
         verbose_name = "Source"
         verbose_name_plural = "Sources"
+        ordering = ['number']
 
     def __str__(self):
-        return f"Source [{self.number}] de l'article, {self.article}>>"
+        return f"Source [{self.number}] - article {self.article.id}"
+
+
+class Subscription(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='subscription')
+    is_subscribed = models.BooleanField(default=True)
+    subscribed_at = models.DateTimeField(auto_now_add=True)
+    last_email_sent = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        verbose_name = "Abonnement"
+        verbose_name_plural = "Abonnements"
+
+    def __str__(self):
+        return f"Abonnement de {self.user.username}"
 

@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-from .models import Category, Article, Comment
+from .models import Category, Article, Comment, Subscription
 from django.views.generic import ListView, DetailView
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 import re
 
@@ -30,6 +31,26 @@ def search_articles(request):
     return render(request, 'articles/search_fragment.html', {'articles_search': articles_search, 'query': query })
 
 
+@login_required(login_url='login')
+def toggle_subscription(request):
+    """
+    Permet à un utilisateur connecté d'activer/désactiver son abonnement
+    """
+    user = request.user
+    subscription, created = Subscription.objects.get_or_create(user=user)
+    
+    if request.method == 'POST':
+        subscription.is_subscribed = not subscription.is_subscribed
+        subscription.save()
+        
+        if subscription.is_subscribed:
+            messages.success(request, 'Vous êtes maintenant abonné aux articles mensuels!')
+        else:
+            messages.info(request, 'Vous avez été désabonné des articles mensuels.')
+    
+    return redirect(request.POST.get('next', 'home'))
+
+
 class ArticleListView(ListView):
     model = Article
     template_name = 'articles/article_list.html'
@@ -56,6 +77,14 @@ class ArticleDetailView(DetailView):
         )
 
         context["content"] = content
+        
+        # Ajouter le statut d'abonnement
+        if self.request.user.is_authenticated:
+            try:
+                context['is_subscribed'] = self.request.user.subscription.is_subscribed
+            except Subscription.DoesNotExist:
+                context['is_subscribed'] = False
+        
         return context
 
     def post(self, request, *args, **kwargs):
@@ -74,4 +103,5 @@ class ArticleDetailView(DetailView):
         Comment.objects.create(article=self.object,user=request.user,content=commentaire)
         messages.success(request, 'Votre commentaire a été ajouté avec succès!')
         return redirect('article_detail', slug=self.object.slug)
+
 
