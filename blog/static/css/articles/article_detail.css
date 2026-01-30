@@ -21,8 +21,12 @@
 }
 .author-detail .photo-name{
     display: flex;
-    font-family: 'JetBrains Mono';
-    font-size:18px;
+    font-family: 'Jetbrains Mono';
+    font-size:16px;
+}
+.summary-article p{
+    font-size:1em;
+    font-family: 'Inter';
 }
 /* réseaux sociaux pour le partage des articles */
 .share-box {

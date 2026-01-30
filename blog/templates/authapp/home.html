@@ -10,7 +10,7 @@
     </div>
     <div class="row mb-5 mt-4">
         <div class="col-md-12">
-            <div class="first-section">
+            <div class="first-section text-center">
                 <h1 class="title">Réécrire l'histoire</h1>
                 <h3 class="subtitle"></h3>
                 <p class="text" data-aos="fade-right" data-aos-duration="2000">Une plateforme dédiée à la recherche historique <br>rigoureuse, 
@@ -34,7 +34,7 @@
         {% if articles1 %}
             {% for article in articles1 %}
                 <div class="col-md-4 col-sm-6">
-                    <div class="card mt-2" data-aos="fade-up" data-aos-duration="2000">
+                    <div class="card mt-2 h-100" data-aos="fade-up" data-aos-duration="2000">
                         <a href="{% url 'article_detail' article.slug %}">
                             <div class="card-img"><img src="{{ article.img.url }}" class="img-fluid" width="100%"></div>
                             <br>
@@ -44,7 +44,7 @@
                         </a>
                         <p class="text-center text-muted summary">
                             <span class="m-2"><i class="fas fa-message"></i> {{ article.comments.count }}</span>
-                            <span><i class="fas fa-eye"></i></span>
+                            <span><i class="fas fa-eye"></i> {{ article.vues }}</span>
                         </p>
                     </div> 
                 </div>
@@ -59,17 +59,23 @@
             <h4>Publications Récentes</h4>
             <div class="sec3">
                 <p class="recent">Récent</p>
-                <p class="populaire">Populaire</p>
+                <p class="populaire">Populaires</p>
             </div>
         </div>
     </div>
     <hr>
+    <div class="mt-5 active" id="recent-affichage">
+        {% include "recent.html" %}
+    </div>
+    <div class="mt-5 active" id="populaire-affichage">
+        {% include "populaire.html" %}
+    </div>
     {% if articles2 %}
         {% for article in  articles2 %}
             <div class="row mt-5 section4">
                 <div class="col-md-4 col-sm-6 image">
                     <a href="{% url 'article_detail' article.slug %}" class="article-lien" data-aos="fade-up" data-aos-duration="3000">
-                        <img src="{{ article.img.url }}" class="img-fluid">
+                        <img src="{{ article.img.url }}" class="img-fluid" width="100%">
                     </a>
                 </div>
                 <div class="col-md-8 col-sm-6  text" data-aos="fade-up" data-aos-duration="2000">
@@ -87,6 +93,7 @@
                         <p class="read-time"><i class="fas fa-clock"></i> {{ article.updated_at|timesince }}</p>
                     </div>
                 </div>
+                <div id="loading" style="display:none">Chargement...</div>
             </div>
         {% endfor %}
     {% else %}

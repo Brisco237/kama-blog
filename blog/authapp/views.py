@@ -9,23 +9,29 @@ from django.contrib.auth.password_validation import validate_password
 
 # Create your views here.
 def google_login_callback(request):
-    """
-    Callback pour les connexions Google
-    Intercepte le flux de google et redirige vers le formulaire d'inscription personnalisé
-    """
-    # Vérifier si c'est une tentative de connexion Google
     if request.session.get('google_login'):
         return redirect('register')
     return redirect('login_user')
+
 def home(request):
     categories = Category.objects.all()
     articles1 = Article.objects.filter(status='published').order_by('published_at')[:6]
     articles2 = Article.objects.filter(status='published')[:3]
+
     return render(request, 'authapp/home.html',
     {'articles1':articles1, 'categories': categories,
-    'articles2':articles2
+    'articles2':articles2,
     }
     )
+
+def recent(request):
+    recent_affichage  = Article.objects.all()
+    return render(request, 'recent.html', {'recent_affichage': recent_affichage})
+
+def populaire(request):
+    populaire = Article.objects.order_by('-vues', 'comments').first()
+    return render(request, 'populaire.html', {'populaire':populaire})
+
 
 def register(request):
     if request.method == "POST":

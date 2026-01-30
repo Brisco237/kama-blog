@@ -24,14 +24,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // affichage dynamique des articles
-
-let populaire = document.querySelector('.populaire');
 let recent = document.querySelector('.recent');
+let populaire = document.querySelector('.populaire');
+let affichage_recent = document.getElementById("recent-affichage")
+let affichage_populaire = document.getElementById("populaire-affichage")
+
 
 populaire.addEventListener('click', () => {
-
+    affichage_populaire.classList.remove('active')
+    affichage_recent.classList.add('active')
 });
 
 recent.addEventListener('click', () => {
-
+    affichage_populaire.classList.add('active')
+    affichage_recent.classList.remove('active')
 });

@@ -28,7 +28,7 @@
         {% if articles %}
             {% for article in articles %}
                 <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="card mt-3" data-aos="fade-up" data-aos-duration="2000">
+                    <div class="card mt-3 h-100" data-aos="fade-up" data-aos-duration="2000">
                         <div class="card-body">
                             <div class="card-text">
                                 <p class="category">{{ article.category }}</p>
@@ -40,9 +40,9 @@
                             </a>
                             <hr>
                             <p class="author"><img src="{{ article.author.profile.photo.url }}"> {{ article.author }}</p>
-                            <p class="text-center text-muted summary">
+                            <p class="text-center text-muted">
                                 <span class="m-2"><i class="fas fa-message"></i> {{ article.comments.count }}</span>
-                                <span><i class="fas fa-eye"></i></span>
+                                <span><i class="fas fa-eye"></i> {{ article.vues }}</span>
                             </p>
                         </div>
                     </div>

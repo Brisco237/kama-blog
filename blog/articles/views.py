@@ -18,39 +18,6 @@ def archives(request):
     }
     )
 
-def search_articles(request):
-    query = request.GET.get('query', '').strip()
-    articles_search = []
-    
-    if query:
-        articles_search = Article.objects.filter(
-            (Q(title__icontains=query) | Q(category__name__icontains=query)),
-            status='published'
-        ).distinct()
-    
-    return render(request, 'articles/search_fragment.html', {'articles_search': articles_search, 'query': query })
-
-
-@login_required(login_url='login')
-def toggle_subscription(request):
-    """
-    Permet à un utilisateur connecté d'activer/désactiver son abonnement
-    """
-    user = request.user
-    subscription, created = Subscription.objects.get_or_create(user=user)
-    
-    if request.method == 'POST':
-        subscription.is_subscribed = not subscription.is_subscribed
-        subscription.save()
-        
-        if subscription.is_subscribed:
-            messages.success(request, 'Vous êtes maintenant abonné aux articles mensuels!')
-        else:
-            messages.info(request, 'Vous avez été désabonné des articles mensuels.')
-    
-    return redirect(request.POST.get('next', 'home'))
-
-
 class ArticleListView(ListView):
     model = Article
     template_name = 'articles/article_list.html'
@@ -86,6 +53,20 @@ class ArticleDetailView(DetailView):
                 context['is_subscribed'] = False
         
         return context
+
+    #nombres de vues de l'article
+    """def get_object(self):
+        article = super().get_object()
+        article.vues += 1
+        article.save()
+
+        key = f"viewed_article_{article.id}"
+        if not self.request.session.get(key):
+            article.vues += 1
+            article.save()
+            self.request.session[key] = True 
+
+        return article"""
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()

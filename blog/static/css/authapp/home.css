@@ -1,6 +1,6 @@
 /* Styles for First home section */
 .first-section{
-    margin: 60px 0px 20px 90px;
+    margin: 60px 0px 20px 0px;
 }
 .first-section .title{
     font-size:80px;
@@ -85,8 +85,11 @@
     justify-content: space-between;
 }
 .section3 .populaire{
-    color:gray;
+    color:white;
     cursor: pointer;
+    background-color: gray;
+    font-size:0.8rem;
+    padding: 5px;
 }
 .section3 .sec3{
     display: flex;
@@ -95,6 +98,22 @@
 .section3 h4,.recent{
     font-weight:bolder;
     cursor: pointer;
+}
+.active{
+    display: none;
+}
+.section3 .populaire:hover{
+    background-color: black;
+    color:white;
+    transition: all 0.2s;
+    padding:5px;
+    font-size:0.8rem;
+}
+.recent{
+    background-color: black;
+    color:white;
+    padding:5px;
+    font-size:0.8rem;
 }
 .section4 .article-lien{
     text-decoration: none;
