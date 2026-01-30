@@ -25,11 +25,11 @@ def home(request):
     )
 
 def recent(request):
-    recent_affichage  = Article.objects.all()
-    return render(request, 'recent.html', {'recent_affichage': recent_affichage})
+    articles  = Article.objects.all()[:3]
+    return render(request, 'recent.html', {'articles': articles})
 
 def populaire(request):
-    populaire = Article.objects.order_by('-vues', 'comments').first()
+    populaire = Article.objects.all()
     return render(request, 'populaire.html', {'populaire':populaire})
 
 

@@ -1,27 +1,42 @@
 <div class="container">
     <div class="row text-center mb-4 mt-3">
-        <div class="col-md-12">
+        <div class="col-md-12 titre">
             <h4>LES ARTICLES LES PLUS POPULAIRES.</h4>
         </div>
     </div>
     <div class="row">
         {% for p in populaire %}
-            <div class="col-md-4">
-                <div class="card p-4">
-                    <div class="card-title">{{ p.title }}</div>
-                    <div class="card-text">{{ p.summary }}</div>
-                </div>
-            </div>
+        <div class="col-md-4 mb-4">
+            {% if article.slug %}
+                <article class="card h-100 p-3">
+                    <h3>{{ article.title }}</h3>
+                    <p>{{ article.summary }}</p>
+                </article>
+                <a href="{% url 'article_detail' article.slug %}">Lire</a>
+            {% else %}
+                <p class="alert alert-danger p-2">Aucun article Populaire.</p>
+            {% endif %}
+
+        </div>
+        {% empty %}
+        <p>Aucun article Populaire.</p>
         {% endfor %}
     </div>
     <hr>
 </div>
 
 <style>
+    .titre h4{
+        font-size:1rem;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        border-radius:10px;
+    }
     .card-title,h4{
         font-family:'Playfair Display', serif;
     }
-    .card-text{
+    p{
         font-family: 'Inter', sans-serif;
     }
 </style>

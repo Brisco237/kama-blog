@@ -99,8 +99,11 @@
     font-weight:bolder;
     cursor: pointer;
 }
-.active{
+.hidden {
     display: none;
+}
+.visible {
+    display: block;
 }
 .section3 .populaire:hover{
     background-color: black;
@@ -121,7 +124,7 @@
     transition: all 0.2s;
 }
 .section4 .article-lien:hover{
-    color: rgb(237 114 16);
+    color: rgb(182, 172, 163);
 }
 .section4 .image img{
     filter: brightness(60%);

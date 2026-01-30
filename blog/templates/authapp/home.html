@@ -64,12 +64,7 @@
         </div>
     </div>
     <hr>
-    <div class="mt-5 active" id="recent-affichage">
-        {% include "recent.html" %}
-    </div>
-    <div class="mt-5 active" id="populaire-affichage">
-        {% include "populaire.html" %}
-    </div>
+    <div class="mt-5 hidden" id="container"></div>
     {% if articles2 %}
         {% for article in  articles2 %}
             <div class="row mt-5 section4">

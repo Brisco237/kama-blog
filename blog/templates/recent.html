@@ -1,27 +1,43 @@
 <div class="container">
     <div class="row text-center mb-4 mt-3">
-        <div class="col-md-12">
+        <div class="col-md-12 titre">
             <h4>LES ARTICLES LES PLUS RECENTS.</h4>
         </div>
     </div>
     <div class="row">
-        {% for r in recent_affichage %}
-        <div class="col-md-4 mt-3">
-            <div class="card p-4">
-                <p class="card-title">{{ r.title }}</p>
-                <p class="card-text">{{ r.summary }}</p>
-            </div>
+        {% for article in articles %}
+        <div class="col-md-4 mb-4">
+            <a href="{% url 'article_detail' article.slug %}">
+                <article class="card h-100 p-3">
+                    <h3>{{ article.title }}</h3>
+                    <p>{{ article.summary }}</p>
+                </article>
+            </a>
         </div>
+        {% empty %}
+        <p>Aucun article récent.</p>
         {% endfor %}
     </div>
     <hr>
 </div>
 
+
 <style>
-    .card-title,h4{
+    h3,p{
+        text-decoration:none;
+    }
+    .titre h4{
+        font-size:1rem;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        border-radius:10px;
+    }
+    .card-title,h4,h3{
         font-family:'Playfair Display', serif;
     }
-    .card-text{
-        font-family: 'Inter', sans-serif;
+    article p{
+        font-family:'Inter', sans-serif;
+        max-height:100%;
     }
 </style>
