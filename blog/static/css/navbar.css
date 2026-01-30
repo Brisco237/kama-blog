@@ -24,6 +24,7 @@ nav ul{
 }
 body{
     padding-top: 80px;
+    transition: overflow 0.3s ease;
 }
 nav ul li{
     list-style: none;
@@ -79,10 +80,23 @@ nav ul li a:hover{
     object-fit: cover;
     margin-right:10px;
 }
+@media screen and (max-width:425px){
+    .logo h4 span{
+        margin:3px;
+        padding:3px;
+        font-size:15px;
+    }
+    .logo strong{
+        font-size:15px;
+    }
+    .burger-button i{
+     font-size:17px;
+    }
+}
 
 /* Mobile menu */
 .mobile-menu{
-    font-family: 'Playfair Display';
+    font-family: 'Inter';
     padding-top:20px;
     background-color:rgb(231 229 228);
     border:1px solid black;
@@ -93,9 +107,12 @@ nav ul li a:hover{
     text-align:center;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     width:90%;
-    z-index:99;
+    z-index:999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .mobile-menu #user-pp{
     list-style: none;
@@ -134,5 +151,26 @@ nav ul li a:hover{
     }
     .first-nav ul .logo{
         margin-top:10px;
+    }
+}
+@media screen and (max-width:425px){
+    .mobile-menu{
+        height:400px;
+        margin-top:20px;
+        padding-top:5px;
+    }
+    .mobile-menu a{
+        font-size:13px;
+    }
+    .mobile-menu a{
+        margin:10px 0px 20px 0px;
+    }
+    .mobile-menu #user-pp img{
+        margin-right:7px;
+        height:20px;
+        width:20px;
+    }
+    .mobile-menu #user-pp{
+        font-size:13px;
     }
 }

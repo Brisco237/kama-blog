@@ -20,32 +20,36 @@
     <hr>
     <div class="container">
         <div class="row mt-5 mb-5">
-            <div class="col-lg-12">
+            <div class="col-md-12">
                 <div class="search-bar">
                     {% csrf_token %}
-                    <input type="text" id="searchInput" placeholder="Rechercher..." name="query">
+                    <input type="text" id="searchInput" placeholder="Rechercher par titre ou par categories..." name="q" autocomplete="off"
+                    data-url="{% url 'live_search' %}">
                     <button type="submit" id="searchButton"><i class="fas fa-search"></i></button>
                 </div>
             </div>
         </div>
+        <div id="search-results">
+
+        </div>
         <div class="row categorie-search mb-5">
-            <div class="col-lg-12 mb-3">
+            <div class="col-md-12 mb-3">
                 {% if categories %}
                     <h3>Catégories</h3>
                 {% endif %}
             </div>
             {% for categorie in categories %}
                 <div class="col-lg-12" data-aos="fade-right" data-aos-duration="3000">
-                    <p class="check-categorie"><input type="checkbox"> {{ categorie.name }}</p>
+                    <p class="check-categorie">{{ categorie.name }}</p>
                 </div>
             {% endfor %}
             <div class="col-lg-12 mb-3 mt-5">
                 <h3 class="mb-4">Civilisations</h3>
                 <div class="" data-aos="fade-up" data-aos-duration="3000">
-                    <p class="check-categorie"><input type="checkbox"> Egypte antique (Kemet)</p>
-                    <p class="check-categorie"><input type="checkbox"> Empire du Mali</p>
-                    <p class="check-categorie"><input type="checkbox"> Empire du Kongo</p>
-                    <p class="check-categorie"><input type="checkbox"> Empire du Kanem-bornou</p>
+                    <p class="check-categorie">Egypte antique (Kemet)</p>
+                    <p class="check-categorie">Empire du Mali</p>
+                    <p class="check-categorie">Empire du Kongo</p>
+                    <p class="check-categorie">Empire du Kanem-bornou</p>
                 </div>
             </div>
             <div class="row mt-5 mb-5">
@@ -76,7 +80,7 @@
             {% if articles %}
                 {% for article in articles %}
                     <div class="col-md-4 col-sm-6 mb-3">
-                        <div class="card h-60" data-aos="fade-up" data-aos-duration="2000">
+                        <div class="card h-100" data-aos="fade-up" data-aos-duration="2000">
                             <img src="{{ article.img.url }}" alt="{{ article.title }}" class="card-img-top img-fluid">
                             <div class="card-body">
                                 <p class="card-text card-date"><i class="fas fa-calendar"></i> {{ article.created_at|date:"d M Y  à  H:i" }}</p>
@@ -107,7 +111,55 @@
 {% include "footer.html" %}
 
 <script>
-    AOS.init();
+AOS.init();
+
+document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("searchInput");
+    const resultsBox = document.getElementById("search-results");
+
+    if (!input || !resultsBox) return;
+
+    input.addEventListener("keyup", function () {
+        const query = this.value.trim();
+
+        if (query.length < 2) {
+            resultsBox.innerHTML = "";
+            return;
+        }
+
+        fetch(`/articles/live-search/?q=${query}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Erreur serveur");
+                }
+                return response.json();
+            })
+            .then(data => {
+                resultsBox.innerHTML = "";
+
+                if (data.results.length === 0) {
+                    resultsBox.innerHTML = "<p>Aucun résultat</p>";
+                    return;
+                }
+
+                data.results.forEach(item => {
+                    resultsBox.innerHTML += `
+                        <div class="result-item">
+                            <a href="/articles/${item.slug}/">
+                                ${item.title}
+                            </a>
+                            <small> (${item.category})</small>
+                        </div>
+                    `;
+                });
+            })
+            .catch(error => {
+                console.error(error);
+                resultsBox.innerHTML = "<p>Erreur lors de la recherche</p>";
+            });
+    });
+});
+
 </script>
 {% endblock content %}
 

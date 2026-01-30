@@ -29,8 +29,8 @@ def recent(request):
     return render(request, 'recent.html', {'articles': articles})
 
 def populaire(request):
-    populaire = Article.objects.all()
-    return render(request, 'populaire.html', {'populaire':populaire})
+    article = Article.objects.filter(status='published').order_by('-vues').first()
+    return render(request, 'populaire.html', {'article': article})
 
 
 def register(request):

@@ -4,24 +4,25 @@
             <h4>LES ARTICLES LES PLUS POPULAIRES.</h4>
         </div>
     </div>
+    {% if article %}
     <div class="row">
-        {% for p in populaire %}
         <div class="col-md-4 mb-4">
-            {% if article.slug %}
+            <a href="{% url 'article_detail' article.slug %}" style="text-decoration:none;">
                 <article class="card h-100 p-3">
-                    <h3>{{ article.title }}</h3>
-                    <p>{{ article.summary }}</p>
+                    <h3>{{ article.title }}</h3><br>
+                    <p>{{ article.summary }}</p><br>
+                    <p class="time">Publié il ya {{ article.created_at|timesince }}</p>
                 </article>
-                <a href="{% url 'article_detail' article.slug %}">Lire</a>
-            {% else %}
-                <p class="alert alert-danger p-2">Aucun article Populaire.</p>
-            {% endif %}
-
+            </a>
         </div>
-        {% empty %}
-        <p>Aucun article Populaire.</p>
-        {% endfor %}
     </div>
+    {% else %}
+    <div class="row">
+        <div class="col-md-12 alert lert-info">
+            <p>Aucun article disponible.</p>
+        </div>
+    </div>
+    {% endif %}
     <hr>
 </div>
 
@@ -33,10 +34,19 @@
         padding: 5px;
         border-radius:10px;
     }
-    .card-title,h4{
+    article:hover{
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+    }
+    .card-title,h4, h3, .time{
         font-family:'Playfair Display', serif;
     }
     p{
         font-family: 'Inter', sans-serif;
+    }
+    @media screen and (max-width:425px){
+        .titre h4{
+            font-size:0.8rem;
+        }
     }
 </style>

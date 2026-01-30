@@ -12,11 +12,29 @@ def archives(request):
     articles = Article.objects.all()
     nb_article = articles.count()
     categories = Category.objects.all()
+
     return render(request, 'articles/archives.html', 
     {'categories': categories, 'nb_article' : nb_article, 
-    'articles' : articles
-    }
-    )
+    'articles' : articles })
+
+def live_search(request):
+    query = request.GET.get("q", "")
+
+    results = []
+    if query:
+        articles = Article.objects.filter(
+            Q(title__icontains=query) |
+            Q(category__name__icontains=query)
+        ).select_related("category")[:10]
+
+        for article in articles:
+            results.append({
+                "title": article.title,
+                "category": article.category.name,
+                "slug": article.slug
+            })
+
+    return JsonResponse({"results": results})
 
 class ArticleListView(ListView):
     model = Article
