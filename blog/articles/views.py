@@ -4,7 +4,9 @@ from django.views.generic import ListView, DetailView
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.http import JsonResponse
 import re
+import json
 
 
 # Create your views here.
@@ -17,30 +19,17 @@ def archives(request):
     {'categories': categories, 'nb_article' : nb_article, 
     'articles' : articles })
 
-def live_search(request):
-    query = request.GET.get("q", "")
-
-    results = []
-    if query:
-        articles = Article.objects.filter(
-            Q(title__icontains=query) |
-            Q(category__name__icontains=query)
-        ).select_related("category")[:10]
-
-        for article in articles:
-            results.append({
-                "title": article.title,
-                "category": article.category.name,
-                "slug": article.slug
-            })
-
-    return JsonResponse({"results": results})
-
 class ArticleListView(ListView):
     model = Article
     template_name = 'articles/article_list.html'
     context_object_name = 'articles'
     paginate_by = 6
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+
+        return context
 
 
 class ArticleDetailView(DetailView):
@@ -104,3 +93,17 @@ class ArticleDetailView(DetailView):
         return redirect('article_detail', slug=self.object.slug)
 
 
+def get_articles_by_category(request):
+    categories = Category.objects.all()
+    data = {}
+    
+    for category in categories:
+        articles = Article.objects.filter(category=category, status='published').values(
+            'id', 'title', 'slug', 'summary', 'created_at', 'vues', 'img'
+        )
+        data[category.slug] = {
+            'name': category.name,
+            'articles': list(articles)
+        }
+    
+    return JsonResponse(data)

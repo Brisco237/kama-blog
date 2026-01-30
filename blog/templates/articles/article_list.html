@@ -16,14 +16,13 @@
     </div>
     <div class="row mt-5">
         <div class="links-nav">
-            <a href="">Egyptologie</a>
-            <a href="">Peuplement & migrations</a>
-            <a href="">Religions</a>
-            <a href="">Politique</a>
-            <a href="">Histoire du cameroun</a>
+            <a href="" class="category-link" data-category="all">Tous les articles</a>
+            {% for category in categories %}
+                <a href="#" class="category-link" data-category="{{ category.slug }}">{{ category.name }}</a>
+            {% endfor %}
         </div>
     </div>
-    <div class="row mt-2 mb-5 section2">
+    <div class="row mt-2 mb-5 section2" id="articles-container">
         {% if articles %}
             {% for article in articles %}
                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -81,5 +80,109 @@
 
 <script>
     AOS.init();
+
+    // Récupérer les données des articles
+    let allArticlesData = {};
+
+    fetch('/articles/api/articles-by-category/')
+        .then(response => response.json())
+        .then(data => {
+            allArticlesData = data;
+            console.log('Articles chargés:', allArticlesData);
+        })
+        .catch(error => console.error('Erreur:', error));
+
+    // Ajouter des écouteurs aux liens de catégories
+    document.querySelectorAll('.category-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const category = this.getAttribute('data-category');
+            filterArticles(category);
+            
+            // Marquer le lien actif
+            document.querySelectorAll('.category-link').forEach(l => l.style.borderBottom = 'none');
+            this.style.borderBottom = '3px solid black';
+        });
+    });
+
+    function filterArticles(categorySlug) {
+        const container = document.getElementById('articles-container');
+        
+        if (categorySlug === 'all') {
+            // Afficher tous les articles de toutes les catégories
+            let html = '';
+            
+            Object.values(allArticlesData).forEach(categoryData => {
+                categoryData.articles.forEach(article => {
+                    html += `
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="card mt-3 h-100" data-aos="fade-up" data-aos-duration="2000">
+                                <div class="card-body">
+                                    <div class="card-text">
+                                        <p class="category">${categoryData.name}</p>
+                                        <p class="read-time">${article.updated_at}</p>
+                                    </div>
+                                    <a href="/articles/${article.slug}/">
+                                        <h4>${article.title}</h4>
+                                        <p class="text-card mt-3">${article.summary}</p>
+                                    </a>
+                                    <hr>
+                                    <p class="text-center text-muted">
+                                        <span><i class="fas fa-eye"></i> ${article.vues}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            });
+            
+            container.innerHTML = html;
+            AOS.init();
+            return;
+        }
+
+        const categoryData = allArticlesData[categorySlug];
+
+        if (!categoryData || categoryData.articles.length === 0) {
+            // Afficher le message d'erreur
+            container.innerHTML = `
+                <div style="width: 100%; text-align: center; padding: 50px 0;margin-top:20px;">
+                    <h4 style='font-family:"Inter"; color: #666;'>
+                        😌 Désolé, pas d'articles pour cette catégorie...
+                    </h4>
+                </div>
+            `;
+            return;
+        }
+
+        // Construire le HTML pour les articles de la catégorie
+        let html = '';
+        categoryData.articles.forEach(article => {
+            html += `
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="card mt-3 h-100" data-aos="fade-up" data-aos-duration="2000">
+                        <div class="card-body">
+                            <div class="card-text">
+                                <p class="category">${categoryData.name}</p>
+                                <p class="read-time">Now !</p>
+                            </div>
+                            <a href="/articles/${article.slug}/">
+                                <h4>${article.title}</h4>
+                                <p class="text-card mt-3">${article.summary}</p>
+                            </a>
+                            <hr>
+                            <p class="text-center text-muted">
+                                <span><i class="fas fa-eye"></i> ${article.vues}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = html;
+        AOS.init(); // Réinitialiser AOS pour les nouveaux éléments
+    }
 </script>
 {% endblock content%}
