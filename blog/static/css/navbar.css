@@ -1,4 +1,5 @@
 /* navbar classic */
+[x-cloak]{display:none !important;}
 nav{
     font-family: 'Playfair Display';
     position:fixed;
@@ -148,12 +149,11 @@ nav ul li a:hover{
     }
     .first-nav .burger-button{
         display: block;
+        margin-left:70px;
     }
     .first-nav ul .logo{
         margin-top:10px;
     }
-}
-@media screen and (max-width:425px){
     .mobile-menu{
         height:400px;
         margin-top:20px;

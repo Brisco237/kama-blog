@@ -6,13 +6,15 @@
 {% block content %}
 <div class="container-fluid all">
     <div class="row">
-        {% include "navbar.html" %}
+        <div class="col-md-12">
+            {% include "navbar.html" %}
+        </div>
     </div>
     <div class="container mt-5 mb-5">
         <div class="row text-center">
             <div class="col-md-12 section1">
                 <p>À propos de l'auteur</p>
-                <h1>« Apprentissage, Curiosité, Connaissance, sont les maîtres mots de ce blog ».</h1>
+                <h3>« Apprentissage, Curiosité, Connaissance, sont les maîtres mots de ce blog ».</h3>
             </div>
         </div>
     </div>
@@ -124,7 +126,7 @@
                         <label for="message">Message</label><br>
                         <textarea name="message" placeholder="Comment puis je vous aidez ?"></textarea>
                     </div>
-                    <button type="submit">Envoyer <i class="fas fa-paper-plane"></i></button>
+                    <button type="submit" id="sendmail">Envoyer <i class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
         </div>
