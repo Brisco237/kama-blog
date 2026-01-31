@@ -34,7 +34,7 @@
         {% if articles1 %}
             {% for article in articles1 %}
                 <div class="col-md-4 col-sm-6">
-                    <div class="card mt-2 h-100" data-aos="fade-up" data-aos-duration="2000">
+                    <div class="card mt-2 mb-3 h-100" data-aos="fade-up" data-aos-duration="2000">
                         <a href="{% url 'article_detail' article.slug %}">
                             <div class="card-img"><img src="{{ article.img.url }}" class="img-fluid" width="100%"></div>
                             <br>

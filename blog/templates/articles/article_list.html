@@ -22,7 +22,7 @@
             {% endfor %}
         </div>
     </div>
-    <div class="row mt-2 mb-5 section2" id="articles-container">
+    <div class="row mt-4 mb-5 section2" id="articles-container">
         {% if articles %}
             {% for article in articles %}
                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -53,7 +53,7 @@
     {% if articles %}
         <div class="row text-center mb-5 btn-charger">
             <div class="col-md-4"></div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-duration="2000">
+            <div class="col-md-4" data-aos="fade-left">
                 <button id="charger-resulat">Charger plus de résultat</button>
             </div>
             <div class="col-md-4"></div>
@@ -101,7 +101,7 @@
             
             // Marquer le lien actif
             document.querySelectorAll('.category-link').forEach(l => l.style.borderBottom = 'none');
-            this.style.borderBottom = '3px solid black';
+            this.style.borderBottom = '3px solid rgb(184, 113, 56)';
         });
     });
 
@@ -147,8 +147,8 @@
         if (!categoryData || categoryData.articles.length === 0) {
             // Afficher le message d'erreur
             container.innerHTML = `
-                <div style="width: 100%; text-align: center; padding: 50px 0;margin-top:20px;">
-                    <h4 style='font-family:"Inter"; color: #666;'>
+                <div style="width: 100%; text-align: center; padding: 50px 0;margin:20px 0px 20px 0px;">
+                    <h4 style='font-family:"Inter"; color:black;'>
                         😌 Désolé, pas d'articles pour cette catégorie...
                     </h4>
                 </div>

@@ -25,8 +25,8 @@
     font-size:16px;
 }
 .summary-article p{
-    font-size:1em;
-    font-family: 'Inter';
+    font-size:1.2em;
+    font-family: 'Playfair Display';
 }
 /* réseaux sociaux pour le partage des articles */
 .share-box {
@@ -52,6 +52,7 @@
 }
 .img-illustration img{
     filter: brightness(80%);
+    object-fit: cover;
     width: 100%;
 
 }
