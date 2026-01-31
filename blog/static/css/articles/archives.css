@@ -119,11 +119,14 @@
     .section1{
         margin-left:20px;
     }
+    .section2 h3{
+        font-size:15px;
+    }
 }
 
 @media screen and (max-width:425px){
     .section2 h5{
-        font-size: 13px;
+        font-size: 15px;
     }
     .section2 .triage select{
         font-size:10px;
@@ -140,7 +143,7 @@
 
 @media screen and (max-width:320px){
     .select-date h3{
-        font-size: 15px;
+        font-size: 13px;
     }
     .section2{
         flex-direction: column;
@@ -148,6 +151,7 @@
     }
     .section2 h5{
         font-size:15px;
+        margin-top:10px;
         text-transform: uppercase;
     }
     .section2 .triage{

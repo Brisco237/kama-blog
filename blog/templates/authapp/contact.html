@@ -2,6 +2,8 @@
 {% load static %}
 {% block title %} Kama-Blog | À propos & contact {% endblock title %}
 {% block styles %}<link rel="stylesheet" href="{% static 'css/authapp/contact.css' %}">{% endblock styles %}
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
 
 {% block content %}
 <div class="container-fluid all">
@@ -98,7 +100,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <form action="" method="post">
+                <form action="" method="post" id="contact-form">
                     {% csrf_token %}
                     <div class="first-second-name">
                         <div class="first-name">
@@ -116,10 +118,10 @@
                     </div>
                     <div class="choicefield mt-2">
                         <label for="sujet">Sujet</label><br>
-                        <select name="" id="">
-                            <option value="">Question générale</option>
-                            <option value="">Partenariat / Collaboration</option>
-                            <option value="">Signaler une erreur</option>
+                        <select name="subject" id="">
+                            <option value="Question générale">Question générale</option>
+                            <option value="Partenariat / Collaboration">Partenariat / Collaboration</option>
+                            <option value="Signaler une erreur">Signaler une erreur</option>
                         </select>
                     </div>
                     <div class="messagefield mt-2">
@@ -127,11 +129,80 @@
                         <textarea name="message" placeholder="Comment puis je vous aidez ?"></textarea>
                     </div>
                     <button type="submit" id="sendmail">Envoyer <i class="fas fa-paper-plane"></i></button>
+                    <!--Spinner bootstrap-->
+                    <div id="loading-spinner" class="text-center mt-3" style="display:none;">
+                        <div class="spinner-border spinner-border-sm text-primary" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <div class="spinner-grow spinner-grow-sm text-info" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <div class="spinner-border spinner-border-sm text-primary" role="status">
+                            <span class="visually-hidden">Envoi en cours...</span>
+                        </div>
+                        <p class="mt-2 text-muted">Envoi en cours...</p>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 
+<!-- ✅ Modal de confirmation -->
+<div class="modal fade text-center" id="successModal" tabindex="-1" aria-labelledby="successModalLabel"
+    aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false" style="font-family:'Poppins';">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <i class="fa-solid fa-circle-check text-success fa-2x mb-2"></i><br>
+                <p>Message envoyé avec success !</p>
+                <p>Merci pour votre message. Je vous répondrai dès que possible 😊</p>
+            </div>
+            <div class="modal-footer border-0 justify-content-center">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Footer-->
 {% include "footer.html" %}
 </div>
+
+<script>
+// Initialise EmailJS
+emailjs.init("Z-sibBF1XPC8DQpY-");
+const form = document.getElementById("contact-form");
+const spinner = document.getElementById("loading-spinner");
+
+// Gestion du formulaire
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    // 🔵 1. Afficher le spinner
+    spinner.style.display = "block";
+    // 🔵 2. Désactiver le bouton d’envoi pour éviter les doubles clics
+    const submitBtn = form.querySelector("button[type='submit']");
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Envoi...";
+
+    emailjs.sendForm("service_07i8s1j", "template_dqnv57b", this)
+        .then(() => {
+            // ✅ Envoi réussi → cacher le spinner
+            spinner.style.display = "none";
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Envoyer";
+            // ✅ Si l'envoi réussit : afficher le modal
+            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            successModal.show();
+            // Réinitialiser le formulaire
+            this.reset();
+        })
+        .catch((error) => {
+            console.error("Erreur :", error);
+            spinner.style.display = "none";
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Envoyer";
+            alert("Une erreur est survenue, veuillez réessayer.");
+        });
+});
+</script>
 {% endblock content %}
