@@ -23,57 +23,15 @@
             <div class="col-md-12">
                 <div class="search-bar">
                     {% csrf_token %}
-                    <input type="text" id="searchInput" placeholder="Rechercher par titre ou par categories..." name="q" autocomplete="off"
+                    <input type="text" id="searchInput" placeholder="Rechercher un article..." name="q" autocomplete="off"
                     data-url="">
                     <button type="submit" id="searchButton"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-        </div>
-        <div id="search-results">
-
-        </div>
-        <div class="row categorie-search mb-5">
-            <div class="col-md-12 mb-3">
-                {% if categories %}
-                    <h3>Catégories</h3>
-                {% endif %}
-            </div>
-            {% for categorie in categories %}
-                <div class="col-lg-12" data-aos="fade-right" data-aos-duration="3000">
-                    <p class="check-categorie">{{ categorie.name }}</p>
-                </div>
-            {% endfor %}
-            <div class="col-lg-12 mb-3 mt-5">
-                <h3 class="mb-4">Civilisations</h3>
-                <div class="" data-aos="fade-up" data-aos-duration="3000">
-                    <p class="check-categorie">Egypte antique (Kemet)</p>
-                    <p class="check-categorie">Empire du Mali</p>
-                    <p class="check-categorie">Empire du Kongo</p>
-                    <p class="check-categorie">Empire du Kanem-bornou</p>
-                </div>
-            </div>
-            <div class="row mt-5 mb-5">
-                <div class="col-md-12 select-date">
-                    <h3>Période de publications</h3>
-                    <select>
-                        <option value="all">Toutes les dates</option>
-                        <option value="">Hier</option>
-                        <option value="ancient">Derniere semaines</option>
-                        <option value="">Dernier mois</option>
-                    </select>
                 </div>
             </div>
         </div>
         <div class="row mb-5 mt-5">
             <div class="col-md-12 section2">
                 <h5>Affichage de {{ nb_article }} résulats</h5>
-                <div class="triage">
-                    <h6>Trier par :</h6>
-                    <select>
-                        <option>Plus récent</option>
-                        <option>Plus populaire</option>
-                    </select>
-                </div>
             </div>
         </div>
         <div class="row mt-5 mb-5 articles-card">
@@ -104,6 +62,27 @@
                 <h4 style='font-family:"Inter";' class="text-center">😌 Désolée pas d'articles pour le moment...</h4>
             {% endif %}
         </div>
+        <div class="row categorie-search mb-5">
+            <div class="col-md-12 mb-3">
+                {% if categories %}
+                    <h3>Catégories</h3>
+                {% endif %}
+            </div>
+            {% for categorie in categories %}
+                <div class="col-lg-12" data-aos="fade-right" data-aos-duration="3000">
+                    <p class="check-categorie">{{ categorie.name }}</p>
+                </div>
+            {% endfor %}
+            <div class="col-lg-12 mb-3 mt-5">
+                <h3 class="mb-4">Civilisations</h3>
+                <div class="" data-aos="fade-up" data-aos-duration="3000">
+                    <p class="check-categorie">Egypte antique (Kemet)</p>
+                    <p class="check-categorie">Empire du Mali</p>
+                    <p class="check-categorie">Empire du Kongo</p>
+                    <p class="check-categorie">Empire du Kanem-bornou</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -113,54 +92,58 @@
 <script>
 AOS.init();
 
-document.addEventListener("DOMContentLoaded", () => {
-    const input = document.getElementById("searchInput");
-    const resultsBox = document.getElementById("search-results");
+// Ajouter dans un bloc <script> à la fin de archives.html
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const articlesCards = document.querySelectorAll('.articles-card .col-md-4');
 
-    if (!input || !resultsBox) return;
+    // Fonction de recherche
+    function filterArticles() {
+        const searchTerm = searchInput.value.toLowerCase();
+        let visibleCount = 0;
 
-    input.addEventListener("keyup", function () {
-        const query = this.value.trim();
+        articlesCards.forEach(card => {
+            const title = card.querySelector('.card-title').textContent.toLowerCase();
+            
+            // Vérifier si le texte recherché est dans le titre
+            if (searchTerm === '' || title.includes(searchTerm)) {
+                card.style.display = 'block';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
 
-        if (query.length < 2) {
-            resultsBox.innerHTML = "";
-            return;
+        // Mettre à jour le compteur d'articles
+        const section2 = document.querySelector('.section2');
+        const noResults = document.getElementById('no-results');
+        
+        if (visibleCount === 0 && searchTerm !== '') {
+            // Afficher le message d'erreur
+            if (!noResults) {
+                const errorMsg = document.createElement('div');
+                errorMsg.id = 'no-results';
+                errorMsg.style.cssText = "text-align: center; padding: 40px; color:white;font-size: 18px;background-color:#999;font-family:'Inter';";
+                errorMsg.innerHTML = '<p>Désolé, pas d\'article correspondant à votre recherche. Tapez autre chose de plus précis.</p>';
+                section2.parentElement.insertBefore(errorMsg, section2.nextSibling);
+            }
+            section2.style.display = 'none';
+        } else {
+            // Masquer le message d'erreur et mettre à jour le compteur
+            if (noResults) {
+                noResults.remove();
+            }
+            section2.style.display = 'block';
+            const countText = section2.querySelector('h5');
+            countText.textContent = `Affichage de ${visibleCount} ${visibleCount > 1 ? 'résultats' : 'résultat'}`;
         }
+    }
 
-        fetch(`/articles/live-search/?q=${query}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Erreur serveur");
-                }
-                return response.json();
-            })
-            .then(data => {
-                resultsBox.innerHTML = "";
-
-                if (data.results.length === 0) {
-                    resultsBox.innerHTML = "<p>Aucun résultat</p>";
-                    return;
-                }
-
-                data.results.forEach(item => {
-                    resultsBox.innerHTML += `
-                        <div class="result-item">
-                            <a href="/articles/${item.slug}/">
-                                ${item.title}
-                            </a>
-                            <small> (${item.category})</small>
-                        </div>
-                    `;
-                });
-            })
-            .catch(error => {
-                console.error(error);
-                resultsBox.innerHTML = "<p>Erreur lors de la recherche</p>";
-            });
-    });
+    // Événements
+    searchButton.addEventListener('click', filterArticles);
+    searchInput.addEventListener('keyup', filterArticles);
 });
-
-
 </script>
 {% endblock content %}
 
