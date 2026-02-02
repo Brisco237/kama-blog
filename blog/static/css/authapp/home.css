@@ -55,9 +55,11 @@
 }
 .category, .summary{
     font-family:'Inter';
+    font-size:13px;
 }
 .title-article{
-    font-family: "Playfair Display", sans-serif;
+    font-family:"Inter";
+    font-weight: bolder;
 }
 #articles-featured{
     background-color:rgb(231 229 228);
@@ -69,7 +71,7 @@
 #articles-featured .category1{
     font-family: 'Inter', sans-serif;
     color: rgb(237 114 16);
-    margin-bottom:10px;
+    font-size:14px;
 }
 #articles-featured a{
     text-decoration:none;
@@ -123,6 +125,9 @@
     color:black;
     transition: all 0.2s;
 }
+.article-lien p{
+    font-size:13px;
+}
 .section4 .article-lien:hover{
     color: rgb(182, 172, 163);
 }
@@ -134,7 +139,8 @@
     filter: brightness(100%);
 }
 .section4 .text h3{
-    font-family:'Playfair Display';
+    font-family:'Inter';
+    font-weight: bolder;
 }
 .section4 .text p{
     font-family:'Inter';
@@ -143,18 +149,19 @@
     display: flex;
     justify-content: space-around;
 }
-.section4 .text .auteur-article p{
+.section4 .text .auteur-article .auteur{
     font-family:'JetBrains Mono';
+    font-size:13px;
 }
 .auteur-article img{
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     margin-right:10px;
 }
 .auteur-article .read-time{
     margin-right:10px;
-    font-size: 13px;
+    font-size:13px;
     color: gray;
 }
 .section4 .text .category{
@@ -163,43 +170,6 @@
 .section4 .text .publications-time{
     font-size:13px;
     color: gray;
-}
-/* Newsletter section */
-.newsletter{
-    background-color: rgb(231 229 228);
-    padding: 40px 20px;
-}
-.newsletter .card .card-title h4{
-    font-family:'Playfair Display', sans-serif;
-}
-.newsletter .card .card-title h4 i{
-    color: rgb(184, 113, 56);
-}
-.newsletter .card .card-text, form{
-    font-family:'Inter', sans-serif;
-}
-.newsletter form input{
-    padding: 15px;
-    font-family: 'Inter', sans-serif;
-    border-radius: 10px;
-    outline: none;
-    border:1px solid gray;
-}
-.newsletter form button{
-    background-color: black;
-    color: white;
-    border:none;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-.newsletter form button:hover{
-    opacity: 0.8;
-    transition: 0.8s;
-}
-.newsletter form input,.newsletter form .btn-newsletter{
-    width: 100%;
 }
 .hastag-categories h5{
     font-family: 'Inter', sans-serif;

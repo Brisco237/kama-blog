@@ -1,0 +1,120 @@
+<!-- Overlay de chargement -->
+<div id="loading-overlay" class="loading-overlay">
+    <div class="spinner-container">
+        <div class="spinner"></div>
+        <p class="loading-text">Veuillez patienter...</p>
+    </div>
+</div>
+
+<div class="row newsletter mt-5">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="card p-5" data-aos="fade-up" data-aos-duration="2000">
+            <div class="card-title">
+                <h4><i class="fas fa-envelope" id="icone-letter"></i> La Newsletter de Kama-Blog</h4>
+            </div>
+            <p class="card-text">Recevez chaque semaine un résumé de nos recherches et articles en exclusivité.</p>
+            <form method="post" action="{% url 'newsletter_subscribe' %}" id="formulaire">
+                {% csrf_token %}
+                <input type="email" name="email-subscribers" placeholder="VotreEmail@gmail.com" required>
+                <br>
+                <button type="submit" class="btn-newsletter">S'abonner</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+<style>
+#icone-letter{
+    transform: rotate(360deg);
+}
+.newsletter{
+    background-color: rgb(231 229 228);
+    padding: 40px 20px;
+}
+.newsletter .card .card-title h4{
+    font-family:'Playfair Display', sans-serif;
+}
+.newsletter .card .card-title h4 i{
+    color: rgb(184, 113, 56);
+}
+.newsletter .card .card-text, form{
+    font-family:'Inter', sans-serif;
+}
+.newsletter form input{
+    padding: 10px;
+    font-family: 'Inter', sans-serif;
+    border-radius: 10px;
+    outline: none;
+    border:1px solid gray;
+}
+.newsletter form button{
+    background-color: black;
+    color: white;
+    border:none;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.newsletter form button:hover{
+    opacity: 0.8;
+    transition: 0.8s;
+}
+.newsletter form input,.newsletter form .btn-newsletter{
+    width: 100%;
+}
+
+/* CSS pour le spinner de chargement */
+.loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+.loading-overlay.active {
+    display: flex;
+}
+.spinner-container {
+    text-align: center;
+}
+.spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #ffffff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.loading-text {
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    margin: 0;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const formulaire = document.getElementById('formulaire');
+    const loadingOverlay = document.getElementById('loading-overlay');
+
+    formulaire.addEventListener('submit', function(e) {
+        // Afficher l'overlay de chargement
+        loadingOverlay.classList.add('active');
+    });
+});
+</script>

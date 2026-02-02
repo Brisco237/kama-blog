@@ -10,8 +10,8 @@
             <a href="{% url 'article_detail' article.slug %}" style="text-decoration:none;">
                 <article class="card h-100 p-3">
                     <h3>{{ article.title }}</h3><br>
-                    <p>{{ article.summary }}</p><br>
-                    <p class="time">Publié il ya {{ article.created_at|timesince }}</p>
+                    <p class="summary">{{ article.summary }}</p><br>
+                    <p class="time">📆 Publié il ya {{ article.created_at|timesince }}</p>
                 </article>
             </a>
         </div>
@@ -24,8 +24,9 @@
 
 
 <style>
-    .time{
-        font-family:'Playfair Display';
+
+    .summary, .time{
+        font-size:13px;
     }
     .titre h4{
         font-size:1rem;
@@ -35,10 +36,11 @@
         border-radius:10px;
     }
     .card-title,h4,h3{
-        font-family:'Playfair Display', serif;
+        font-family:'Inter';
+        font-weight:bolder;
     }
     article p{
-        font-family:'Inter', sans-serif;
+        font-family:'Inter';
         max-height:100%;
     }
     article:hover{

@@ -25,16 +25,16 @@
     <div class="row mt-4 mb-5 section2" id="articles-container">
         {% if articles %}
             {% for article in articles %}
-                <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="col-lg-4 col-md-6 col-sm-6 mb-3">
                     <div class="card mt-3 h-100" data-aos="fade-up" data-aos-duration="2000">
                         <div class="card-body">
-                            <div class="card-text">
+                            <div class="card-text mb-3">
                                 <p class="category">{{ article.category }}</p>
                                 <p class="read-time">{{ article.created_at|timesince }}</p>
                             </div>
                             <a href="{% url 'article_detail' article.slug %}">
                                 <h4>{{ article.title }}</h4>
-                                <p class="text-card mt-3">{{ article.summary }}</p>
+                                <p class="text-card mt-5">{{ article.summary }}</p>
                             </a>
                             <hr>
                             <p class="author"><img src="{{ article.author.profile.photo.url }}"> {{ article.author }}</p>
@@ -52,28 +52,16 @@
     </div>
     {% if articles %}
         <div class="row text-center mb-5 btn-charger">
-            <div class="col-md-4"></div>
-            <div class="col-md-4" data-aos="fade-left">
-                <button id="charger-resulat">Charger plus de résultat</button>
+            <div class="col-md-2"></div>
+            <div class="col-md-8" data-aos="fade-up">
+                <button id="charger-resulat">Redécouvrir l'histoire avec un regard décoloniser et un avoir 
+                    une approche sans cliché de l'histoire Africaine. ✍🏽
+                </button>
             </div>
-            <div class="col-md-4"></div>
+            <div class="col-md-2"></div>
         </div>
     {% endif %}
-    <div class="row newsletter mb-5">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div class="card p-5" data-aos="fade-right" data-aos-duration="3000">
-                <div class="card-title"><h4><i class="fas fa-envelope"></i> La Newsletter de Kama-Blog</h4></div>
-                <p class="card-text">Recevez chaque semaine un résumé de nos recherches et articles en exclusivité.</p>
-                <form action="">
-                    <input type="email" name="email" placeholder="VotreEmail@gmail.com">
-                    <br>
-                    <button type="submit" class="btn-newsletter">S'abonner</button>
-                </form>
-            </div>
-        </div>
-        <div class="col-md-2"></div>
-    </div>
+    {% include "subscribers-form.html" %}
 </div>
 <!--Footer-->
 {% include "footer.html" %}

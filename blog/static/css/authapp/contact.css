@@ -10,19 +10,20 @@
 }
 .presentation{
     padding:20px 90px 40px 40px;
-    font-family:'Inter';
     background-color:white;
     border-radius: 15px;
 }
 .image-contact h2{
     font-size:23px;
     font-weight: bolder;
+    font-family: 'Playfair Display';
     margin-top:25px;
 }
-.image-contact p{
+.image-contact .profession{
     text-transform: uppercase;
     color:gray;
     font-size:14px;
+    font-family:'Playfair Display';
 }
 .presentation .image-contact img{
     border-radius:15px;

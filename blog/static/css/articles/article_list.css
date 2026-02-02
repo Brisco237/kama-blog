@@ -38,6 +38,12 @@
     background-color: rgb(231 229 228);
     padding:50px 20px 40px 20px;
 }
+.card h4{
+    font-weight: bold;
+}
+.text-card{
+    font-size: 13px;
+}
 .section2 .author{
     font-family: 'JetBrains Mono';
 }
@@ -70,57 +76,17 @@
     display: flex;
     justify-content: space-between;
 }
-.card h4{
-    font-family: 'Playfair Display';
-}
 .btn-charger button{
     font-family: 'JetBrains Mono';
     padding:20px;
-    background-color: black;
+    background-color: rgb(184, 113, 56);
     color: white;
+    border: none;
 }
 .btn-charger button:hover{
     transition: 0.8s;
     opacity: 0.8;
 }
-/* Newsletter section */
-.newsletter{
-    background-color: rgb(231 229 228);
-    padding: 40px 20px;
-}
-.newsletter .card .card-title h4{
-    font-family:'Playfair Display', sans-serif;
-}
-.newsletter .card .card-title h4 i{
-    color: rgb(184, 113, 56);
-}
-.newsletter .card .card-text, form{
-    font-family:'Inter', sans-serif;
-}
-.newsletter form input{
-    padding: 15px;
-    font-family: 'Inter', sans-serif;
-    border-radius: 10px;
-    outline: none;
-    border:1px solid gray;
-}
-.newsletter form button{
-    background-color: black;
-    color: white;
-    border:none;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-.newsletter form button:hover{
-    opacity: 0.8;
-    transition: 0.8s;
-}
-.newsletter form input,.btn-newsletter{
-    width: 100%;
-}
-
 @media screen and (max-width:375px) {
     .section1 h1{
         font-size: 22px;

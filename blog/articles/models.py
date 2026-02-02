@@ -79,16 +79,14 @@ class Source(models.Model):
         return f"Source [{self.number}] - article {self.article.id}"
 
 
-class Subscription(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='subscription')
-    is_subscribed = models.BooleanField(default=True)
-    subscribed_at = models.DateTimeField(auto_now_add=True)
-    last_email_sent = models.DateTimeField(null=True, blank=True)
-
-    class Meta:
-        verbose_name = "Abonnement"
-        verbose_name_plural = "Abonnements"
+class NewsletterSubscriber(models.Model):
+    email = models.EmailField(unique=True)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Abonnement de {self.user.username}"
+        return self.email
+
+
+
 

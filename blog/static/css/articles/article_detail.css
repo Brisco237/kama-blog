@@ -11,9 +11,10 @@
     font-weight: bold;
     color: black;
 }
-.detail-title h1{
-    font-family:'Playfair Display';
-    font-size:80px;
+.detail-title h3{
+    font-family:'Inter';
+    font-size:4em;
+    font-weight:bolder;
 }
 .author-detail{
     display: flex;
@@ -26,7 +27,7 @@
 }
 .summary-article p{
     font-size:1.2em;
-    font-family: 'Playfair Display';
+    font-family: 'Inter';
 }
 /* réseaux sociaux pour le partage des articles */
 .share-box {
@@ -209,9 +210,6 @@
     }
 }
 @media screen and (max-width:320px){
-    .detail-title h1{
-        font-size:10px;
-    }
     .author-detail .photo-name{
         font-size:5px;
         font-family:'Jetbrains Mono';
@@ -225,7 +223,7 @@
 
 }
 @media screen and (max-width:768px) {
-    .detail-title h1{
+    .detail-title h3{
         font-size:60px;
     }
     .author-detail .photo-name{
@@ -238,7 +236,7 @@
 }
 
 @media screen and (max-width:375px){
-    .detail-title h1{
+    .detail-title h3{
         font-size:40px;
     }
 }
@@ -248,7 +246,7 @@
         font-size:13px;
         color:gray;
     }
-    .detail-title h1{
+    .detail-title h3{
         font-size:40px;
     }
     .author-detail .photo-name{
