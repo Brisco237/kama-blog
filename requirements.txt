@@ -6,6 +6,7 @@ cryptography==46.0.3
 Django==5.2.9
 django-allauth==65.13.1
 django-ckeditor==6.7.3
+django-crontab==0.7.1
 django-js-asset==3.1.2
 django-simpleui==2025.6.24
 idna==3.11
@@ -17,5 +18,3 @@ requests==2.32.5
 sqlparse==0.5.5
 tzdata==2025.3
 urllib3==2.6.2
-
-
