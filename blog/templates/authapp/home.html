@@ -26,7 +26,7 @@
     <div class="row mb-5">
         <div class="col-md-12">
             <div class="second-section">
-                <div class="head-second-section"><h4>Dossier à la une</h4><a href="{% url 'article_list' %}" class="voir">Tout explorer <i class="fas fa-arrow-right"></i></a></div>
+                <div class="head-second-section"><h4>Article à la une</h4><a href="{% url 'article_list' %}" class="voir">Tout explorer <i class="fas fa-arrow-right"></i></a></div>
             </div>
         </div>
     </div>
@@ -80,7 +80,7 @@
                             {{ article.category }}<span class="publications-time">. {{ article.created_at|date:"d M Y" }}</span>
                         </p>
                         <a href="{% url 'article_detail' article.slug %}" class="article-lien">
-                            <h3>{{ article.title }}</h3>
+                            <h3 class="title-lien">{{ article.title }}</h3>
                             <p>{{ article.summary }}</p>
                         </a>
                         <hr>

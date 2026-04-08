@@ -1,7 +1,7 @@
 /* navbar classic */
 [x-cloak]{display:none !important;}
 nav{
-    font-family: 'Playfair Display';
+    font-family: 'Inter';
     position:fixed;
     top:0;
     left:0;
@@ -86,13 +86,13 @@ nav ul li a:hover{
     .logo h4 span{
         margin:3px;
         padding:3px;
-        font-size:15px;
+        font-size:20px;
     }
     .logo strong{
-        font-size:15px;
+        font-size:20px;
     }
     .burger-button i{
-     font-size:17px;
+     font-size:20px;
     }
 }
 
@@ -100,7 +100,7 @@ nav ul li a:hover{
 .mobile-menu{
     font-family: 'Inter';
     padding-top:20px;
-    background-color:rgb(231 229 228);
+    background-color:rgb(255, 253, 251);
     border:1px solid black;
     border-radius: 10px;
     height: 500px;
@@ -150,7 +150,9 @@ nav ul li a:hover{
     }
     .first-nav .burger-button{
         display: block;
-        margin-left:70px;
+        margin-right:10px;
+        font-weight:bold;
+        font-size:18px;
     }
     .first-nav ul .logo{
         margin-top:10px;

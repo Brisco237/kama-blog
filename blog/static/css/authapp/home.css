@@ -10,7 +10,7 @@
     font-weight: bold;
 }
 .first-section .subtitle{
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: italic;
     color:gray;
 }
@@ -58,8 +58,10 @@
     font-size:13px;
 }
 .title-article{
-    font-family:"Inter";
+    font-family:"Playfair Display";
+    font-size:25px;
     font-weight: bolder;
+    text-transform: uppercase;
 }
 #articles-featured{
     background-color:rgb(231 229 228);
@@ -139,8 +141,9 @@
     filter: brightness(100%);
 }
 .section4 .text h3{
-    font-family:'Inter';
+    font-family:'Playfair Display';
     font-weight: bolder;
+    text-transform: uppercase;
 }
 .section4 .text p{
     font-family:'Inter';
@@ -216,6 +219,19 @@
     .summary{
         font-size:12px;
     }
+    .section4 .article-lien h3{
+        font-family:'Playfair Display';
+        font-size:18px;
+    }
+     .section4 .article-lien p{
+        font-size:12px;
+    }
+    .auteur-article .auteur{
+        font-size:11px;
+    }
+    .auteur-article .read-time{
+        font-size:11px;
+    }
 }
 @media screen and (max-width:425px) {
     .first-section .title{
@@ -244,15 +260,14 @@
         display: flex;
         flex-direction: column;
         text-align: center;
+        font-size:14px;
     }
     .buttons-home-section .button1{
-        margin-bottom:5px;
+        margin-bottom:2px;
         padding:9px;
-        border-radius: 10px;
     }
     .buttons-home-section .button2{
         padding:8px;
-        border-radius:10px;
     }
     .section3{
         flex-direction: column;

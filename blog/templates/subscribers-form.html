@@ -14,7 +14,7 @@
                 <h4><i class="fas fa-envelope" id="icone-letter"></i> La Newsletter de Kama-Blog</h4>
             </div>
             <p class="card-text">Recevez chaque semaine un résumé de nos recherches et articles en exclusivité.</p>
-            <form method="post" action="{% url 'newsletter_subscribe' %}" id="formulaire">
+            <form method="post" action="" id="formulaire">
                 {% csrf_token %}
                 <input type="email" name="email-subscribers" placeholder="VotreEmail@gmail.com" required>
                 <br>

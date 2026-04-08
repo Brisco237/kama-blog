@@ -6,7 +6,7 @@
 <div class="col-md-12 mt-4" x-data="{ open: false }" x-init="window.addEventListener('resize', () => {if (window.innerWidth > 900) open = false;})" @open.window="{ if($el) document.body.style.overflow = open ? 'hidden' : 'auto'; }">
     <nav class="first-nav">
         <ul>
-            <li class="logo"><a href="{% url 'home' %}"><h4><span>K.</span><strong>Kama-Blog</strong></h4></a></li>
+            <li class="logo"><a href="{% url 'home' %}"><h4><span>BK.</span><strong>Kama-Blog</strong></h4></a></li>
             <li class="items"><a href="{% url 'home' %}">Home</a></li>
             <li class="items"><a href="{% url 'article_list' %}">Articles</a></li>
             <li class="items"><a href="{% url 'archives' %}">Archives</a></li>
@@ -21,7 +21,7 @@
                     {{ user.username }}
                 </li>
                 <li class="items">
-                    <a href="{% url 'logout_user' %}">Logout <i class="fa-solid fa-circle-chevron-right"></i></a>
+                    <a href="{% url 'logout_user' %}">Logout <i class="fa-solid fa-power-off"></i></a>
                 </li>
             {% else %}
                 <li class="items"><a href="{% url 'login_user' %}" class="connexion-button">Connexion</a></li>
@@ -51,7 +51,7 @@
                             {{ user.username }}
                         </li>
                         <br>
-                        <a href="{% url 'logout_user' %}">Logout <i class="fa-solid fa-circle-chevron-right"></i></a>
+                        <a href="{% url 'logout_user' %}">Logout <i class="fa-solid fa-power-off p-1"></i></a>
                     {% else %}
                         <a href="{% url 'login_user' %}" class="connexion-button">Connexion</a>
                         <a href="{% url 'register' %}" class="inscrire-button">S'inscrire</a>

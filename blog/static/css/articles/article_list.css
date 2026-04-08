@@ -40,6 +40,8 @@
 }
 .card h4{
     font-weight: bold;
+    font-family: 'Playfair Display';
+    text-transform: uppercase;
 }
 .text-card{
     font-size: 13px;
@@ -56,10 +58,10 @@
     color: rgb(184, 113, 56);
 }
 .section2 .author img{
-    height: 25px;
-    width: 25px;
+    height:30px;
+    width:30px;
     border-radius: 50%;
-    margin-right:15px;
+    margin-right:px;
 }
 .card-text .category{
     font-size:13px;
