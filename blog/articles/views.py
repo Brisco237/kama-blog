@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Category, Article, Comment
+from .models import Category, Article, Comment, Subscriber
 from django.views.generic import ListView, DetailView
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -105,14 +105,17 @@ def get_articles_by_category(request):
     return JsonResponse(data)
 
 
-def subscriber(request):
+def subscribe(request):
     if request.method == 'POST':
-        form = request.POST
-        if form.is_valid():
-            email = form.cleaned_data['email']
-            if User.objects.filter(email=email).exists():
-                messages.error(request, 'Email déjà enregistré.')
+        email = request.POST.get('email-subscribers')
+        if email:
+            if Subscriber.objects.filter(email=email).exists():
+                messages.error(request, 'Cet email est déjà inscrit à la newsletter.')
             else:
-                form.save()
-                messages.success(request, 'Merci de vous être abonné à notre newsletter!')
-                return redirect('home')
+                Subscriber.objects.create(email=email)
+                messages.success(request, 'Merci ! Vous êtes maintenant abonné.')
+        else:
+            messages.error(request, 'Veuillez entrer une adresse email valide.')
+
+        return redirect(request.META.get('HTTP_REFERER', 'home'))
+    return redirect('home')
