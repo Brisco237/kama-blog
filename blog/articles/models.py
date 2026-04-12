@@ -79,6 +79,14 @@ class Source(models.Model):
         return f"Source [{self.number}] - article {self.article.id}"
 
 
+class Subscriber(models.Model):
+    email = models.EmailField(unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        verbose_name = "Abonné"
+        verbose_name_plural = "Abonnés"
 
+    def __str__(self):
+        return self.email
 
 

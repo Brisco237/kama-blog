@@ -10,6 +10,7 @@ import json
 from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.core.mail import EmailMultiAlternatives
+from authapp.models import User
 
 
 # Create your views here.
@@ -104,3 +105,14 @@ def get_articles_by_category(request):
     return JsonResponse(data)
 
 
+def subscriber(request):
+    if request.method == 'POST':
+        form = request.POST
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            if User.objects.filter(email=email).exists():
+                messages.error(request, 'Email déjà enregistré.')
+            else:
+                form.save()
+                messages.success(request, 'Merci de vous être abonné à notre newsletter!')
+                return redirect('home')
