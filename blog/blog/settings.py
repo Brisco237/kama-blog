@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django_crontab',
     'articles',
     'authapp',
     'allauth',
@@ -189,3 +190,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
+#Django-crontab
+CRONJOBS = [
+    ('0 8 1,15 * *', 'articles.cron.send_last_emails'),
+]
